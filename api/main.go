@@ -1,14 +1,43 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
-	"net/http"
+	"log"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
-		fmt.Fprintf(w, "Welcome to my website!")
-	})
+	// Open a connection to the database
+	db, err := sql.Open("mysql", "root:-PasswordHere-@tcp(localhost:3306)/database-booking")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
 
-	http.ListenAndServe("localhost:80", nil)
+	// Query the database
+	rows, err := db.Query("SELECT id, status_name FROM camp_status")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	fmt.Println("hi")
+	// Iterate through the result set
+	for rows.Next() {
+		var id string
+		var campNumber string
+		err := rows.Scan(&id, &campNumber)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		fmt.Println(id, campNumber)
+	}
+
+	// Check for errors from iterating over rows
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
 }
