@@ -5,6 +5,9 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/golang-migrate/migrate/v4"
+	"github.com/golang-migrate/migrate/v4/database/mysql"
+	_ "github.com/golang-migrate/migrate/v4/source/file"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -15,6 +18,25 @@ func main() {
 		log.Fatal(err)
 	}
 	defer db.Close()
+
+    // Run migrations
+		driver, err := mysql.WithInstance(db, &mysql.Config{})
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    m, err := migrate.NewWithDatabaseInstance(
+        "file://db/migrations",
+        "mysql", driver)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if err := m.Up(); err != nil && err != migrate.ErrNoChange {
+        log.Fatal(err)
+    }
+
+    log.Println("Migrations applied successfully!")
 
 	// Query the database
 	rows, err := db.Query("SELECT id, status_name FROM camp_status")
