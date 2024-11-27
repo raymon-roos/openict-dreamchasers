@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
     <title>Document</title>
 </head>
 
@@ -15,23 +17,153 @@
         test
     </div>
     <div class="header">
-        <button class="back-button"><img src="arrow.png" alt=""><a href="/">Ga terug</a></button>
+        <button class="back-button"><i class="fa-solid fa-chevron-left"></i><a href="/">Ga terug</a></button>
         <div class="procesbar active-procesbar">
             <span>1</span>
             <p>Gegevens</p>
         </div>
-        <img class="arrow" src="arrow.png" alt="">
+        <i class="fa-solid fa-chevron-right"></i>
 
         <div class="procesbar">
             <span>2</span>
             <p>Betaling</p>
         </div>
-        <img class="arrow" src="arrow.png" alt="">
-        <div class="procesbar">
+        <i class="fa-solid fa-chevron-right"></i>        <div class="procesbar">
             <span>3</span>
             <p>Bevestiging</p>
         </div>
     </div>
+    <div class="gegevensInvullenInhoud">
+      <div class="gegevensInvullen__links">
+        <div class="persoonlijkeGegevens">
+             <h1 class="title">Vul je gegevens in</h1>
+           <p>We gebruiken deze gegevens om je te informeren over je boeking.</p>
+            <div class="line">
+
+            </div>
+            <div class="inputcontainer">
+                <p>Voornaam <span>*</span></p>
+                <input required placeholder="Typ je voornaam" type="text">
+
+
+            </div>
+
+            <div class="inputcontainer">
+                <p>Achternaam<span>*</span></p>
+                <input   placeholder="Typ je achternaam" type="text" >
+
+            </div>
+
+            <div class="inputcontainer">
+                <p>Geboortedatum<span>*</span></p>
+                <div class="date-picker">
+                    <select id="dag" name="dag">
+                    </select>
+                    <select id="maand" name="maand">
+
+                    </select>
+                    <select id="jaar" class=""  name="jaar">
+
+                    </select>
+                </div>
+
+            </div>
+        </form>
+        
+            <div class="inputcontainer">
+                <p>E-mail <span>*</span></p>
+                <input placeholder="Typ je e-mail" type="text">
+
+            </div>
+            <div class="inputcontainer">
+                <p>Telefoonnummer <span>*</span></p>
+                <input placeholder="Typ je telefoonnummer" type="text">
+
+            </div>
+        
+         </div>
+
+         <div class="adresGegevens">
+            <h1 class="title">Adres</h1>
+             <div class="line">
+
+             </div>
+             <div class="inputcontainer">
+                <p>Land <span>*</span></p>
+
+                <select class="selectCountry">
+                    <option>Nederland</option>
+                    <option>Duitsland</option>
+                 </select>
+            </div>
+            
+             <div class="postcodeHuisnummer">
+                <div class="inputSmall">
+                    <p>Postcode <span>*</span></p>
+                    <input placeholder="Postcode" type="text">
+                </div>
+                <div class="inputSmall">
+                    <p>Huisnummer <span>*</span></p>
+                    <input placeholder="Huisnummer" type="text">
+                </div>
+             </div>
+             <div class="inputcontainer">
+                <p>Straatnaam <span>*</span></p>
+                <input placeholder="Straatnaam" type="text">
+
+
+            </div>
+            <div class="inputcontainer">
+                <p>Plaatsnaam <span>*</span></p>
+                <input placeholder="Plaatsnaam" type="text">
+
+
+            </div>
+
+
+         </div>
+         <div class="buttonContainer">
+
+         <button class="nextButton"><a href="/">Ga verder</a><img style="fill: white; color: white;" src="arrow-2.svg" alt=""></button>
+         </div>
+            
+        </div>
+
+        <div class="gegevensInvullen__rechts">
+            <div class="overzichtCard"><h2>Overzicht</h2>
+            <div class="plekInfo"><img src="camping1.jpg" alt="">
+                <div class="plekInfo__text"><h3>Plek 1</h3><p>★★★★</p><p><span>€38</span>per nacht</p></div>
+
+            </div>
+            <div class="reservatieInfo">
+                <div class="aankomstVertrek">
+                    <div class="aankomst"><h3>Aankomst</h3><div><i class="fa-regular fa-calendar-days"></i> <p>1 jul. 2024</p></div></div>
+                    <div class="vertrek"><h3>Vertrek</h3><div><i class="fa-regular fa-calendar-days"></i><p>5. jul. 2024</p></div></div>
+                </div>
+                <div class="verblijfsduur">
+                    <i class="fa-regular fa-clock"></i><div><h3>Verblijfsduur</h3><p>7 nachten</p></div>
+                </div>
+                <div class="gasten">
+                    <i class="fa-solid fa-user-group"></i><div><h3>Gasten</h3><p>4 gasten</p></div>
+                    </div>
+            </div>
+            <div class="line"></div>
+            <div class="prijsInfo"><h3>Prijsinformatie</h3>
+            <div class="kosten"><p>€145x10</p><p>€1450</p></div>
+            <div class="kosten"><p>Service kosten</p><p>€32</p></div>
+            <div class="line"></div>
+            <div class="totaal"><p>Totaal</p><p>€1482</p></div>
+            </div>
+            </div>
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
