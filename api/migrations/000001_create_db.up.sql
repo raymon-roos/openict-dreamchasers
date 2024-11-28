@@ -1,10 +1,8 @@
--- Create the 'countries' table
 CREATE TABLE IF NOT EXISTS countries (
     iso_code VARCHAR(3) PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE
 );
 
--- Create the 'addresses' table
 CREATE TABLE IF NOT EXISTS addresses (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     country_id VARCHAR(3) NOT NULL,
@@ -16,7 +14,6 @@ CREATE TABLE IF NOT EXISTS addresses (
     FOREIGN KEY (country_id) REFERENCES countries(iso_code)
 );
 
--- Create the 'guests' table
 CREATE TABLE IF NOT EXISTS guests (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
@@ -30,19 +27,16 @@ CREATE TABLE IF NOT EXISTS guests (
     FOREIGN KEY (address) REFERENCES addresses(id)
 );
 
--- Create the 'payment_methods' table
 CREATE TABLE IF NOT EXISTS payment_methods (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE
 );
 
--- Create the 'payment_statuses' table
 CREATE TABLE IF NOT EXISTS payment_statuses (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     status VARCHAR(255) NOT NULL UNIQUE
 );
 
--- Create the 'payments' table
 CREATE TABLE IF NOT EXISTS payments (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     method_id BIGINT UNSIGNED NOT NULL,
@@ -54,14 +48,12 @@ CREATE TABLE IF NOT EXISTS payments (
     FOREIGN KEY (status_id) REFERENCES payment_statuses(id)
 );
 
--- Create the 'site_types' table
 CREATE TABLE IF NOT EXISTS site_types (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(255) NOT NULL UNIQUE,
     created_at DATE NOT NULL
 );
 
--- Create the 'camp_sites' table
 CREATE TABLE IF NOT EXISTS camp_sites (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     site_type_id BIGINT UNSIGNED NOT NULL,
@@ -71,7 +63,11 @@ CREATE TABLE IF NOT EXISTS camp_sites (
     FOREIGN KEY (site_type_id) REFERENCES site_types(id)
 );
 
--- Create the 'reservations' table
+CREATE TABLE IF NOT EXISTS camp_status (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    status_name VARCHAR(255) NOT NULL UNIQUE
+);
+
 CREATE TABLE IF NOT EXISTS reservations (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     guest_id BIGINT UNSIGNED NOT NULL,
@@ -85,14 +81,12 @@ CREATE TABLE IF NOT EXISTS reservations (
     FOREIGN KEY (camp_site_id) REFERENCES camp_sites(id)
 );
 
--- Create the 'price_categories' table
 CREATE TABLE IF NOT EXISTS price_categories (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     category_name VARCHAR(255) NOT NULL UNIQUE,
     price FLOAT NOT NULL
 );
 
--- Create the 'line_items' table
 CREATE TABLE IF NOT EXISTS line_items (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     payment_id BIGINT UNSIGNED NOT NULL,
