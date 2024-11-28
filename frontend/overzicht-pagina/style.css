@@ -93,6 +93,8 @@
   margin-top: 18px;
 }
 
+
+
 .nextButton {
   background-color: #617c0b;
   padding: 20px 30px;
@@ -103,7 +105,10 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  
 }
+
+
 
 .buttonContainer:hover {
   transform: scale(1.02);
@@ -126,6 +131,7 @@
   width: 100%;
   justify-content: end;
   transition: all 0.1s;
+
 }
 
 .overviewCard {
@@ -269,69 +275,41 @@
   border: 1px solid #8d8d8d;
 }
 
-.paypal,
-.ideal,
-.maestro,
-.visa {
+.paypal, .ideal, .maestro, .visa {
   display: flex;
   align-items: center;
-  background-color: #efefef;
+  background-color: #EFEFEF;
   margin: 14px 0;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.5s;
-}
 
-.ideal {
-  margin-bottom: 0;
-  border-radius: 10px 10px 0 0;
-}
+  
+} 
 
-.paypal:hover,
-.ideal:hover,
-.maestro:hover,
-.visa:hover {
+.paypal:hover, .ideal:hover, .maestro:hover, .visa:hover  {
   transform: scale(1.02);
 }
+
 
 .paypal {
   margin-top: 30px;
 }
 
-.paypal img,
-.ideal img,
-.maestro img,
-.visa img {
+.paypal img, .ideal img, .maestro img, .visa img {
   width: 40px;
   margin: 10px 15px;
   display: flex;
   margin-left: 18px;
+
 }
 
 .selected {
-  background-color: #d3d3d3; /* Lichte kleur voor geselecteerde methode */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Schaduw om te markeren */
+  background-color: #D3D3D3;  /* Lichte kleur voor geselecteerde methode */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Schaduw om te markeren */
 }
 
 .nextButton:disabled {
   background-color: #ccc; /* Zet de achtergrondkleur voor de uitgeschakelde knop */
   cursor: not-allowed;
-}
-
-.dropdownContainer {
-  background-color: rgb(141, 141, 141);
-  padding: 15px;
-  border-radius: 0 0 10px 10px;
-  display: none;
-  transition: all 0.5s;
-}
-
-.dropdownContainer select {
-  width: 100%;
-  padding: 10px;
-  color: gray;
-  border-color: #b3b3b3;
-  border-radius: 10px;
-  transition: all 0.5s;
-  
 }
