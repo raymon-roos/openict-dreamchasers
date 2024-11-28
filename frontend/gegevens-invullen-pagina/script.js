@@ -1,28 +1,24 @@
-const dagSelect = document.getElementById("dag");
-const maandSelect = document.getElementById("maand");
-const jaarSelect = document.getElementById("jaar");
-const resultaatDiv = document.getElementById("resultaat");
+document.addEventListener("DOMContentLoaded", function () {
+  // Verkrijg de huidige datum
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth() + 1; // Maanden zijn 0-gebaseerd
+  const currentDay = today.getDate();
 
-// Functie om het aantal dagen in een maand te bepalen
-function aantalDagenInMaand(maand, jaar) {
-  return new Date(jaar, maand, 0).getDate(); // 0 geeft de laatste dag van de vorige maand
-}
+  // Het minimumjaar voor een leeftijd van 16 jaar (16 jaar geleden)
+  const minYear = currentYear - 16;
 
-// Functie om de dagen dynamisch te genereren op basis van maand en jaar
-function vulDagen(maand, jaar) {
-  const dagen = aantalDagenInMaand(maand, jaar);
-  dagSelect.innerHTML = ""; // Reset dagen
-  for (let i = 1; i <= dagen; i++) {
-    const optie = document.createElement("option");
-    optie.value = i;
-    optie.textContent = i;
-    dagSelect.appendChild(optie);
+  const daySelect = document.querySelector("#day");
+  const monthSelect = document.querySelector("#month");
+  const yearSelect = document.querySelector("#year");
+
+  // Functie om te controleren of een jaar een schrikkeljaar is
+  function isLeapYear(year) {
+    return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
   }
-}
 
-// Functie om de maanden te vullen
-function vulMaanden() {
-  const maanden = [
+  // Populeer de maanden
+  const months = [
     "Januari",
     "Februari",
     "Maart",
@@ -36,92 +32,178 @@ function vulMaanden() {
     "November",
     "December",
   ];
-  maanden.forEach((maand, index) => {
-    const optie = document.createElement("option");
-    optie.value = index + 1; // Maand begint bij 1
-    optie.textContent = maand;
-    maandSelect.appendChild(optie);
+  months.forEach((month, index) => {
+    const option = document.createElement("option");
+    option.value = index + 1; // Maanden beginnen vanaf 1
+    option.textContent = month;
+    monthSelect.appendChild(option);
   });
-}
 
-function vulJaren() {
-  const huidigeJaar = new Date().getFullYear();
-  const startJaar = 1960;
-  const leeftijdBeperking = 16;
-  const maximaalJaar = huidigeJaar - leeftijdBeperking;
-
-  // Beperk de jaren van 1960 tot het maximaal toegestane jaar
-  for (let i = maximaalJaar; i >= startJaar; i--) {
-    const optie = document.createElement("option");
-    optie.value = i;
-    optie.textContent = i;
-    jaarSelect.appendChild(optie);
+  // Populeer de jaren van 2007 naar 1970
+  for (let i = minYear; i >= 1950; i--) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    yearSelect.appendChild(option);
   }
-}
 
-// Valideer de geselecteerde datum
-function valideerDatum() {
-  const dag = parseInt(dagSelect.value, 10);
-  const maand = parseInt(maandSelect.value, 10);
-  const jaar = parseInt(jaarSelect.value, 10);
+  // Functie om de dagen te updaten op basis van het geselecteerde jaar en maand
+  function updateDays() {
+    const selectedMonth = monthSelect.value;
+    const selectedYear = yearSelect.value;
 
-  const geselecteerdeDatum = new Date(jaar, maand - 1, dag); // Maand is 0-indexed
-  if (
-    geselecteerdeDatum.getFullYear() === jaar &&
-    geselecteerdeDatum.getMonth() === maand - 1 &&
-    geselecteerdeDatum.getDate() === dag
-  ) {
-    resultaatDiv.textContent = `Geldige datum: ${dag}-${maand}-${jaar}`;
-    resultaatDiv.className = "resultaat"; // Verwijder foutstijl
+    // Verwijder de huidige dagopties
+    daySelect.innerHTML = "";
+
+    // Aantal dagen in de geselecteerde maand
+    let daysInMonth = 31;
+    if (selectedMonth == 2) {
+      daysInMonth = isLeapYear(selectedYear) ? 29 : 28; // Februari (schrikkeljaar of niet)
+    } else if (
+      selectedMonth == 4 ||
+      selectedMonth == 6 ||
+      selectedMonth == 9 ||
+      selectedMonth == 11
+    ) {
+      daysInMonth = 30;
+    }
+
+    // Populeer de dagen
+    for (let i = 1; i <= daysInMonth; i++) {
+      const option = document.createElement("option");
+      option.value = i;
+      option.textContent = i;
+      daySelect.appendChild(option);
+    }
+  }
+
+  // Trigger update van dagen wanneer maand of jaar wordt geselecteerd
+  monthSelect.addEventListener("change", updateDays);
+  yearSelect.addEventListener("change", updateDays);
+
+  // Initieel de dagen bijwerken
+  updateDays();
+
+  // Validatie van de geboortedatum: controleren of de geselecteerde datum resulteert in een leeftijd van 16 jaar of ouder
+  const form = document.getElementById("bookingForm");
+  const validator = new JustValidate("#bookingForm");
+
+  validator
+    .addField("#firstName", [
+      {
+        rule: "required",
+        errorMessage: "Vul je voornaam in",
+      },
+    ])
+    .addField("#lastName", [
+      {
+        rule: "required",
+        errorMessage: "Vul je achternaam in",
+      },
+    ])
+    .addField("#email", [
+      {
+        rule: "email",
+        errorMessage: "Vul een geldig e-mailadres in",
+      },
+      {
+        rule: "required",
+        errorMessage: "Vul een e-mail adres in",
+      },
+    ])
+    .addField("#day", [
+      {
+        rule: "required",
+        errorMessage: "Kies een dag",
+      },
+    ])
+    .addField("#month", [
+      {
+        rule: "required",
+        errorMessage: "Kies een maand",
+      },
+    ])
+    .addField("#year", [
+      {
+        rule: "required",
+        errorMessage: "Kies een jaar",
+      },
+    ])
+    .addField("#date", [
+      {
+        validator: function () {
+          const selectedDay = parseInt(daySelect.value);
+          const selectedMonth = parseInt(monthSelect.value);
+          const selectedYear = parseInt(yearSelect.value);
+
+          // Bereken het verschil in jaren
+          let age = currentYear - selectedYear;
+          if (
+            currentMonth < selectedMonth ||
+            (currentMonth === selectedMonth && currentDay < selectedDay)
+          ) {
+            age--;
+          }
+
+          // Controleer of de gebruiker minimaal 16 jaar oud is
+          if (age < 16) {
+            return false; // Foutmelding als de leeftijd minder dan 16 is
+          }
+          return true; // Geldig als de leeftijd 16 of ouder is
+        },
+        errorMessage:
+          "Je moet minimaal 16 jaar oud zijn om je in te schrijven.",
+      },
+    ]);
+});
+
+const input = document.querySelector("#phoneNumber");
+const button = document.querySelector(".nextButton");
+const errorMsg = document.querySelector("#error-msg");
+const validMsg = document.querySelector("#valid-msg");
+
+// here, the index maps to the error code returned from getValidationError - see readme
+const errorMap = [
+  "Invalid number",
+  "Invalid country code",
+  "Too short",
+  "Too long",
+  "Invalid number",
+];
+
+// initialise plugin
+const iti = window.intlTelInput(input, {
+  initialCountry: "us",
+  utilsScript: "/intl-tel-input/js/utils.js?1730730622316",
+});
+
+const reset = () => {
+  input.classList.remove("error");
+  errorMsg.innerHTML = "";
+  errorMsg.classList.add("hide");
+  validMsg.classList.add("hide");
+};
+
+const showError = (msg) => {
+  input.classList.add("error");
+  errorMsg.innerHTML = msg;
+  errorMsg.classList.remove("hide");
+};
+
+// on click button: validate
+button.addEventListener("click", () => {
+  reset();
+  if (!input.value.trim()) {
+    showError("Required");
+  } else if (iti.isValidNumber()) {
+    validMsg.classList.remove("hide");
   } else {
-    resultaatDiv.textContent =
-      "Ongeldige datum. Controleer de dag, maand en jaar.";
-    resultaatDiv.className = "resultaat error"; // Voeg foutstijl toe
+    const errorCode = iti.getValidationError();
+    const msg = errorMap[errorCode] || "Invalid number";
+    showError(msg);
   }
-}
-
-// Event listeners om dagen bij te werken en te valideren
-maandSelect.addEventListener("change", () => {
-  const maand = parseInt(maandSelect.value, 10);
-  const jaar = parseInt(jaarSelect.value, 10);
-  vulDagen(maand, jaar); // Update de dagen bij een wijziging in de maand
-  valideerDatum();
 });
 
-jaarSelect.addEventListener("change", () => {
-  const maand = parseInt(maandSelect.value, 10);
-  const jaar = parseInt(jaarSelect.value, 10);
-  vulDagen(maand, jaar); // Update de dagen bij een wijziging in het jaar
-  valideerDatum();
-});
-
-dagSelect.addEventListener("change", valideerDatum);
-
-// Vul de selectievakken en start met de huidige datum
-function init() {
-  vulJaren(); // Vul de jaren dropdown eerst
-  vulMaanden(); // Vul daarna de maanden dropdown
-
-  // Zet de huidige maand en jaar in de selectievakken nadat de opties zijn gevuld
-  const huidigeMaand = new Date().getMonth() + 1; // Maand is 1-indexed
-  const huidigJaar = new Date().getFullYear();
-
-  maandSelect.value = huidigeMaand; // Zet de maand naar de huidige maand
-  jaarSelect.value = huidigJaar; // Zet het jaar naar het huidige jaar
-  vulDagen(huidigeMaand, huidigJaar); // Vul de dagen op basis van de huidige maand en jaar
-}
-
-init(); // Initialiseer de datumkiezer
-
-// Validaties
-const errors = {}; // Object om alle foutmeldingen in op te slaan
-
-// Voornaam Valideren
-function validateName(firstName, lastName) {
-  // Controleert of voornaam niet leeg is.
-  if (!firstName.trim()) {
-    return { ErrorMessage: "Voornaam mag niet leeg zijn." };
-  }
-
-  return true;
-}
+// on keyup / change flag: reset
+input.addEventListener("change", reset);
+input.addEventListener("keyup", reset);

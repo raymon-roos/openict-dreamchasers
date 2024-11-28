@@ -128,6 +128,21 @@
   margin-right: 40px;
 }
 
+.phoneNumberContainer {
+  display: flex;
+  width: 100%;
+}
+
+.phoneNumberContainer input {
+  width: 100%;
+}
+
+.phoneNumberContainer .region-chooser {
+  margin-right: 10px;
+  padding: 0 6px;
+  border-radius: 5px;
+}
+
 .inputSmall input {
   padding: 15px 18px;
   border-radius: 5px;
@@ -306,12 +321,30 @@
   font-weight: 600;
 }
 
-#dag,
-#maand,
-#jaar {
+#day,
+#month,
+#year {
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
   color: #8d8d8d;
   border: 1px solid #8d8d8d;
+}
+
+/* Foutmeldingen voor de velden */
+.just-validate-error {
+  color: red !important;
+  font-size: 17px !important;
+  font-family: "Inter" !important;
+  margin-top: 4px;
+}
+
+/* Pas de input aan als het onjuist is ingevuld */
+input.just-validate-error-input {
+  border-color: red !important;
+  background-color: #fdd;
+}
+
+#phoneNumber {
+  width: 100%;
 }
