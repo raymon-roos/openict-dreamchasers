@@ -88,14 +88,17 @@ dagSelect.addEventListener('change', valideerDatum);
 
 // Vul de selectievakken en start met de huidige datum
 function init() {
-    vulMaanden();
-    vulJaren();
+    vulJaren();  // Vul de jaren dropdown eerst
+    vulMaanden(); // Vul daarna de maanden dropdown
+
+    // Zet de huidige maand en jaar in de selectievakken nadat de opties zijn gevuld
     const huidigeMaand = new Date().getMonth() + 1; // Maand is 1-indexed
     const huidigJaar = new Date().getFullYear();
 
-    maandSelect.value = huidigeMaand;
-    jaarSelect.value = huidigJaar;
-    vulDagen(huidigeMaand, 2024);
+    maandSelect.value = huidigeMaand;  // Zet de maand naar de huidige maand
+    jaarSelect.value = huidigJaar;  // Zet het jaar naar het huidige jaar
+    vulDagen(huidigeMaand, huidigJaar);  // Vul de dagen op basis van de huidige maand en jaar
 }
 
-init(); // Initialiseer de datumkiezer
+init();  // Initialiseer de datumkiezer
+
