@@ -4,16 +4,26 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/mysql"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	// Open a connection to the database with multiStatements enabled
-	dsn := "root:4321@tcp(localhost:3306)/dreamchasers?multiStatements=true"
+	// Load env file
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("No .env file found")
+	}
+	dbPassword := os.Getenv("DB_Password")
+	
+	
+	// Open a connection to the database
+	dsn := fmt.Sprintf("root:%s@tcp(localhost:3306)/dreamchasers?multiStatements=true", dbPassword)
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatal(err)
@@ -52,7 +62,9 @@ func main() {
 	}
 	defer rows.Close()
 
+	// This can be removed
 	fmt.Println("hi")
+
 	// Iterate through the result set
 	for rows.Next() {
 		var id string
