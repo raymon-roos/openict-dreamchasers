@@ -1,0 +1,10 @@
+**/*.config.*js
+**/LICENSE
+**/*.md
+**/*service*account*.json
+**/.editorconfig
+**/.env*
+**/.git
+**/.idea
+**/deployment/mysql
+**/tests

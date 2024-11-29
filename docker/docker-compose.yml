@@ -1,0 +1,30 @@
+networks:
+  dreamchasers:
+    driver: bridge
+
+services:
+  go:
+    build:
+      context: ..
+      dockerfile: ./docker/go/Dockerfile
+    container_name: go-dreamchasers
+    ports:
+      - 9000:9000
+    networks:
+      - dreamchasers
+
+  mysql:
+    image: mariadb:11.5.2
+    container_name: mysql-dreamchasers
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql-db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: dreamchasers
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: true
+      MARIADB_RANDOM_ROOT_PASSWORD: ''
+    networks:
+      - dreamchasers
