@@ -22,7 +22,7 @@
     <div class="header">
       <button class="back-button">
         <i class="fa-solid fa-chevron-left"></i
-        ><a href="../betaalmethodes-pagina/index.html">Ga terug</a>
+        ><a href="../gegevens-invullen/index.html  ">Ga terug</a>
       </button>
       <div class="procesbar">
         <span>1</span>
@@ -30,74 +30,58 @@
       </div>
       <i class="fa-solid fa-chevron-right"></i>
 
-      <div class="procesbar">
+      <div class="procesbar active-procesbar">
         <span>2</span>
         <p>Betaling</p>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
-      <div class="procesbar active-procesbar">
+      <div class="procesbar">
         <span>3</span>
         <p>Bevestiging</p>
       </div>
     </div>
     <div class="mainContainer">
       <div class="mainContainer__left">
-        <div class="overview"><h1>Overzicht van uw reservering</h1></div>
-        <div class="control">
-          <p>Controleer uw gegevens en bevestig uw reservering</p>
-        </div>
-        <div class="line"></div>
-
-        <div class="personalInfo">
-          <a class="edit" href="../gegevens-invullen-pagina/index.html"
-            >Wijzigen</a
-          >
-          <h3>Persoonlijke gegevens</h3>
-          <div class="booker"><h4>Hoofdboeker</h4></div>
-          <div class="nameLastname"><p>Naam Achternaam</p></div>
-          <div class="email"><p>Email@gmail.com</p></div>
-          <div class="mobile"><p>Telefoon nummer</p></div>
-        </div>
-        <div class="line"></div>
-        <div class="adress">
-          <a class="edit" href="../gegevens-invullen-pagina/index.html"
-            >Wijzigen</a
-          >
-          <h3>Adres</h3>
-          <div class="street-houseNumber"><p>Straat Huisnummer</p></div>
-          <div class="postalcode-city"><p>Postcode Stad</p></div>
-          <div class="country"><p>Land</p></div>
-        </div>
-        <div class="line"></div>
-        <div class="paymentMethod">
-            <a class="edit" href="../betaalmethodes-pagina/index.html"
-            >Wijzigen</a>
-          <h3>Betaalmethode</h3>
+        <div class="betaalmethode">
+          <h1 class="title">Kies je betalingsmethode</h1>
+          <p>Kies je methode om te betalen.</p>
+          <div class="line"></div>
+          <div class="paypal">
+            <img src="paypal.png" alt="paypal" />
+            <p>Paypal</p>
+          </div>
           <div name="Ideal" class="ideal">
             <img src="ideal.png" alt="ideal" />
             <p>Ideal</p>
           </div>
+          <div class="dropdownContainer">
+            <select>
+              <option>Kies uw bank</option>
+              <option>ING</option>
+            </select>
+          </div>
+          <div class="maestro">
+            <img src="maestro.png" alt="maestro" />
+            <p>Maestro</p>
+          </div>
+          <div class="visa">
+            <img src="visa.png" alt="visa" />
+            <p>Visa</p>
+          </div>
         </div>
-        <div class="paymentMethod-item"></div>
-        <div class="line"></div>
-        <div class="cancellationPolicy"><h3>Annuleringsvoorwaarden</h3></div>
-        <div class="cancelationInfo">
-          <p>
-            Gratis annuleren tot 48 uur voor aankomst. Daarna wordt 50% van de
-            eerste nacht in rekening gebracht.
-          </p>
+        <div class="buttonContainer">
+          <button class="nextButton">
+            <a>Ga verder</a
+            ><img style="fill: white; color: white" src="arrow-2.svg" alt="" />
+          </button>
         </div>
-
-        <a class="readPolicy" href=""
-          >Lees het volledige annuleringsvoorwaarden</a
-        >
       </div>
 
       <div class="mainContainer__right">
         <div class="overviewCard">
           <h2>Overzicht</h2>
           <div class="placeInfo">
-            <img src="./camping1.jpg" alt="" />
+            <img src="camping1.jpg" alt="" />
             <div class="placeInfo__text">
               <h3>Plek 1</h3>
               <p>★★★★</p>
@@ -155,20 +139,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="reservationButton">
-      <button>
-        <i class="fa-regular fa-credit-card"></i>
-        <p>Betaal en reserveer</p>
-      </button>
-      <p>
-        Door te reserveren ga je akkoord met onze
-        <a href="algemene-voorwaarden.html" target="_blank"
-          >Algemene Voorwaarden</a
-        >, <a href="privacybeleid.html" target="_blank">Privacybeleid</a>, en
-        <a href="annuleringsbeleid.html" target="_blank">Annuleringsbeleid</a>.
-      </p>
     </div>
 
     <script src="script.js"></script>
