@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">Navbar</nav>
+    <main class="container">
+      <a class="back-link">Ga terug</a>
+
+      <!-- Camping Info Header -->
+      <section class="camping-info-header">
+        <div>
+          <h1>Camping Plek 1</h1>
+          <div>★ ★ ★ ★</div>
+        </div>
+        <p class="price">€25 <span>per nacht</span></p>
+      </section>
+
+      <!-- Camping Info Main -->
+      <section class="camping-info__container">
+        <!-- Camping Info Linker kant Pagina -->
+        <section class="camping-info__left">
+          <!-- Image Coarousel -->
+          <div class="carousel">
+            <!-- Arrow Left -->
+            <i class="fa-solid fa-chevron-left arrow-left prev"></i>
+
+            <!-- Carousel images -->
+            <img class="camping-img" alt="Foto 1" src="campingplek.jpg" />
+            <img class="camping-img" alt="Foto 2" src="campingplek2.jpg" />
+            <img class="camping-img" alt="Foto 3" src="campingplek.jpg" />
+
+            <!-- Arrow Right-->
+            <i class="fa-solid fa-chevron-right arrow-right next"></i>
+
+            <div class="dots-navigation"></div>
+          </div>
+
+          <!-- Info tabs (Voorzieningen ed.) -->
+          <div class="infoTabs">
+            <p class="tab activeTab" data-content="overview">Overzicht</p>
+            <p class="tab" data-content="facilities">Voorzieningen</p>
+            <p class="tab" data-content="house-rules">Huisregels</p>
+          </div>
+
+          <!-- Tab content (State) -->
+          <div class="tab-content">
+            <div id="overview" class="content active-content">
+              <h2>Overzicht</h2>
+              <p>
+                Geniet van de natuur op onze ruime campingplek A12 'Bosrand
+                Deluxe'. Deze plek biedt voldoende ruimte voor een tent of
+                caravan en is voorzien van een eigen stroomaansluiting. In de
+                nabijheid vindt u sanitaire voorzieningen en een kleine
+                speeltuin voor kinderen.
+              </p>
+              <div class="features">
+                <div class="features__left">
+                  <div class="feature">
+                    <h4>Oppervlakte:</h4>
+                    <p>100m2</p>
+                  </div>
+                  <div class="feature">
+                    <h4>Huisdieren:</h4>
+                    <p>Toegestaan</p>
+                  </div>
+                  <div class="feature">
+                    <h4>Shaduw:</h4>
+                    <p>Gedeeltelijk</p>
+                  </div>
+                </div>
+                <div class="features__right">
+                  <div class="feature">
+                    <h4>Max. Personen:</h4>
+                    <p>6</p>
+                  </div>
+                  <div class="feature">
+                    <h4>Wifi:</h4>
+                    <p>Beschikbaar</p>
+                  </div>
+                  <div class="feature">
+                    <h4>Ondergrond:</h4>
+                    <p>Gras</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="facilities" class="content">
+              <h2>Voorzieningen</h2>
+              <div class="facilities__item">
+                <i class="fa-regular fa-square-check"></i>
+                <p>Moderne sanitaire voorzieningen met warme douches</p>
+              </div>
+              <div class="facilities__item">
+                <i class="fa-regular fa-square-check"></i>
+                <p>Elektrische aansluitingen bij elke kampeerplaats</p>
+              </div>
+              <div class="facilities__item">
+                <i class="fa-regular fa-square-check"></i>
+                <p>Gratis Wi-Fi op het hele terrein</p>
+              </div>
+            </div>
+            <div id="house-rules" class="content">
+              <h2>Huisregels</h2>
+              <p>
+                1. Respecteer de rust van andere kampeerders, vooral tussen
+                22:00 en 07:00 uur.
+              </p>
+              <p>
+                2. Houd uw kampeerplaats en de gemeenschappelijke ruimtes
+                schoon.
+              </p>
+
+              <p>
+                3. Huisdieren zijn welkom, maar moeten altijd aangelijnd zijn.
+              </p>
+
+              <p>
+                4. Open vuur is alleen toegestaan op de daarvoor bestemde
+                plaatsen.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="reservation-section">
+          <h2>Reserveren</h2>
+          <p>Selecteer uw data en voorkeuren</p>
+          <div>Calendar</div>
+
+          <p class="arrive-date"><span>Aankomstdatum:</span> 3 November</p>
+          <p class="departure-date"><span>Vertrekdatum:</span> 6 November</p>
+
+          <div class="personPicker__container">
+            <div class="personPicker">
+              <div class="personPicker__text">
+                <h5>Gasten</h5>
+                <p>1 Persoon</p>
+              </div>
+              <img class="personPickerArrowIcon" src="arrow.png" />
+            </div>
+            <div class="personPicker__modal">
+              <div class="picker">
+                <div>
+                  <h4>Volwassenen</h4>
+                  <p>18 Jaar of ouder</p>
+                </div>
+                <div class="person-control">
+                  <i class="fa-regular fa-square-minus minus"></i>
+                  <p>1</p>
+                  <i class="fa-solid fa-square-plus plus"></i>
+                </div>
+              </div>
+              <div class="picker">
+                <div>
+                  <h4>Kinderen</h4>
+                  <p>3 - 12 jaar</p>
+                </div>
+                <div class="person-control">
+                  <i class="fa-regular fa-square-minus minus"></i>
+                  <p>1</p>
+                  <i class="fa-solid fa-square-plus plus"></i>
+                </div>
+              </div>
+              <div class="picker">
+                <div>
+                  <h4>Baby's</h4>
+                  <p>Jonger dan 2 jaar</p>
+                </div>
+                <div class="person-control">
+                  <i class="fa-regular fa-square-minus minus"></i>
+                  <p>1</p>
+                  <i class="fa-solid fa-square-plus plus"></i>
+                </div>
+              </div>
+              <div class="picker">
+                <div>
+                  <h4>Huisdieren*</h4>
+                  <p>Max 2</p>
+                </div>
+                <div class="person-control">
+                  <i class="fa-regular fa-square-minus minus"></i>
+                  <p>1</p>
+                  <i class="fa-solid fa-square-plus plus"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="line"></div>
+
+          <div class="costs">
+            <div class="cost">
+              <p>$145 x 10 nachten</p>
+              <span>€994</span>
+            </div>
+            <div class="cost">
+              <p>Servicekosten</p>
+              <span>€32</span>
+            </div>
+          </div>
+
+          <div class="line"></div>
+
+          <div class="total-price">
+            <p>Totaal</p>
+            <span>€1002</span>
+          </div>
+
+          <button class="pay-button">Betaal nu</button>
+        </section>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
