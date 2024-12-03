@@ -1,40 +1,47 @@
 CREATE TABLE IF NOT EXISTS countries (
     iso_code VARCHAR(3) PRIMARY KEY,
-    name VARCHAR(255) NOT NULL UNIQUE
+    name VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS addresses (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    country_id VARCHAR(3) NOT NULL,
+    country_id VARCHAR(3),
     postcode VARCHAR(20),
     city VARCHAR(255),
     street VARCHAR(255),
     number INT,
-    suffix VARCHAR(50),
+    suffix VARCHAR(10),
     FOREIGN KEY (country_id) REFERENCES countries(iso_code)
 );
 
 CREATE TABLE IF NOT EXISTS guests (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255),
     middle_name VARCHAR(255),
-    last_name VARCHAR(255) NOT NULL,
-    birthday DATE,
-    email VARCHAR(255) NOT NULL UNIQUE,
+    last_name VARCHAR(255),
+    date_of_birth DATE,
+    email VARCHAR(255) UNIQUE NOT NULL,
     phone_number VARCHAR(20),
-    address BIGINT UNSIGNED,
-    created_at DATE NOT NULL,
-    FOREIGN KEY (address) REFERENCES addresses(id)
+    address_id BIGINT UNSIGNED,
+    created_at DATETIME NOT NULL,
+    FOREIGN KEY (address_id) REFERENCES addresses(id)
+);
+
+CREATE TABLE IF NOT EXISTS admins (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    hash_password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS payment_methods (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL UNIQUE
+    name VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS payment_statuses (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    status VARCHAR(255) NOT NULL UNIQUE
+    status VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS payments (
@@ -42,48 +49,45 @@ CREATE TABLE IF NOT EXISTS payments (
     method_id BIGINT UNSIGNED NOT NULL,
     status_id BIGINT UNSIGNED NOT NULL,
     total_price FLOAT NOT NULL,
-    completed_at DATE,
-    created_at DATE NOT NULL,
+    created_at DATETIME NOT NULL,
+    completed_at DATETIME,
     FOREIGN KEY (method_id) REFERENCES payment_methods(id),
     FOREIGN KEY (status_id) REFERENCES payment_statuses(id)
 );
 
-CREATE TABLE IF NOT EXISTS site_types (
+CREATE TABLE IF NOT EXISTS accommodation_types (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    type VARCHAR(255) NOT NULL UNIQUE,
-    created_at DATE NOT NULL
+    type VARCHAR(255) NOT NULL,
+    max_guests INT NOT NULL,
+    price FLOAT NOT NULL,
+    created_at DATETIME NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS camp_sites (
+CREATE TABLE IF NOT EXISTS accommodations (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    site_type_id BIGINT UNSIGNED NOT NULL,
-    site_number INT UNSIGNED NOT NULL,
-    coordinate POINT NOT NULL,
-    created_at DATE NOT NULL,
-    FOREIGN KEY (site_type_id) REFERENCES site_types(id)
-);
-
-CREATE TABLE IF NOT EXISTS camp_status (
-    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    status_name VARCHAR(255) NOT NULL UNIQUE
+    accommodation_type_id BIGINT UNSIGNED NOT NULL,
+    accommodation_number TINYINT UNSIGNED NOT NULL,
+    coordinate GEOMETRY NOT NULL,
+    created_at DATETIME NOT NULL,
+    FOREIGN KEY (accommodation_type_id) REFERENCES accommodation_types(id)
 );
 
 CREATE TABLE IF NOT EXISTS reservations (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     guest_id BIGINT UNSIGNED NOT NULL,
     payment_id BIGINT UNSIGNED NOT NULL,
-    camp_site_id BIGINT UNSIGNED NOT NULL,
+    accommodation_id BIGINT UNSIGNED NOT NULL,
     checkin DATE NOT NULL,
     checkout DATE NOT NULL,
-    created_at DATE NOT NULL,
+    created_at DATETIME NOT NULL,
     FOREIGN KEY (guest_id) REFERENCES guests(id),
     FOREIGN KEY (payment_id) REFERENCES payments(id),
-    FOREIGN KEY (camp_site_id) REFERENCES camp_sites(id)
+    FOREIGN KEY (accommodation_id) REFERENCES accommodations(id)
 );
 
 CREATE TABLE IF NOT EXISTS price_categories (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(255) NOT NULL UNIQUE,
+    category_name VARCHAR(255) NOT NULL,
     price FLOAT NOT NULL
 );
 
@@ -92,7 +96,7 @@ CREATE TABLE IF NOT EXISTS line_items (
     payment_id BIGINT UNSIGNED NOT NULL,
     category_id BIGINT UNSIGNED NOT NULL,
     quantity INT NOT NULL,
-    created_at DATE NOT NULL,
+    created_at DATETIME NOT NULL,
     FOREIGN KEY (payment_id) REFERENCES payments(id),
     FOREIGN KEY (category_id) REFERENCES price_categories(id)
 );

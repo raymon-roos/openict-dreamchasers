@@ -15,13 +15,17 @@ import (
 
 func main() {
 	// Load env file
-	err := godotenv.Load()
+	err := godotenv.Load(".env")
 	if err != nil {
-		fmt.Println("No .env file found")
+		log.Println("No .env file found")
 	}
+
+	// Get the database password from the environment variable
 	dbPassword := os.Getenv("DB_Password")
-	
-	
+	if dbPassword == "" {
+		log.Fatal("DB_Password environment variable not set")
+	}
+
 	// Open a connection to the database
 	dsn := fmt.Sprintf("root:%s@tcp(localhost:3306)/dreamchasers?multiStatements=true", dbPassword)
 	db, err := sql.Open("mysql", dsn)
@@ -56,29 +60,29 @@ func main() {
 	log.Println("Migrations applied successfully!")
 
 	// Query the database
-	rows, err := db.Query("SELECT id, status_name FROM camp_status")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer rows.Close()
+	// rows, err := db.Query("SELECT id, status_name FROM camp_status")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// defer rows.Close()
 
-	// This can be removed
-	fmt.Println("hi")
+	// // This can be removed
+	// fmt.Println("hi")
 
-	// Iterate through the result set
-	for rows.Next() {
-		var id string
-		var statusName string
-		err := rows.Scan(&id, &statusName)
-		if err != nil {
-			log.Fatal(err)
-		}
+	// // Iterate through the result set
+	// for rows.Next() {
+	// 	var id string
+	// 	var statusName string
+	// 	err := rows.Scan(&id, &statusName)
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
 
-		fmt.Println(id, statusName)
-	}
+	// 	fmt.Println(id, statusName)
+	// }
 
-	// Check for errors from iterating over rows
-	if err := rows.Err(); err != nil {
-		log.Fatal(err)
-	}
+	// // Check for errors from iterating over rows
+	// if err := rows.Err(); err != nil {
+	// 	log.Fatal(err)
+	// }
 }
