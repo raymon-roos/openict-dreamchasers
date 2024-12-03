@@ -26,37 +26,19 @@ func main() {
 		log.Fatal("DB_Password environment variable not set")
 	}
 
-	// Open a connection to the database
-	dsn := fmt.Sprintf("root:%s@tcp(localhost:3306)/dreamchasers?multiStatements=true", dbPassword)
-	db, err := sql.Open("mysql", dsn)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	dsn := buildDSN(
+		"root",      // Name
+		dbPassword,  // db password
+		"localhost", //
+		"3306",      // port
+	)
 
-	// Run migrations
-	driver, err := mysql.WithInstance(db, &mysql.Config{})
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	m, err := migrate.NewWithDatabaseInstance(
-		"file://migrations",
-		"mysql", driver)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Apply migrations
-	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
-		log.Printf("Migration error: %v", err)
-		if err == migrate.ErrNoChange {
-			log.Println("No change in migrations")
-		} else {
-			log.Fatal(err)
-		}
-	}
-
+	initializeDatabase(
+		dsn, 						
+		"dreamchasers", // dbName
+		true,						// multiStatements
+	)
+	
 	log.Println("Migrations applied successfully!")
 
 	// Query the database
@@ -85,4 +67,70 @@ func main() {
 	// if err := rows.Err(); err != nil {
 	// 	log.Fatal(err)
 	// }
+}
+
+func initializeDatabase(dsn, dbName string, multiStatements bool) {
+	// ==== DB Connection ==== \\
+	db, err := sql.Open("mysql", dsn)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	_, err = db.Exec(fmt.Sprintf("CREATE DATABASE IF NOT EXISTS %s", dbName))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Reconnect to the newly created database
+	dsnWithDB := fmt.Sprintf("%s%s", dsn, dbName)
+
+	if multiStatements {
+		dsnWithDB = dsnWithDB + "?multiStatements=true"
+	}
+
+	db, err = sql.Open("mysql", dsnWithDB)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	// ==== Migrations ==== \\
+	driver, err := mysql.WithInstance(db, &mysql.Config{})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	m, err := migrate.NewWithDatabaseInstance(
+		"file://migrations",
+		"mysql", driver)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Apply migrations
+	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
+		log.Printf("Migration error: %v", err)
+		if err == migrate.ErrNoChange {
+			log.Println("No change in migrations")
+		} else {
+			log.Fatal(err)
+		}
+	}
+}
+
+func buildDSN(name, password, host, port string) string {
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", name, password, host, port)
+
+	// FIXME: Move to createDB()
+	// if multiStatements {
+	// 	dsn = dsn + "?multiStatements=true"
+	// }
+
+	// REMOVE: temp test code
+	fmt.Sprintln(dsn)
+
+	return dsn
+
+	// return fmt.Sprintf("%s:%s@tcp(%s:%s)/?multiStatements=true", name, password, host, port)
 }
