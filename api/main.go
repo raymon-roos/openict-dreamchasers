@@ -122,15 +122,5 @@ func initializeDatabase(dsn, dbName string, multiStatements bool) {
 func buildDSN(name, password, host, port string) string {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", name, password, host, port)
 
-	// FIXME: Move to createDB()
-	// if multiStatements {
-	// 	dsn = dsn + "?multiStatements=true"
-	// }
-
-	// REMOVE: temp test code
-	fmt.Sprintln(dsn)
-
 	return dsn
-
-	// return fmt.Sprintf("%s:%s@tcp(%s:%s)/?multiStatements=true", name, password, host, port)
 }
