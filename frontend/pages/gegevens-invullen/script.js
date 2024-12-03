@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     monthSelect.appendChild(option);
   });
 
-  // Populeer de jaren van 2007 naar 1970
+  // Populeer de jaren van 2007 naar 1950
   for (let i = minYear; i >= 1950; i--) {
     const option = document.createElement("option");
     option.value = i;
@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
   updateDays();
 
   // Validatie van de geboortedatum: controleren of de geselecteerde datum resulteert in een leeftijd van 16 jaar of ouder
-  const form = document.getElementById("bookingForm");
   const validator = new JustValidate("#bookingForm");
 
   validator
@@ -98,17 +97,17 @@ document.addEventListener("DOMContentLoaded", function () {
     .addField("#lastName", [
       {
         rule: "required",
-        errorMessage: "Vul je achternaam in",
+        errorMessage: "Vul je achternaam in.",
       },
     ])
     .addField("#email", [
       {
         rule: "email",
-        errorMessage: "Vul een geldig e-mailadres in",
+        errorMessage: "Vul een geldig e-mailadres in.",
       },
       {
         rule: "required",
-        errorMessage: "Vul een e-mail adres in",
+        errorMessage: "Vul een e-mail adres in.",
       },
     ])
     .addField("#day", [
@@ -175,6 +174,7 @@ const errorMap = [
 const iti = window.intlTelInput(input, {
   initialCountry: "us",
   utilsScript: "/intl-tel-input/js/utils.js?1730730622316",
+  separateDialCode: true,
 });
 
 const reset = () => {
@@ -185,8 +185,9 @@ const reset = () => {
 };
 
 const showError = (msg) => {
-  input.classList.add("error");
+  input.classList.add("error-phone-input");
   errorMsg.innerHTML = msg;
+  errorMsg.classList.add("error-phone-label");
   errorMsg.classList.remove("hide");
 };
 
@@ -199,7 +200,7 @@ button.addEventListener("click", () => {
     validMsg.classList.remove("hide");
   } else {
     const errorCode = iti.getValidationError();
-    const msg = errorMap[errorCode] || "Invalid number";
+    const msg = errorMap[errorCode] || "Voer een geldig nummer in.";
     showError(msg);
   }
 });

@@ -83,3 +83,70 @@ personPicker.addEventListener("click", () => {
     }, 10); // Vertraging voor het activeren van transities
   }
 });
+
+// Voorbeeld van geblokkeerde datums (pas aan naar jouw wensen)
+const disabledDates = [
+  "2024-12-25", // Specifieke datums
+  { from: "2024-12-20", to: "2024-12-22" }, // Datums tussen 20 december en 22 december
+];
+
+// Functie om datum naar d-m-Y formaat te converteren
+function formatDate(date) {
+  const d = new Date(date);
+  return `${d.getDate().toString().padStart(2, "0")}-${(d.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${d.getFullYear()}`;
+}
+
+// Initializeer Flatpickr in inline modus
+flatpickr("#calendar", {
+  mode: "range",
+  inline: true, // Toon de kalender inline
+  dateFormat: "d-m-Y", // Formaat: dag-maand-jaar
+  minDate: "today", // Start bij vandaag
+  disable: disabledDates, // Blokkeer specifieke datums
+  locale: {
+    firstDayOfWeek: 1, // Week begint op maandag
+  },
+  onChange: (selectedDates) => {
+    const aankomst = document.getElementById("arrive");
+    const vertrek = document.getElementById("departure");
+    const errorMsg = document.getElementById("error-msg");
+
+    // Reset eventuele foutmelding
+    errorMsg.textContent = "";
+
+    // Update de tekst voor aankomst en vertrek
+    if (selectedDates.length > 0) {
+      aankomst.textContent = formatDate(selectedDates[0]);
+    } else {
+      aankomst.textContent = "Nog niet geselecteerd";
+    }
+
+    if (selectedDates.length > 1) {
+      vertrek.textContent = formatDate(selectedDates[1]);
+    } else {
+      vertrek.textContent = "Nog niet geselecteerd";
+    }
+
+    // Controleer of een geblokkeerde datum is geselecteerd
+    if (
+      selectedDates.some((date) =>
+        disabledDates.some((disable) => {
+          if (typeof disable === "string") {
+            return formatDate(date) === disable; // Vergelijk met string format
+          }
+          if (disable.from && disable.to) {
+            return (
+              date >= new Date(disable.from) && date <= new Date(disable.to)
+            );
+          }
+          return false;
+        })
+      )
+    ) {
+      errorMsg.textContent =
+        "De geselecteerde periode bevat niet-beschikbare datums.";
+    }
+  },
+});

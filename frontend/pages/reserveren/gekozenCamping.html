@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
@@ -137,10 +141,22 @@
         <section class="reservation-section">
           <h2>Reserveren</h2>
           <p>Selecteer uw data en voorkeuren</p>
-          <div>Calendar</div>
+          <div class="calendar-container">
+            <!-- Custom display for selected dates -->
 
-          <p class="arrive-date"><span>Aankomstdatum:</span> 3 November</p>
-          <p class="departure-date"><span>Vertrekdatum:</span> 6 November</p>
+            <p class="error" id="error-msg"></p>
+
+            <!-- Inline Flatpickr calendar -->
+            <div id="calendar"></div>
+          </div>
+          <p class="arrive-date">
+            <span>Aankomstdatum:</span>
+            <span id="arrive">Nog niet geselecteerd</span>
+          </p>
+          <p class="departure-date">
+            <span>Vertrekdatum:</span>
+            <span id="departure">Nog niet geselecteerd</span>
+          </p>
 
           <div class="personPicker__container">
             <div class="personPicker">
@@ -222,6 +238,7 @@
         </section>
       </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
   </body>
 </html>

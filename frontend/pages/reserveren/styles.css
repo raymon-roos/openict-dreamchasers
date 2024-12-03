@@ -418,3 +418,112 @@
 .total-price p {
   font-weight: 600;
 }
+
+/* Algemene styling voor de kalender container */
+.calendar-container {
+  width: 100%;
+
+  padding: 20px;
+  border-radius: 12px; /* Afgeronde hoeken */
+  font-family: "Inter";
+}
+
+/* Foutmelding stijl */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Inline Flatpickr kalender */
+#calendar {
+  width: 100%; /* Kalender neemt 100% van de container breedte */
+}
+
+/* Header van de kalender */
+.flatpickr-month {
+  font-size: 16px; /* Grotere tekst voor de maandnaam */
+  font-weight: bold; /* Vetgedrukte maandnaam */
+  color: #333; /* Donkere tekstkleur */
+  margin-bottom: 10px; /* Ruimte onder de maandnaam */
+  display: flex;
+  justify-content: space-between; /* Pijltjes goed uitlijnen */
+}
+
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  cursor: pointer;
+  font-size: 18px; /* Grotere pijlen */
+  color: #888; /* Neutrale kleur voor pijlen */
+}
+
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  color: #000; /* Pijlen donkerder bij hover */
+}
+
+/* Dagen van de week */
+.flatpickr-weekdays {
+  display: flex;
+  justify-content: space-between;
+  color: #888;
+  font-weight: bold;
+  margin-bottom: 5px; /* Ruimte tussen weekdagen en datums */
+}
+
+.flatpickr-weekday {
+  width: 36px; /* Breedte voor elke dag */
+  text-align: center;
+}
+
+/* Styling voor de datums */
+.flatpickr-day {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  margin: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+}
+
+.flatpickr-day:hover {
+  background-color: #f0f0f0; /* Hover achtergrondkleur */
+}
+
+/* Selecteerbare dagen (range selectie) */
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background-color: #61b546 !important; /* Groen voor de geselecteerde range */
+  color: white; /* Witte tekstkleur */
+  font-weight: bold;
+  border-radius: 3px !important;
+}
+
+.flatpickr-day.inRange {
+  background-color: rgb(229, 229, 229); /* Lichtgroen voor dagen in de range */
+  color: #333;
+}
+
+/* Uitgeschakelde dagen */
+.flatpickr-day.disabled {
+  background-color: #f9f9f9;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Custom styling voor het weergeven van de geselecteerde datums */
+#selected-dates {
+  margin-top: 20px;
+}
+
+#selected-dates p {
+  font-size: 16px;
+  color: #333;
+}
+
+#selected-dates span {
+  font-weight: bold;
+  color: #61b546; /* Groen voor de geselecteerde datums */
+}
