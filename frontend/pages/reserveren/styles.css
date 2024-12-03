@@ -470,11 +470,13 @@
   color: #888;
   font-weight: bold;
   margin-bottom: 5px; /* Ruimte tussen weekdagen en datums */
+  background-color: transparent !important;
 }
 
 .flatpickr-weekday {
   width: 36px; /* Breedte voor elke dag */
   text-align: center;
+  background-color: transparent !important;
 }
 
 /* Styling voor de datums */
@@ -499,11 +501,7 @@
   color: white; /* Witte tekstkleur */
   font-weight: bold;
   border-radius: 3px !important;
-}
-
-.flatpickr-day.inRange {
-  background-color: rgb(229, 229, 229); /* Lichtgroen voor dagen in de range */
-  color: #333;
+  border: none !important;
 }
 
 /* Uitgeschakelde dagen */
