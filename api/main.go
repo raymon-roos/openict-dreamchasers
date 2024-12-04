@@ -24,13 +24,18 @@ func main() {
 		log.Fatal("DB_Password environment variable not set")
 	}
 
-	dsn := buildDSN("root", dbPassword, "localhost", "3306")
-
-	db, err := initializeDatabase(dsn, "dreamchasers", true)
-
+	db, err := initializeDatabase(
+		"root",
+		dbPassword,
+		"localhost",
+		"3306",         // port
+		"dreamchasers", // dbname
+		true,           // multiStatements
+	)
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer db.Close()
 
 	db.SetMaxOpenConns(25)
 	db.SetMaxIdleConns(25)
@@ -43,25 +48,14 @@ func main() {
 	log.Println("Migrations applied successfully!")
 }
 
-func initializeDatabase(dsn, dbName string, multiStatements bool) (*sql.DB, error) {
-
+func connectDB(dsn string) (*sql.DB, error) {
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
 	}
 
-	_, err = db.Exec(fmt.Sprintf("CREATE DATABASE IF NOT EXISTS %s", dbName))
-	if err != nil {
-		return nil, err
-	}
-
-	dsnWithDB := fmt.Sprintf("%s%s", dsn, dbName)
-
-	if multiStatements {
-		dsnWithDB = dsnWithDB + "?multiStatements=true"
-	}
-
-	db, err = sql.Open("mysql", dsnWithDB)
+	// Verify the connection
+	err = db.Ping()
 	if err != nil {
 		return nil, err
 	}
@@ -69,10 +63,31 @@ func initializeDatabase(dsn, dbName string, multiStatements bool) (*sql.DB, erro
 	return db, nil
 }
 
-func buildDSN(name, password, host, port string) string {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", name, password, host, port)
+func createDatabaseIfNotExists(db *sql.DB, dbName string) error {
+	query := fmt.Sprintf("CREATE DATABASE IF NOT EXISTS %s", dbName)
+	_, err := db.Exec(query)
+	return err
+}
 
-	return dsn
+func initializeDatabase(name, password, host, port, dbName string, multiStatements bool) (*sql.DB, error) {
+	baseDSN := fmt.Sprintf("%s:%s@tcp(%s:%s)/", name, password, host, port)
+	db, err := connectDB(baseDSN)
+	if err != nil {
+		return nil, err
+	}
+	defer db.Close()
+
+	err = createDatabaseIfNotExists(db, dbName)
+	if err != nil {
+		return nil, err
+	}
+
+	dsnWithDB := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", name, password, host, port, dbName)
+	if multiStatements {
+		dsnWithDB += "?multiStatements=true"
+	}
+
+	return connectDB(dsnWithDB)
 }
 
 func dbMigration(db *sql.DB) (*sql.DB, error) {
