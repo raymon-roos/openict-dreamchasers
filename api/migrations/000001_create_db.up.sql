@@ -77,17 +77,6 @@ CREATE TABLE IF NOT EXISTS payments (
     FOREIGN KEY (status_id) REFERENCES payment_statuses(id)
 );
 
-CREATE TABLE IF NOT EXISTS accommodations (
-    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    accommodation_type_id BIGINT UNSIGNED NOT NULL,
-    accommodation_number TINYINT UNSIGNED NOT NULL,
-    coordinate GEOMETRY NOT NULL,
-    created_at DATETIME DEFAULT now(),
-    updated_at DATETIME ON UPDATE now(),
-    deleted_at DATETIME,
-    FOREIGN KEY (accommodation_type_id) REFERENCES accommodation_types(id)
-);
-
 CREATE TABLE IF NOT EXISTS accommodation_types (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(255) UNIQUE NOT NULL,
@@ -103,6 +92,17 @@ CREATE TABLE IF NOT EXISTS accommodation_features (
     accommodation_type_id BIGINT UNSIGNED NOT NULL,
     description VARCHAR(255) UNIQUE NOT NULL,
     price FLOAT NOT NULL,
+    created_at DATETIME DEFAULT now(),
+    updated_at DATETIME ON UPDATE now(),
+    deleted_at DATETIME,
+    FOREIGN KEY (accommodation_type_id) REFERENCES accommodation_types(id)
+);
+
+CREATE TABLE IF NOT EXISTS accommodations (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    accommodation_type_id BIGINT UNSIGNED NOT NULL,
+    accommodation_number TINYINT UNSIGNED NOT NULL,
+    coordinate GEOMETRY NOT NULL,
     created_at DATETIME DEFAULT now(),
     updated_at DATETIME ON UPDATE now(),
     deleted_at DATETIME,
