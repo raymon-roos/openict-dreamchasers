@@ -56,7 +56,6 @@ func loadEnv() EnvConfig {
 	return config
 }
 
-// ==== DB Connection ====
 func initializeDatabase(env EnvConfig) (*sql.DB, error) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", env.User, env.Password, env.Host, env.Port)
 	db, err := connectDB(dsn)
