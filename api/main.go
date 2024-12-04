@@ -14,13 +14,12 @@ import (
 )
 
 func main() {
-	// Load env file
+
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Println("No .env file found")
 	}
 
-	// Get the database password from the environment variable
 	dbPassword := os.Getenv("DB_Password")
 	if dbPassword == "" {
 		log.Fatal("DB_Password environment variable not set")
@@ -33,12 +32,24 @@ func main() {
 		"3306",      // port
 	)
 
-	initializeDatabase(
-		dsn, 						
+	db, err := initializeDatabase(
+		dsn,
 		"dreamchasers", // dbName
-		true,						// multiStatements
+		true,           // multiStatements
 	)
-	
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// ==== DB connection conf ==== \\
+	db.SetMaxOpenConns(25)
+	db.SetMaxIdleConns(25)
+	db.SetConnMaxLifetime(0)
+
+	dbMigration(db)
+
+	defer db.Close()
+
 	log.Println("Migrations applied successfully!")
 
 	// Query the database
@@ -69,20 +80,19 @@ func main() {
 	// }
 }
 
-func initializeDatabase(dsn, dbName string, multiStatements bool) {
-	// ==== DB Connection ==== \\
+func initializeDatabase(dsn, dbName string, multiStatements bool) (*sql.DB, error) {
+
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
-	defer db.Close()
 
 	_, err = db.Exec(fmt.Sprintf("CREATE DATABASE IF NOT EXISTS %s", dbName))
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 
-	// Reconnect to the newly created database
+	// Reconnect to db
 	dsnWithDB := fmt.Sprintf("%s%s", dsn, dbName)
 
 	if multiStatements {
@@ -91,21 +101,30 @@ func initializeDatabase(dsn, dbName string, multiStatements bool) {
 
 	db, err = sql.Open("mysql", dsnWithDB)
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
-	defer db.Close()
 
-	// ==== Migrations ==== \\
+	return db, nil
+}
+
+func buildDSN(name, password, host, port string) string {
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", name, password, host, port)
+
+	return dsn
+}
+
+func dbMigration(db *sql.DB) (*sql.DB, error) {
+
 	driver, err := mysql.WithInstance(db, &mysql.Config{})
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 
 	m, err := migrate.NewWithDatabaseInstance(
 		"file://migrations",
 		"mysql", driver)
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 
 	// Apply migrations
@@ -114,13 +133,9 @@ func initializeDatabase(dsn, dbName string, multiStatements bool) {
 		if err == migrate.ErrNoChange {
 			log.Println("No change in migrations")
 		} else {
-			log.Fatal(err)
+			return nil, err
 		}
 	}
-}
 
-func buildDSN(name, password, host, port string) string {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", name, password, host, port)
-
-	return dsn
+	return nil, err
 }
