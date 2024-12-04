@@ -14,7 +14,6 @@ import (
 )
 
 func main() {
-
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Println("No .env file found")
@@ -25,23 +24,14 @@ func main() {
 		log.Fatal("DB_Password environment variable not set")
 	}
 
-	dsn := buildDSN(
-		"root",      // Name
-		dbPassword,  // db password
-		"localhost", //
-		"3306",      // port
-	)
+	dsn := buildDSN("root", dbPassword, "localhost", "3306")
 
-	db, err := initializeDatabase(
-		dsn,
-		"dreamchasers", // dbName
-		true,           // multiStatements
-	)
+	db, err := initializeDatabase(dsn, "dreamchasers", true)
+
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// ==== DB connection conf ==== \\
 	db.SetMaxOpenConns(25)
 	db.SetMaxIdleConns(25)
 	db.SetConnMaxLifetime(0)
@@ -51,33 +41,6 @@ func main() {
 	defer db.Close()
 
 	log.Println("Migrations applied successfully!")
-
-	// Query the database
-	// rows, err := db.Query("SELECT id, status_name FROM camp_status")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// defer rows.Close()
-
-	// // This can be removed
-	// fmt.Println("hi")
-
-	// // Iterate through the result set
-	// for rows.Next() {
-	// 	var id string
-	// 	var statusName string
-	// 	err := rows.Scan(&id, &statusName)
-	// 	if err != nil {
-	// 		log.Fatal(err)
-	// 	}
-
-	// 	fmt.Println(id, statusName)
-	// }
-
-	// // Check for errors from iterating over rows
-	// if err := rows.Err(); err != nil {
-	// 	log.Fatal(err)
-	// }
 }
 
 func initializeDatabase(dsn, dbName string, multiStatements bool) (*sql.DB, error) {
@@ -92,7 +55,6 @@ func initializeDatabase(dsn, dbName string, multiStatements bool) (*sql.DB, erro
 		return nil, err
 	}
 
-	// Reconnect to db
 	dsnWithDB := fmt.Sprintf("%s%s", dsn, dbName)
 
 	if multiStatements {
@@ -114,7 +76,6 @@ func buildDSN(name, password, host, port string) string {
 }
 
 func dbMigration(db *sql.DB) (*sql.DB, error) {
-
 	driver, err := mysql.WithInstance(db, &mysql.Config{})
 	if err != nil {
 		return nil, err
@@ -127,7 +88,6 @@ func dbMigration(db *sql.DB) (*sql.DB, error) {
 		return nil, err
 	}
 
-	// Apply migrations
 	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
 		log.Printf("Migration error: %v", err)
 		if err == migrate.ErrNoChange {
