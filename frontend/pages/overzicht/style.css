@@ -96,8 +96,6 @@
   margin-top: 18px;
 }
 
-
-
 .overviewCard {
   border: 1px solid #b3b3b3;
   display: flex;
@@ -170,22 +168,15 @@
   margin-top: 12px;
 }
 
-.arrival {
-  width: 50%;
-}
-
 .departure i,
 .arrival i {
   font-size: 20px;
+  margin-right: 8px;
 }
 
-.departure p,
-.arrival p {
-  margin-left: 10px;
-}
-
-.departure {
-  width: 50%;
+.checkin-checkout {
+  margin-top: 10px;
+  font-size: 13px;
 }
 
 .stay-duration,
@@ -243,7 +234,7 @@
   color: rgb(108, 108, 108);
 }
 
-.edit:hover  {
+.edit:hover {
   color: black;
 }
 
@@ -255,7 +246,6 @@
   margin-top: 20px;
   margin-bottom: 8px;
 }
-
 
 .adress {
   margin-bottom: 20px;
@@ -275,11 +265,7 @@
   position: relative;
 }
 
-
-
-
-.ideal
-{
+.ideal {
   display: flex;
   align-items: center;
   background-color: #efefef;
@@ -294,16 +280,11 @@
   border-radius: 10px 10px 0 0;
 }
 
-
 .ideal:hover {
   transform: scale(1.02);
 }
 
-
-
-
-.ideal img
-{
+.ideal img {
   width: 40px;
   margin: 10px 15px;
   display: flex;
@@ -316,7 +297,7 @@
 }
 
 .readPolicy {
-  color: #8DB411;
+  color: #8db411;
   text-decoration: none;
   display: block;
   margin-top: 30px;
@@ -333,12 +314,11 @@
   width: 100%;
   flex-direction: column;
   margin-bottom: 50px;
-
 }
 
 .reservationButton button {
   margin-bottom: 20px;
-  background-color: #617C0B;
+  background-color: #617c0b;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -352,6 +332,4 @@
 
 .reservationButton button p {
   margin-left: 10px;
-
 }
-
