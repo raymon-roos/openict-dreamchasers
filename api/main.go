@@ -13,25 +13,18 @@ import (
 	"github.com/joho/godotenv"
 )
 
+type EnvConfig struct {
+	User     string
+	Password string
+	Host     string
+	Port     string
+	DBName   string
+}
+
 func main() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Println("No .env file found")
-	}
+	envList := loadEnv()
 
-	dbPassword := os.Getenv("DB_Password")
-	if dbPassword == "" {
-		log.Fatal("DB_Password environment variable not set")
-	}
-
-	db, err := initializeDatabase(
-		"root",
-		dbPassword,
-		"localhost",
-		"3306",         // port
-		"dreamchasers", // dbname
-		true,           // multiStatements
-	)
+	db, err := initializeDatabase(envList)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -43,9 +36,43 @@ func main() {
 
 	dbMigration(db)
 
-	defer db.Close()
+	log.Println("db successfully!")
+}
 
-	log.Println("Migrations applied successfully!")
+func loadEnv() EnvConfig {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Println("No .env file found!\033[31m")
+	}
+
+	config := EnvConfig{
+		User:     os.Getenv("DB_USER"),
+		Password: os.Getenv("DB_PASSWORD"),
+		Host:     os.Getenv("DB_HOST"),
+		Port:     os.Getenv("DB_PORT"),
+		DBName:   os.Getenv("DB_NAME"),
+	}
+
+	return config
+}
+
+// ==== DB Connection ====
+func initializeDatabase(env EnvConfig) (*sql.DB, error) {
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", env.User, env.Password, env.Host, env.Port)
+	db, err := connectDB(dsn)
+	if err != nil {
+		return nil, err
+	}
+
+	err = createDatabaseIfNotExists(db, env.DBName)
+	if err != nil {
+		return nil, err
+	}
+
+	// This should not be hardcoded. (multiStatements)
+	dsnWithDB := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?multiStatements=true", env.User, env.Password, env.Host, env.Port, env.DBName)
+
+	return connectDB(dsnWithDB)
 }
 
 func connectDB(dsn string) (*sql.DB, error) {
@@ -54,7 +81,6 @@ func connectDB(dsn string) (*sql.DB, error) {
 		return nil, err
 	}
 
-	// Verify the connection
 	err = db.Ping()
 	if err != nil {
 		return nil, err
@@ -63,54 +89,31 @@ func connectDB(dsn string) (*sql.DB, error) {
 	return db, nil
 }
 
-func createDatabaseIfNotExists(db *sql.DB, dbName string) error {
-	query := fmt.Sprintf("CREATE DATABASE IF NOT EXISTS %s", dbName)
+func createDatabaseIfNotExists(db *sql.DB, dbname string) error {
+	query := fmt.Sprintf("CREATE DATABASE IF NOT EXISTS %s", dbname)
 	_, err := db.Exec(query)
 	return err
 }
 
-func initializeDatabase(name, password, host, port, dbName string, multiStatements bool) (*sql.DB, error) {
-	baseDSN := fmt.Sprintf("%s:%s@tcp(%s:%s)/", name, password, host, port)
-	db, err := connectDB(baseDSN)
-	if err != nil {
-		return nil, err
-	}
-	defer db.Close()
-
-	err = createDatabaseIfNotExists(db, dbName)
-	if err != nil {
-		return nil, err
-	}
-
-	dsnWithDB := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", name, password, host, port, dbName)
-	if multiStatements {
-		dsnWithDB += "?multiStatements=true"
-	}
-
-	return connectDB(dsnWithDB)
-}
-
-func dbMigration(db *sql.DB) (*sql.DB, error) {
+func dbMigration(db *sql.DB) error {
 	driver, err := mysql.WithInstance(db, &mysql.Config{})
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	m, err := migrate.NewWithDatabaseInstance(
 		"file://migrations",
 		"mysql", driver)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
 		log.Printf("Migration error: %v", err)
 		if err == migrate.ErrNoChange {
 			log.Println("No change in migrations")
-		} else {
-			return nil, err
 		}
 	}
 
-	return nil, err
+	return err
 }
