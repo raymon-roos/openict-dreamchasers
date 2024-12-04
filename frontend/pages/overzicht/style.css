@@ -1,0 +1,357 @@
+* {
+  font-family: "Inter";
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+.navigation {
+  background-color: #8db411;
+  padding: 30px 20px;
+  margin-bottom: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 17px;
+  color: #cbcbcb;
+  align-items: center;
+}
+
+.active-procesbar {
+  color: #8db411;
+}
+
+.header .procesbar {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header .procesbar span {
+  margin-right: 10px;
+  border: 2px solid #cbcbcb;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+}
+
+.header i {
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.back-button {
+  position: absolute;
+  left: 50px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.back-button a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600px;
+}
+
+.back-button img {
+  width: 20px;
+  margin-right: 10px;
+  transform: scale(-1);
+}
+
+.mainContainer {
+  display: flex;
+  padding: 60px;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+}
+
+.mainContainer__left {
+  width: 30%;
+  margin-right: 50px;
+  height: 100%;
+}
+.mainContainer__left h1 {
+  margin-bottom: 10px;
+}
+.mainContainer__right {
+  width: 40%;
+  margin-left: 50px;
+  max-width: 500px;
+}
+
+.line {
+  border: 0.5px solid #dadada;
+  margin-top: 18px;
+}
+
+
+
+.overviewCard {
+  border: 1px solid #b3b3b3;
+  display: flex;
+  flex-direction: column;
+  padding: 35px 40px;
+  margin-right: 20px;
+  border-radius: 12px;
+  position: sticky;
+  top: 20px;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.overviewCard h2 {
+  margin-bottom: 18px;
+}
+
+.placeInfo {
+  display: flex;
+}
+
+.placeInfo h3 {
+  font-size: 20px;
+}
+.placeInfo img {
+  width: 30%;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+
+.placeInfo p span {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.selectCountry {
+  padding: 15px 18px;
+  border-radius: 5px;
+  border: 1px solid #a7a7a7;
+  color: #8d8d8d;
+  font-size: 16px;
+  width: 100%;
+}
+
+.reservationInfo {
+  background-color: rgba(141, 180, 17, 0.2);
+  margin-top: 30px;
+  border-radius: 10px;
+  padding: 30px;
+  color: #566c12;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.reservatieInfo h3 {
+  font-size: 21px;
+}
+.departure-arrival {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.arrival > div,
+.departure > div {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.arrival {
+  width: 50%;
+}
+
+.departure i,
+.arrival i {
+  font-size: 20px;
+}
+
+.departure p,
+.arrival p {
+  margin-left: 10px;
+}
+
+.departure {
+  width: 50%;
+}
+
+.stay-duration,
+.guests {
+  display: flex;
+  align-items: center;
+}
+
+.stay-duration i,
+.guests i {
+  margin: 20px 0;
+  font-size: 23px;
+  margin-right: 17px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-info h3 {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.price-info > .costs {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.price-info .line {
+  margin-top: 25px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.personalInfo {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.edit {
+  position: absolute;
+  right: 10px;
+  color: rgb(108, 108, 108);
+}
+
+.edit:hover  {
+  color: black;
+}
+
+.control {
+  color: #7f7f7f;
+}
+
+.booker {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+
+.adress {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.country {
+  margin-bottom: 30px;
+}
+
+.paymentMethod {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+
+
+
+.ideal
+{
+  display: flex;
+  align-items: center;
+  background-color: #efefef;
+  margin: 14px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.ideal {
+  margin-bottom: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+
+.ideal:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+.ideal img
+{
+  width: 40px;
+  margin: 10px 15px;
+  display: flex;
+  margin-left: 18px;
+}
+
+.cancellationPolicy {
+  margin-top: 18px;
+  margin-bottom: 30px;
+}
+
+.readPolicy {
+  color: #8DB411;
+  text-decoration: none;
+  display: block;
+  margin-top: 30px;
+}
+
+.readPolicy:hover {
+  text-decoration: underline;
+}
+
+.reservationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 50px;
+
+}
+
+.reservationButton button {
+  margin-bottom: 20px;
+  background-color: #617C0B;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 50%;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.reservationButton button p {
+  margin-left: 10px;
+
+}
+

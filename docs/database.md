@@ -22,6 +22,7 @@ bijvoorbeeld prijswijzigingen.
 - Foreign key kolommen hebben altijd een naam in
   de vorm van _\<gerelateerde-naam-in-enkelvoud\>\_id_.
 
+
 [^norm]: https://en.wikipedia.org/wiki/Database_normalization
 
 ```mermaid
@@ -165,6 +166,7 @@ house_rules {
 }
 
 guests ||--|{ reservations : "books"
+
 guests ||--|| addresses : "lives at"
 addresses O|--|| countries : "located in"
 
@@ -177,6 +179,7 @@ payments ||--|{ line_items : "includes multiple"
 line_items O|--|| price_categories : "categorized by"
 payments O|--|| payment_methods : "uses"
 payments O|--|| payment_statuses : "has status of"
+
 ```
 
 ## Gevolgen voor stakeholders

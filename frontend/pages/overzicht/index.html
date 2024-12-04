@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="navigation"></div>
+    <div class="header">
+      <button class="back-button">
+        <i class="fa-solid fa-chevron-left"></i
+        ><a href="../betaalmethodes-pagina/index.html">Ga terug</a>
+      </button>
+      <div class="procesbar">
+        <span>1</span>
+        <p>Gegevens</p>
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+
+      <div class="procesbar">
+        <span>2</span>
+        <p>Betaling</p>
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+      <div class="procesbar active-procesbar">
+        <span>3</span>
+        <p>Bevestiging</p>
+      </div>
+    </div>
+    <div class="mainContainer">
+      <div class="mainContainer__left">
+        <div class="overview"><h1>Overzicht van uw reservering</h1></div>
+        <div class="control">
+          <p>Controleer uw gegevens en bevestig uw reservering</p>
+        </div>
+        <div class="line"></div>
+
+        <div class="personalInfo">
+          <a class="edit" href="../gegevens-invullen-pagina/index.html"
+            >Wijzigen</a
+          >
+          <h3>Persoonlijke gegevens</h3>
+          <div class="booker"><h4>Hoofdboeker</h4></div>
+          <div class="nameLastname"><p>Naam Achternaam</p></div>
+          <div class="email"><p>Email@gmail.com</p></div>
+          <div class="mobile"><p>Telefoon nummer</p></div>
+        </div>
+        <div class="line"></div>
+        <div class="adress">
+          <a class="edit" href="../gegevens-invullen-pagina/index.html"
+            >Wijzigen</a
+          >
+          <h3>Adres</h3>
+          <div class="street-houseNumber"><p>Straat Huisnummer</p></div>
+          <div class="postalcode-city"><p>Postcode Stad</p></div>
+          <div class="country"><p>Land</p></div>
+        </div>
+        <div class="line"></div>
+        <div class="paymentMethod">
+            <a class="edit" href="../betaalmethodes-pagina/index.html"
+            >Wijzigen</a>
+          <h3>Betaalmethode</h3>
+          <div name="Ideal" class="ideal">
+            <img src="ideal.png" alt="ideal" />
+            <p>Ideal</p>
+          </div>
+        </div>
+        <div class="paymentMethod-item"></div>
+        <div class="line"></div>
+        <div class="cancellationPolicy"><h3>Annuleringsvoorwaarden</h3></div>
+        <div class="cancelationInfo">
+          <p>
+            Gratis annuleren tot 48 uur voor aankomst. Daarna wordt 50% van de
+            eerste nacht in rekening gebracht.
+          </p>
+        </div>
+
+        <a class="readPolicy" href=""
+          >Lees het volledige annuleringsvoorwaarden</a
+        >
+      </div>
+
+      <div class="mainContainer__right">
+        <div class="overviewCard">
+          <h2>Overzicht</h2>
+          <div class="placeInfo">
+            <img src="./camping1.jpg" alt="" />
+            <div class="placeInfo__text">
+              <h3>Plek 1</h3>
+              <p>★★★★</p>
+              <p><span>€38</span>per nacht</p>
+            </div>
+          </div>
+          <div class="reservationInfo">
+            <div class="departure-arrival">
+              <div class="arrival">
+                <h3>Aankomst</h3>
+                <div>
+                  <i class="fa-regular fa-calendar-days"></i>
+                  <p>1 jul. 2024</p>
+                </div>
+              </div>
+              <div class="departure">
+                <h3>Vertrek</h3>
+                <div>
+                  <i class="fa-regular fa-calendar-days"></i>
+                  <p>5. jul. 2024</p>
+                </div>
+              </div>
+            </div>
+            <div class="stay-duration">
+              <i class="fa-regular fa-clock"></i>
+              <div>
+                <h3>Verblijfsduur</h3>
+                <p>7 nachten</p>
+              </div>
+            </div>
+            <div class="guests">
+              <i class="fa-solid fa-user-group"></i>
+              <div>
+                <h3>Gasten</h3>
+                <p>4 gasten</p>
+              </div>
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="price-info">
+            <h3>Prijsinformatie</h3>
+            <div class="costs">
+              <p>€145x10</p>
+              <p>€1450</p>
+            </div>
+            <div class="costs">
+              <p>Service kosten</p>
+              <p>€32</p>
+            </div>
+            <div class="line"></div>
+            <div class="total-price">
+              <p>Totaal</p>
+              <p>€1482</p>
+            </div>
+          </div>
+            </div>
+            </div>
+            
+            
+        </div>
+      </div>
+    </div>
+
+    <div class="reservationButton">
+      <button>
+        <i class="fa-regular fa-credit-card"></i>
+        <p>Betaal en reserveer</p>
+      </button>
+      <p>
+        Door te reserveren ga je akkoord met onze
+        <a href="algemene-voorwaarden.html" target="_blank"
+          >Algemene Voorwaarden</a
+        >, <a href="privacybeleid.html" target="_blank">Privacybeleid</a>, en
+        <a href="annuleringsbeleid.html" target="_blank">Annuleringsbeleid</a>.
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</body>
+
+</html>
