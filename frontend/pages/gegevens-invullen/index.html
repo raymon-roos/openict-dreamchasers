@@ -26,22 +26,30 @@
     <div class="navigation"></div>
     <div class="header">
       <button class="back-button">
-        <i class="fa-solid fa-chevron-left"></i><a href="/">Ga terug</a>
+        <i class="fa-solid fa-chevron-left"></i
+        ><a href="../reserveren/index.html">Ga terug</a>
       </button>
-      <div class="procesbar active-procesbar">
+
+      <div class="procesbar">
         <span>1</span>
+        <p>Campingplek</p>
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+
+      <div class="procesbar active-procesbar">
+        <span>2</span>
         <p>Gegevens</p>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
 
       <div class="procesbar">
-        <span>2</span>
+        <span>3</span>
         <p>Betaling</p>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
       <div class="procesbar">
-        <span>3</span>
-        <p>Bevestiging</p>
+        <span>4</span>
+        <p>Overzicht</p>
       </div>
     </div>
     <div class="mainContainer">
@@ -99,6 +107,16 @@
               <p>E-mail <span>*</span></p>
               <input placeholder="Typ je e-mail" id="email" type="email" />
             </div>
+
+            <div class="inputcontainer">
+              <p>Bevestig e-mail <span>*</span></p>
+              <input
+                placeholder="Typ je e-mail"
+                id="email-confirm"
+                type="email"
+              />
+            </div>
+
             <div class="inputcontainer">
               <p>Telefoonnummer <span>*</span></p>
 
@@ -159,12 +177,7 @@
           </div>
           <div class="buttonContainer">
             <button class="nextButton">
-              <a>Ga verder</a
-              ><img
-                style="fill: white; color: white"
-                src="arrow-2.svg"
-                alt=""
-              />
+              <a>Ga verder</a><i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </form>
@@ -189,6 +202,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>1 jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">Vanaf 11:00</p>
               </div>
               <div class="departure">
                 <h3>Vertrek</h3>
@@ -196,6 +210,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>5. jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">Tot 11:00</p>
               </div>
             </div>
             <div class="stay-duration">
