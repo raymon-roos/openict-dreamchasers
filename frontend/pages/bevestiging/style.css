@@ -1,0 +1,308 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+}
+
+.navigation {
+  background-color: #8db411;
+  padding: 30px 20px;
+  margin-bottom: 85px;
+}
+
+.container i {
+  font-size: 80px;
+  color: #8db411;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container h1 {
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+.container h2 {
+  font-size: 40px;
+  color: #8db411;
+}
+
+.container h3 {
+  color: #807f7f;
+  font-weight: 100;
+  max-width: 460px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.overviewCard {
+  width: 60%;
+  border-radius: 10px;
+  max-width: fit-content;
+  margin-top: 60px;
+}
+
+.reserveDetail {
+  background-color: #8db411;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.reserveDetail i {
+  color: white;
+  font-size: 25px;
+  margin-left: 10px;
+  margin-right: 18px;
+}
+
+.reserveDetail p {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.detailContent {
+  border: solid #d6d6d6;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 30px;
+  display: flex;
+}
+
+.campingInfo__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.campingInfo__header i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.campingInfo__content p {
+  margin-bottom: 8px;
+  color: #505050;
+  font-size: 15px;
+}
+
+.stayDuration__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.stayDuration__header i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.stayDuration {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.stayDuration__header {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.stayDuration__header i {
+  color: #8db411;
+  font-size: 20px;
+}
+
+.stayDuration__content {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.arrival,
+.departure {
+  text-align: center;
+}
+
+h5 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.date-box {
+  display: flex;
+  background-color: #eaeaea;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.companions {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.companions__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.companions__header i {
+  color: #8db411;
+  font-size: 24px;
+}
+
+.companions__total {
+  margin-bottom: 16px;
+}
+
+.companions__details {
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.companion {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+
+.companion i {
+  color: #8db411;
+  font-size: 18px;
+}
+
+.companions__pets {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.companions__pets i {
+  color: #8db411;
+  font-size: 18px;
+}
+
+.companions__left {
+  margin-right: 14px;
+}
+
+.detailContent__right {
+  width: 50%;
+}
+
+.detailContent__left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.facilities {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.facilities i {
+  font-size: 20px;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.facility {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.facility i {
+  font-size: 10px;
+  color: white;
+  border-radius: 16px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.facility span {
+  color: white;
+  margin-left: 5px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.facility-items__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pictures__container {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.pictures__container i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.pictures__header {
+    display: flex;
+}
+
+.pictures {
+    display: flex;
+    margin-top: 15px;
+}
+
+.pictures img  {
+    width: 200px;
+}
+
+.confirm-email {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.button__homepage {
+    background-color: #8DB411;
+    padding: 20px;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button__homepage:hover {
+    transform: scale(1.03);
+}
+
+.button__homepage a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
