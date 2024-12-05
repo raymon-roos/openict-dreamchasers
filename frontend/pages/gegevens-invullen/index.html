@@ -137,29 +137,32 @@
             <div class="inputcontainer">
               <p>Land <span>*</span></p>
 
-              <select class="selectCountry">
-                <option>Nederland</option>
-                <option>Duitsland</option>
+              <select class="selectCountry" id="selectCountry">
+                <option value="NLD">Nederland</option>
               </select>
             </div>
 
             <div class="postalCode-number">
               <div class="inputSmall">
                 <p>Postcode <span>*</span></p>
-                <input placeholder="Postcode" type="text" />
+                <input id="postalCode" placeholder="Postcode" type="text" />
               </div>
               <div class="inputSmall">
                 <p>Huisnummer <span>*</span></p>
-                <input placeholder="Huisnummer" type="text" />
+                <input id="houseNumber" placeholder="Huisnummer" type="text" />
               </div>
             </div>
+
+            <p id="addressMessage"></p>
+            <!-- Statusbericht -->
+
             <div class="inputcontainer">
               <p>Straatnaam <span>*</span></p>
-              <input placeholder="Straatnaam" type="text" />
+              <input id="streetName" placeholder="Straatnaam" type="text" />
             </div>
             <div class="inputcontainer">
               <p>Plaatsnaam <span>*</span></p>
-              <input placeholder="Plaatsnaam" type="text" />
+              <input id="cityName" placeholder="Plaatsnaam" type="text" />
             </div>
             <div>
               <label>
