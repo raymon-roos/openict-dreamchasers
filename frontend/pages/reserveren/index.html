@@ -179,44 +179,68 @@
           </p>
 
           <div class="personPicker__container">
+            <p class="korting__infoText">
+              We bieden korting voor jongeren en kinderen. Baby's verblijven
+              gratis!
+            </p>
             <div class="personPicker">
               <div class="personPicker__text">
                 <h5>Gasten</h5>
-                <p>1 Persoon</p>
+                <p id="personPicker__totalPeople">1 Persoon</p>
               </div>
               <img class="personPickerArrowIcon" src="arrow.png" />
             </div>
             <div class="personPicker__modal">
               <div class="picker">
-                <div>
-                  <h4>Volwassenen</h4>
-                  <p>18 Jaar of ouder</p>
+                <div class="picker__info">
+                  <h4>Volwassenen <span>(18-99 jaar)</span></h4>
+                  <p>€35.00/nacht</p>
                 </div>
                 <div class="person-control">
                   <i class="fa-regular fa-square-minus minus"></i>
-                  <p>1</p>
+                  <p data-type="adults">0</p>
                   <i class="fa-solid fa-square-plus plus"></i>
                 </div>
               </div>
               <div class="picker">
-                <div>
-                  <h4>Kinderen</h4>
-                  <p>3 - 12 jaar</p>
+                <div class="picker__info">
+                  <h4>
+                    Jongeren <span>(12-18 jaar)</span>
+                    <p>25% korting</p>
+                  </h4>
+                  <p>€35.00/nacht</p>
                 </div>
                 <div class="person-control">
                   <i class="fa-regular fa-square-minus minus"></i>
-                  <p>1</p>
+                  <p data-type="youths">0</p>
                   <i class="fa-solid fa-square-plus plus"></i>
                 </div>
               </div>
               <div class="picker">
-                <div>
-                  <h4>Baby's</h4>
-                  <p>Jonger dan 2 jaar</p>
+                <div class="picker__info">
+                  <h4>
+                    Kinderen <span>(3-12 jaar)</span>
+                    <p>50% korting</p>
+                  </h4>
+                  <p>€30.00/nacht</p>
                 </div>
                 <div class="person-control">
                   <i class="fa-regular fa-square-minus minus"></i>
-                  <p>1</p>
+                  <p data-type="children">0</p>
+                  <i class="fa-solid fa-square-plus plus"></i>
+                </div>
+              </div>
+              <div class="picker">
+                <div class="picker__info">
+                  <h4>
+                    Baby's <span>(0-2 jaar)</span>
+                    <p>100% korting</p>
+                  </h4>
+                  <p>€0.00/nacht</p>
+                </div>
+                <div class="person-control">
+                  <i class="fa-regular fa-square-minus minus"></i>
+                  <p data-type="babies">0</p>
                   <i class="fa-solid fa-square-plus plus"></i>
                 </div>
               </div>
@@ -227,7 +251,7 @@
                 </div>
                 <div class="person-control">
                   <i class="fa-regular fa-square-minus minus"></i>
-                  <p>1</p>
+                  <p data-type="pets">0</p>
                   <i class="fa-solid fa-square-plus plus"></i>
                 </div>
               </div>
@@ -251,7 +275,7 @@
 
           <div class="total-price">
             <p>Totaal</p>
-            <span>€1002</span>
+            <span id="total-price">€1002</span>
           </div>
 
           <button class="pay-button">Betaal nu</button>

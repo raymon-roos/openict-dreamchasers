@@ -310,13 +310,19 @@
   font-size: 14px;
 }
 
+.korting__infoText {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgb(102, 102, 102);
+}
+
 .personPicker__container {
   position: relative;
 }
 
 .personPicker {
   border: 1px solid #b3b3b3;
-  margin-top: 25px;
   padding: 10px 20px;
   border-radius: 10px 10px 0 0;
   display: flex;
@@ -378,6 +384,32 @@
 
 .personPicker__modal .picker p {
   font-size: 13px;
+}
+
+.picker__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker__info h4 {
+  display: flex;
+  font-size: 16px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.picker__info h4 span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #888;
+  margin: 0 8px;
+}
+
+.picker__info h4 p {
+  color: #61b546;
+  font-size: 14px !important;
 }
 
 .person-control {
