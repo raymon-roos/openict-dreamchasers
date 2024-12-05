@@ -30,6 +30,18 @@
   align-items: center;
 }
 
+.header .procesbar a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #cbcbcb;
+  transition: all 0.3s;
+}
+
+.header .procesbar a:hover {
+  color: #8db411;
+}
+
 .header .procesbar span {
   margin-right: 10px;
   border: 2px solid #cbcbcb;

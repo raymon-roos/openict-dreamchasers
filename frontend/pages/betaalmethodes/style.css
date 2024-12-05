@@ -42,6 +42,18 @@
   height: 30px;
 }
 
+.header .procesbar a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #cbcbcb;
+  transition: all 0.3s;
+}
+
+.header .procesbar a:hover {
+  color: #8db411;
+}
+
 .header i {
   font-size: 20px;
   margin: 0 10px;
