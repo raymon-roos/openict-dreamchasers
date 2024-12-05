@@ -236,6 +236,13 @@
   width: 100%;
 }
 
+#addressMessage {
+  color: rgb(169, 4, 4) !important;
+  font-size: 13px;
+  margin-top: 7px;
+  margin-left: 6px;
+}
+
 .reservationInfo {
   background-color: rgba(141, 180, 17, 0.2);
   margin-top: 30px;
