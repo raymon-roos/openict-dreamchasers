@@ -20,7 +20,7 @@ document
       }
 
       // Zet de knop 'Volgende' in staat om ingeschakeld te worden
-      document.querySelector(".nextButton").disabled = false;
+      document.querySelector(".disableButton").disabled = false;
 
       // Bewaar de geselecteerde betaalmethode (optioneel)
       const selectedMethod = this.getAttribute("data-method");
@@ -29,4 +29,4 @@ document
   });
 
 // Zet de 'Volgende' knop weer uitgeschakeld bij laden van de pagina
-document.querySelector(".nextButton").disabled = true;
+document.querySelector(".disableButton").disabled = true;

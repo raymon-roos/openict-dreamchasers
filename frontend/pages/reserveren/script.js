@@ -59,6 +59,23 @@ document.querySelectorAll(".tab").forEach((tab) => {
   });
 });
 
+//
+// //////////////////////////////////////////////////////////////////
+//
+//
+
+// Dynamische kosten
+
+// #campingPrijs = base prijs gekozen campingplek
+let campingPrijs = document.getElementById("campingPrijs");
+
+//
+// //////////////////////////////////////////////////////////////////
+//
+//
+
+// Open / Sluit Modal Gasten
+
 let = personPicker = document.querySelector(".personPicker");
 
 personPicker.addEventListener("click", () => {
@@ -83,6 +100,13 @@ personPicker.addEventListener("click", () => {
     }, 10); // Vertraging voor het activeren van transities
   }
 });
+
+//
+// //////////////////////////////////////////////////////////////////
+//
+//
+
+// Gasten toevoegen / verwijderen
 
 // Select all minus and plus buttons
 const minusButtons = document.querySelectorAll(".minus");
@@ -115,7 +139,12 @@ plusButtons.forEach((button) => {
   });
 });
 
+//
 // //////////////////////////////////////////////////////////////////
+//
+//
+
+// Calendar
 
 document.addEventListener("DOMContentLoaded", function () {
   const unavailableDates = [

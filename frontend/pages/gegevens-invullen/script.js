@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Het minimumjaar voor een leeftijd van 16 jaar (16 jaar geleden)
   const minYear = currentYear - 16;
+  const maxYear = 1900;
 
   const daySelect = document.querySelector("#day");
   const monthSelect = document.querySelector("#month");
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Populeer de jaren van 2007 naar 1950
-  for (let i = minYear; i >= 1950; i--) {
+  for (let i = minYear; i >= maxYear; i--) {
     const option = document.createElement("option");
     option.value = i;
     option.textContent = i;
