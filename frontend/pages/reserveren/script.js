@@ -66,8 +66,96 @@ document.querySelectorAll(".tab").forEach((tab) => {
 
 // Dynamische kosten
 
-// #campingPrijs = base prijs gekozen campingplek
-let campingPrijs = document.getElementById("campingPrijs");
+function init() {
+  // Zet de MutationObserver in voor de relevante spans
+  const observer = new MutationObserver(() => {
+    calculateAndDisplayCosts();
+  });
+
+  // Voeg observer toe aan elke span die de prijs of andere gegevens bevat
+  const spans = document.querySelectorAll(
+    "#adults, #youths, #children, #babies, #pets"
+  );
+  spans.forEach((span) => {
+    observer.observe(span, {
+      childList: true, // Luister naar veranderingen in de tekstinhoud
+      subtree: true, // Luister naar veranderingen in de hele subtree
+    });
+  });
+
+  // Start de initiële berekening
+  calculateAndDisplayCosts();
+}
+
+function calculateCosts(
+  days,
+  basePrice,
+  adults,
+  youths,
+  children,
+  babies,
+  pets
+) {
+  return {
+    adults: { totalAdults: adults, adultsCosts: adults * basePrice * days },
+    youths: {
+      totalYouths: youths,
+      youthsCosts: youths * (basePrice * 0.75) * days,
+    },
+    children: {
+      totalChildren: children,
+      childrenCosts: children * (basePrice * 0.5) * days,
+    },
+    babies: {
+      totalBabies: babies,
+      babiesCosts: babies * (basePrice * 0) * days,
+    },
+    pets: {
+      totalPets: pets,
+      petsCosts: pets * basePrice * days,
+    },
+  };
+}
+
+function displayCosts(costs) {
+  // Tel alle kosten op
+  const totalCosts =
+    costs.adults.adultsCosts +
+    costs.youths.youthsCosts +
+    costs.children.childrenCosts +
+    costs.babies.babiesCosts +
+    costs.pets.petsCosts;
+
+  document.getElementById("total-price").textContent = totalCosts;
+}
+
+function calculateAndDisplayCosts() {
+  // Haal alle inputs/informatie op
+  let days = 8;
+  let basePrice =
+    Number(document.getElementById("camping-price").innerText) || 0;
+  let adults = Number(document.getElementById("adults").innerText) || 0;
+  let youths = Number(document.getElementById("youths").innerText) || 0;
+  let children = Number(document.getElementById("children").innerText) || 0;
+  let babies = Number(document.getElementById("babies").innerText) || 0;
+  let pets = Number(document.getElementById("pets").innerText) || 0;
+
+  // Bereken kosten
+  let costs = calculateCosts(
+    days,
+    basePrice,
+    adults,
+    youths,
+    children,
+    babies,
+    pets
+  );
+
+  // Display kosten
+  displayCosts(costs);
+}
+
+init();
 
 //
 // //////////////////////////////////////////////////////////////////
