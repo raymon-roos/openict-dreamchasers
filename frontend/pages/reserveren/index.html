@@ -53,7 +53,9 @@
           <h1>Camping Plek 1</h1>
           <div>★ ★ ★ ★</div>
         </div>
-        <p id="camping-price" class="price">€25 <span>per nacht</span></p>
+        <p class="price">
+          €<output id="camping-price">25</output> <span>per nacht</span>
+        </p>
       </section>
 
       <!-- Camping Info Main -->
@@ -198,7 +200,7 @@
                 </div>
                 <div class="person-control">
                   <i class="fa-regular fa-square-minus minus"></i>
-                  <p data-type="adults" id="adults">0</p>
+                  <p id="adults" data-type="adults">0</p>
                   <i class="fa-solid fa-square-plus plus"></i>
                 </div>
               </div>
@@ -260,22 +262,13 @@
 
           <div class="line"></div>
 
-          <div class="costs">
-            <div class="cost">
-              <p>$145 x 10 nachten</p>
-              <span>€994</span>
-            </div>
-            <div class="cost">
-              <p>Servicekosten</p>
-              <span>€32</span>
-            </div>
-          </div>
+          <div class="costs" id="allCostsContainer"></div>
 
           <div class="line"></div>
 
           <div class="total-price">
             <p>Totaal</p>
-            <span id="total-price">€1002</span>
+            <span>€<output id="total-price">1002</output></span>
           </div>
 
           <a class="pay-button" href="../gegevens-invullen/index.html"
