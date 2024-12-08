@@ -79,7 +79,7 @@ function init() {
   spans.forEach((span) => {
     observer.observe(span, {
       childList: true, // Luister naar veranderingen in de tekstinhoud
-      subtree: true, // Luister naar veranderingen in de hele subtree
+      subtree: false, // Luister naar veranderingen in de hele subtree
     });
   });
 
@@ -126,6 +126,56 @@ function displayCosts(costs) {
     costs.babies.babiesCosts +
     costs.pets.petsCosts;
 
+  let allCostsContainer = document.getElementById("allCostsContainer");
+  const div = (guestType, totalGuests, totalCostsGuest) => {
+    return `<div class="cost">
+              <p>${totalGuests} ${guestType}</p>
+              <span>€${totalCostsGuest}</span>
+            </div>`;
+  };
+
+  allCostsContainer.innerHTML = "";
+
+  // Volwassenen
+  if (costs.adults.totalAdults > 0)
+    allCostsContainer.innerHTML += div(
+      "Volwassenen",
+      costs.adults.totalAdults,
+      costs.adults.adultsCosts
+    );
+
+  // Jongeren
+  if (costs.youths.totalYouths > 0)
+    allCostsContainer.innerHTML += div(
+      "Jongeren",
+      costs.youths.totalYouths,
+      costs.youths.youthsCosts
+    );
+
+  // Kinderen
+  if (costs.children.totalChildren > 0)
+    allCostsContainer.innerHTML += div(
+      "Kinderen",
+      costs.children.totalChildren,
+      costs.children.childrenCosts
+    );
+
+  // Babies
+  if (costs.babies.totalBabies > 0)
+    allCostsContainer.innerHTML += div(
+      "Babies",
+      costs.babies.totalBabies,
+      costs.babies.babiesCosts
+    );
+
+  // Pets
+  if (costs.pets.totalPets > 0)
+    allCostsContainer.innerHTML += div(
+      "Huisdieren",
+      costs.pets.totalPets,
+      costs.pets.petsCosts
+    );
+
   document.getElementById("total-price").textContent = totalCosts;
 }
 
@@ -139,6 +189,7 @@ function calculateAndDisplayCosts() {
   let children = Number(document.getElementById("children").innerText) || 0;
   let babies = Number(document.getElementById("babies").innerText) || 0;
   let pets = Number(document.getElementById("pets").innerText) || 0;
+  console.log(basePrice);
 
   // Bereken kosten
   let costs = calculateCosts(
