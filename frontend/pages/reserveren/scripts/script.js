@@ -1,8 +1,13 @@
 import { initializeCalendar } from "./calendar.js";
+import { addGuestEventListeners } from "./guestsHandler.js";
 
+// Calendar
 document.addEventListener("DOMContentLoaded", function () {
   initializeCalendar();
 });
+
+// Gasten Toevoegen / Verwijderen
+addGuestEventListeners(); //
 
 //
 // //////////////////////////////////////////////////////////////////
