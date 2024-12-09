@@ -1,26 +1,36 @@
-// Open / Sluit Modal Gasten
+// Functie om de modal te openen of te sluiten
+export function togglePersonPickerModal(personPicker, personPickerModal) {
+  const img = personPicker.querySelector(".personPickerArrowIcon");
 
-let = personPicker = document.querySelector(".personPicker");
+  // Voeg of verwijder de 'rotated' klasse voor de pijl
+  img.classList.toggle("rotated");
 
-personPicker.addEventListener("click", () => {
-  const personPickerModal = document.querySelector(".personPicker__modal");
-
-  const img = personPicker.querySelector(".personPickerArrowIcon"); // Select the image inside the div
-  img.classList.toggle("rotated"); // Toggle the 'rotated' class
-
+  // Check of de modal zichtbaar is, en pas de display en visibiliteit aan
   if (personPickerModal.classList.contains("visible")) {
-    // Verberg de modal
     personPickerModal.classList.remove("visible");
 
     setTimeout(() => {
-      personPickerModal.style.display = "none"; // Verwijder flex na animatie
-    }, 300); // Animatieduur moet overeenkomen met de CSS-transitie
+      personPickerModal.style.display = "none";
+    }, 300); // Zorg ervoor dat deze duur overeenkomt met je CSS-transitie
   } else {
-    // Toon de modal
-    personPickerModal.style.display = "flex"; // Voeg flex toe
+    personPickerModal.style.display = "flex";
 
     setTimeout(() => {
       personPickerModal.classList.add("visible");
-    }, 10); // Vertraging voor het activeren van transities
+    }, 10); // Vertraging voor transitie-effecten
   }
-});
+}
+
+// Functie om de event listener toe te voegen
+export function addPersonPickerEventListener() {
+  const personPicker = document.querySelector(".personPicker");
+  const personPickerModal = document.querySelector(".personPicker__modal");
+
+  if (personPicker && personPickerModal) {
+    personPicker.addEventListener("click", () =>
+      togglePersonPickerModal(personPicker, personPickerModal)
+    );
+  } else {
+    console.error("Person picker modal elementen niet gevonden.");
+  }
+}

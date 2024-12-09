@@ -1,5 +1,6 @@
 import { initializeCalendar } from "./calendar.js";
 import { addGuestEventListeners } from "./guestsHandler.js";
+import { addPersonPickerEventListener } from "./openCloseModal.js";
 
 // Calendar
 document.addEventListener("DOMContentLoaded", function () {
@@ -7,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Gasten Toevoegen / Verwijderen
-addGuestEventListeners(); //
+addGuestEventListeners();
+addPersonPickerEventListener();
 
 //
 // //////////////////////////////////////////////////////////////////
