@@ -3,23 +3,28 @@ package main
 import (
 	"log"
 
-	"dreamchasers/internal/services"
+	// "dreamchasers/internal/services"
+	"dreamchasers/internal/https"
 )
 
 func main() {
-	envList := services.LoadEnv()
+	// ====--- DON'T DELETE THIS ---====
+	// envList := services.LoadEnv()
 
-	db, err := services.InitializeDatabase(envList)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	// db, err := services.InitializeDatabase(envList)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// defer db.Close()
 
-	db.SetMaxOpenConns(25)
-	db.SetMaxIdleConns(25)
-	db.SetConnMaxLifetime(0)
+	// db.SetMaxOpenConns(25)
+	// db.SetMaxIdleConns(25)
+	// db.SetConnMaxLifetime(0)
 
-	services.DbMigration(db)
+	// services.DbMigration(db)
+	// ====--- DON'T DELETE THIS ---====
+
+	https.GetHandlers()
 
 	log.Println("db successfully!")
 }
