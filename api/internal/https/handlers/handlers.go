@@ -16,6 +16,6 @@ func (h Handler) GetOla(w http.ResponseWriter, r *http.Request) {
 }
 
 // TEST function | Just remove this when done
-func (h Handler) DeleteOLA(w http.ResponseWriter, r *http.Request) {
+func (h Handler) DeleteOlaBolla(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Removed Ola (ㆆ_ㆆ)")
 }
