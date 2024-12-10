@@ -3,6 +3,7 @@ package https
 
 import (
 	"fmt"
+	"net/http"
 	"reflect"
 	"regexp"
 	"strings"
@@ -10,13 +11,12 @@ import (
 	"dreamchasers/internal/https/handlers"
 )
 
-// ==== Structs ==== \\
 type Route struct {
-	FuncName string
 	Path     string
+	FuncName string
+	Func     func(http.ResponseWriter, *http.Request)
 }
 
-// ==== Functions ==== \\
 func GetHandlers() []string {
 	instance := handlers.Handler{}
 	t := reflect.TypeOf(instance)
@@ -27,23 +27,31 @@ func GetHandlers() []string {
 		handlers = append(handlers, method.Name)
 	}
 
-	// fmt.Printf("%s \n", handlers)
 	return handlers
 }
 
-func CallHandler() {
-	//
+func CallHandler(routeList []Route, path string, w http.ResponseWriter, r *http.Request) {
+	for _, route := range routeList {
+		if route.Path == path {
+			if route.Func != nil {
+				route.Func(w, r)
+			} else {
+				fmt.Printf("No function found for path: %s\n", path)
+			}
+			return
+		}
+	}
+	fmt.Printf("Route not found for path: %s\n", path)
 }
 
 // With handlers from "GetHandlers"
 // Create a Router path: {Method}/{functionName}/{OptionalParameter?}
 func PathFromHandler(list []string) []Route {
 	var routeList []Route
+	re := regexp.MustCompile("([A-Z][a-z]*)")
 
-	// - Not going to lie, this is stolen from Stack Overflow...
 	for _, handler := range list {
 		route := Route{}
-		re := regexp.MustCompile("([A-Z][a-z]*)")
 		parts := re.FindAllString(handler, -1)
 		if len(parts) > 1 {
 			route.Path = parts[0] + "/" + strings.Join(parts[1:], "")
@@ -52,7 +60,9 @@ func PathFromHandler(list []string) []Route {
 		}
 
 		route.FuncName = handler
-
+		//      | 	--- Added this for my own sanity --- 	 |
+		// 			| Objects that points to new instance of & | Returns reflect value as interface | Converts interface to * |
+		route.Func = reflect.ValueOf(&handlers.Handler{}).MethodByName(handler).Interface().(func(http.ResponseWriter, *http.Request))
 		routeList = append(routeList, route)
 	}
 
