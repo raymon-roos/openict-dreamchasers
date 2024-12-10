@@ -4,19 +4,20 @@ package https
 import (
 	"fmt"
 	"reflect"
+	"regexp"
+	"strings"
 
 	"dreamchasers/internal/https/handlers"
 )
 
 // ==== Structs ==== \\
+type Route struct {
+	FuncName string
+	Path     string
+}
 
 // ==== Functions ==== \\
 func GetHandlers() []string {
-	// Should get all functions from "https/handlers" | FOLDER not file
-
-	// Filter out all non valid functions
-	// - Name Format: {Method}+{WhatItDoes/Name}
-
 	instance := handlers.Handler{}
 	t := reflect.TypeOf(instance)
 
@@ -24,19 +25,37 @@ func GetHandlers() []string {
 	for i := 0; i < t.NumMethod(); i++ {
 		method := t.Method(i)
 		handlers = append(handlers, method.Name)
-		fmt.Printf("%s \n", handlers)
 	}
 
+	// fmt.Printf("%s \n", handlers)
 	return handlers
-
-	//
-	// -- list of all valid handlers
-	// return handlers
 }
 
-func PathFromHandler() {
-	// With handlers from "GetHandlers"
-	// Create a Router path: {Method}/{functionName}/{OptionalParameter}
+func CallHandler() {
+	//
+}
 
-	// return path
+// With handlers from "GetHandlers"
+// Create a Router path: {Method}/{functionName}/{OptionalParameter?}
+func PathFromHandler(list []string) []Route {
+	var routeList []Route
+
+	// - Not going to lie, this is stolen from Stack Overflow...
+	for _, handler := range list {
+		route := Route{}
+		re := regexp.MustCompile("([A-Z][a-z]*)")
+		parts := re.FindAllString(handler, -1)
+		if len(parts) > 1 {
+			route.Path = parts[0] + "/" + strings.Join(parts[1:], "")
+		} else {
+			route.Path = handler
+		}
+
+		route.FuncName = handler
+
+		routeList = append(routeList, route)
+	}
+
+	fmt.Print(routeList)
+	return routeList
 }

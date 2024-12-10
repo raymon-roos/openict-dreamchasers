@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	// "dreamchasers/internal/services"
 	"dreamchasers/internal/https"
 )
@@ -24,7 +22,8 @@ func main() {
 	// services.DbMigration(db)
 	// ====--- DON'T DELETE THIS ---====
 
-	https.GetHandlers()
+	handlerList := https.GetHandlers()
 
-	log.Println("db successfully!")
+	https.PathFromHandler(handlerList)
+
 }
