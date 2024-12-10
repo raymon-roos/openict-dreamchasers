@@ -4,21 +4,31 @@ package https
 import (
 	"fmt"
 	"reflect"
+
+	"dreamchasers/internal/https/handlers"
 )
 
 // ==== Structs ==== \\
-type Handler struct{}
 
 // ==== Functions ==== \\
-func GetHandlers() {
+func GetHandlers() []string {
 	// Should get all functions from "https/handlers" | FOLDER not file
 
 	// Filter out all non valid functions
 	// - Name Format: {Method}+{WhatItDoes/Name}
 
-	instance := Handler{}
+	instance := handlers.Handler{}
 	t := reflect.TypeOf(instance)
-	fmt.Printf("%s | Hi this works I think?", t)
+
+	var handlers []string
+	for i := 0; i < t.NumMethod(); i++ {
+		method := t.Method(i)
+		handlers = append(handlers, method.Name)
+		fmt.Printf("%s \n", handlers)
+	}
+
+	return handlers
+
 	//
 	// -- list of all valid handlers
 	// return handlers
