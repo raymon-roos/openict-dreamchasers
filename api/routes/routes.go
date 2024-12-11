@@ -1,12 +1,10 @@
-package https
+package routes
 
 import (
 	"net/http"
 	"reflect"
 	"regexp"
 	"strings"
-
-	"dreamchasers/internal/https/handlers"
 )
 
 type Route struct {
@@ -15,7 +13,7 @@ type Route struct {
 }
 
 func ListHandlerMethods() []string {
-	instance := handlers.Handler{}
+	instance := Handler{}
 	t := reflect.TypeOf(instance)
 
 	var handlers []string
@@ -31,14 +29,15 @@ func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, 
 	for _, route := range routeList {
 		if route.Path != path || route.Func == nil {
 			continue
-		} else {
-			route.Func(w, r)
-
-			// Not sure if this part is needed.
-			w.WriteHeader(http.StatusOK)
-
-			return
 		}
+
+		route.Func(w, r)
+
+		// Not sure if this part is needed.
+		w.WriteHeader(http.StatusOK)
+
+		return
+
 	}
 	w.WriteHeader(http.StatusNotFound)
 	return
@@ -61,7 +60,7 @@ func GenerateRoutesFromHandlers(list []string) []Route {
 
 		//      | 	--- Added this for my own sanity --- 	 |
 		// 			| Objects that points to new instance of & | Returns reflect value as interface | Converts interface to * |
-		route.Func = reflect.ValueOf(&handlers.Handler{}).MethodByName(handler).Interface().(func(http.ResponseWriter, *http.Request))
+		route.Func = reflect.ValueOf(&Handler{}).MethodByName(handler).Interface().(func(http.ResponseWriter, *http.Request))
 		routeList = append(routeList, route)
 	}
 
