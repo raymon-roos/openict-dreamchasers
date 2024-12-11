@@ -1,8 +1,6 @@
-// Don't forget to remove all concept comments when done <(＿　＿)>
 package https
 
 import (
-	"fmt"
 	"net/http"
 	"reflect"
 	"regexp"
@@ -12,12 +10,11 @@ import (
 )
 
 type Route struct {
-	Path     string
-	FuncName string
-	Func     func(http.ResponseWriter, *http.Request)
+	Path string
+	Func func(http.ResponseWriter, *http.Request)
 }
 
-func GetHandlers() []string {
+func ListHandlerMethods() []string {
 	instance := handlers.Handler{}
 	t := reflect.TypeOf(instance)
 
@@ -30,23 +27,26 @@ func GetHandlers() []string {
 	return handlers
 }
 
-func CallHandler(routeList []Route, path string, w http.ResponseWriter, r *http.Request) {
+func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, r *http.Request) {
 	for _, route := range routeList {
-		if route.Path == path {
-			if route.Func != nil {
-				route.Func(w, r)
-			} else {
-				fmt.Printf("No function found for path: %s\n", path)
-			}
+		if route.Path != path || route.Func == nil {
+			continue
+		} else {
+			route.Func(w, r)
+
+			// Not sure if this part is needed.
+			w.WriteHeader(http.StatusOK)
+
 			return
 		}
 	}
-	fmt.Printf("Route not found for path: %s\n", path)
+	w.WriteHeader(http.StatusNotFound)
+	return
 }
 
 // With handlers from "GetHandlers"
 // Create a Router path: {Method}/{functionName}/{OptionalParameter?}
-func PathFromHandler(list []string) []Route {
+func GenerateRoutesFromHandlers(list []string) []Route {
 	var routeList []Route
 	re := regexp.MustCompile("([A-Z][a-z]*)")
 
@@ -59,13 +59,11 @@ func PathFromHandler(list []string) []Route {
 			route.Path = handler
 		}
 
-		route.FuncName = handler
 		//      | 	--- Added this for my own sanity --- 	 |
 		// 			| Objects that points to new instance of & | Returns reflect value as interface | Converts interface to * |
 		route.Func = reflect.ValueOf(&handlers.Handler{}).MethodByName(handler).Interface().(func(http.ResponseWriter, *http.Request))
 		routeList = append(routeList, route)
 	}
 
-	fmt.Print(routeList)
 	return routeList
 }

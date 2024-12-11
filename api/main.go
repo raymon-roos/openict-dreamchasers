@@ -24,14 +24,14 @@ func main() {
 	// ====--- DON'T DELETE THIS ---====
 
 	// ==== HTTP ROUTING ====
-	handlerList := https.GetHandlers()
+	handlerList := https.ListHandlerMethods()
 
-	routeList := https.PathFromHandler(handlerList)
+	routeList := https.GenerateRoutesFromHandlers(handlerList)
 
 	// In short sends all request to CallHandler. Needed for dynamic routing
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		path := r.URL.Path[1:] // Remove leading slash
-		https.CallHandler(routeList, path, w, r)
+		https.ExecuteRouteHandler(routeList, path, w, r)
 	})
 
 	http.ListenAndServe(":8080", nil)
