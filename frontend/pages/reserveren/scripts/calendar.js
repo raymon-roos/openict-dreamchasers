@@ -1,3 +1,5 @@
+import { calculateAndDisplayCosts } from "./costsHandler.js";
+
 // Calendar Init
 export function initializeCalendar() {
   flatpickr("#calendar", calendarConfig);
@@ -53,10 +55,42 @@ function handleDataChange(selectedDates) {
   }
 
   if (selectedDates.length === 2) {
-    arriveElement.textContent = selectedDates[0].toLocaleDateString();
-    departureElement.textContent = selectedDates[1].toLocaleDateString();
+    arriveElement.value = selectedDates[0].toISOString().split("T")[0]; // Datum in 'YYYY-MM-DD'-formaat
+    departureElement.value = selectedDates[1].toISOString().split("T")[0];
+
+    // Bereken het aantal dagen
+    const totalDays = calculateTotalDays(selectedDates[0], selectedDates[1]);
+
+    // Sla het aantal dagen op in localStorage
+    saveDaysToLocalStorage(totalDays);
+
+    // Display prijzen
+    calculateAndDisplayCosts();
+
+    // Select eerste date
   } else if (selectedDates.length === 1) {
-    arriveElement.textContent = selectedDates[0].toLocaleDateString();
-    departureElement.textContent = "Nog niet geselecteerd";
+    arriveElement.value = selectedDates[0].toISOString().split("T")[0];
+    departureElement.value = ""; // Leegmaken als de vertrekdatum nog niet is geselecteerd
   }
+}
+
+// Functie om het aantal dagen op te slaan in localStorage
+function saveDaysToLocalStorage(totalDays) {
+  localStorage.setItem("totalDays", totalDays);
+  console.log(`Totaal aantal dagen opgeslagen in localStorage: ${totalDays}`);
+}
+
+// Functie voor het berekenen van het aantal dagen
+function calculateTotalDays(startDate, endDate) {
+  // Zet de datums om naar Date objecten
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  // Bereken het verschil in milliseconden
+  const timeDifference = end - start;
+
+  // Zet het verschil om naar dagen
+  const totalDays = timeDifference / (1000 * 3600 * 24);
+
+  return totalDays;
 }

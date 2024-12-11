@@ -171,20 +171,22 @@
             <!-- Inline Flatpickr calendar -->
             <div id="calendar"></div>
           </div>
-          <p class="arrive-date">
-            <span>Aankomstdatum:</span>
-            <span id="arrive">Nog niet geselecteerd</span>
-          </p>
-          <p class="departure-date">
-            <span>Vertrekdatum:</span>
-            <span id="departure">Nog niet geselecteerd</span>
-          </p>
 
-          <div class="personPicker__container">
-            <p class="korting__infoText">
-              We bieden korting voor jongeren en kinderen. Baby's verblijven
-              gratis!
+          <div class="arrive-departure">
+            <p class="arrive-date">
+              <span>Aankomstdatum</span>
+              <input id="arrive" type="date" readonly />
             </p>
+            <p class="departure-date">
+              <span>Vertrekdatum</span>
+              <input id="departure" type="date" readonly />
+            </p>
+          </div>
+          <p class="korting__infoText">
+            We bieden korting voor jongeren en kinderen. Baby's verblijven
+            gratis!
+          </p>
+          <div class="personPicker__container">
             <div class="personPicker">
               <div class="personPicker__text">
                 <h5>Gasten</h5>
@@ -196,12 +198,18 @@
               <div class="picker">
                 <div class="picker__info">
                   <h4>Volwassenen <span>(18-99 jaar)</span></h4>
-                  <p>€35.00/nacht</p>
+                  <p id="adults-price-per-night">€35.00/nacht</p>
                 </div>
                 <div class="person-control">
-                  <i class="fa-regular fa-square-minus minus"></i>
-                  <p id="adults" data-type="adults">0</p>
-                  <i class="fa-solid fa-square-plus plus"></i>
+                  <i
+                    data-type="adults"
+                    class="fa-regular fa-square-minus minus"
+                  ></i>
+                  <p id="adults" data-type="adults">1</p>
+                  <i
+                    data-type="adults"
+                    class="fa-solid fa-square-plus plus"
+                  ></i>
                 </div>
               </div>
               <div class="picker">
@@ -210,12 +218,18 @@
                     Jongeren <span>(12-18 jaar)</span>
                     <p>25% korting</p>
                   </h4>
-                  <p>€35.00/nacht</p>
+                  <p id="youths-price-per-night">€35.00/nacht</p>
                 </div>
                 <div class="person-control">
-                  <i class="fa-regular fa-square-minus minus"></i>
+                  <i
+                    data-type="youths"
+                    class="fa-regular fa-square-minus minus"
+                  ></i>
                   <p data-type="youths" id="youths">0</p>
-                  <i class="fa-solid fa-square-plus plus"></i>
+                  <i
+                    data-type="youths"
+                    class="fa-solid fa-square-plus plus"
+                  ></i>
                 </div>
               </div>
               <div class="picker">
@@ -224,12 +238,18 @@
                     Kinderen <span>(3-12 jaar)</span>
                     <p>50% korting</p>
                   </h4>
-                  <p>€30.00/nacht</p>
+                  <p id="children-price-per-night">€30.00/nacht</p>
                 </div>
                 <div class="person-control">
-                  <i class="fa-regular fa-square-minus minus"></i>
+                  <i
+                    data-type="children"
+                    class="fa-regular fa-square-minus minus"
+                  ></i>
                   <p data-type="children" id="children">0</p>
-                  <i class="fa-solid fa-square-plus plus"></i>
+                  <i
+                    class="fa-solid fa-square-plus plus"
+                    data-type="children"
+                  ></i>
                 </div>
               </div>
               <div class="picker">
@@ -238,23 +258,32 @@
                     Baby's <span>(0-2 jaar)</span>
                     <p>100% korting</p>
                   </h4>
-                  <p>€0.00/nacht</p>
+                  <p id="babies-price-per-night">€0.00/nacht</p>
                 </div>
                 <div class="person-control">
-                  <i class="fa-regular fa-square-minus minus"></i>
+                  <i
+                    data-type="babies"
+                    class="fa-regular fa-square-minus minus"
+                  ></i>
                   <p data-type="babies" id="babies">0</p>
-                  <i class="fa-solid fa-square-plus plus"></i>
+                  <i
+                    data-type="babies"
+                    class="fa-solid fa-square-plus plus"
+                  ></i>
                 </div>
               </div>
               <div class="picker">
                 <div>
                   <h4>Huisdieren*</h4>
-                  <p>Max 2</p>
+                  <p id="pets-price-per-night"></p>
                 </div>
                 <div class="person-control">
-                  <i class="fa-regular fa-square-minus minus"></i>
+                  <i
+                    data-type="pets"
+                    class="fa-regular fa-square-minus minus"
+                  ></i>
                   <p data-type="pets" id="pets">0</p>
-                  <i class="fa-solid fa-square-plus plus"></i>
+                  <i data-type="pets" class="fa-solid fa-square-plus plus"></i>
                 </div>
               </div>
             </div>
