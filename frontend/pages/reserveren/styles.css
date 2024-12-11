@@ -108,7 +108,7 @@
   display: flex;
   flex-direction: column;
   padding: 25px 35px;
-  width: 50%;
+  width: fit-content;
   margin-left: 5px;
   border-radius: 5px;
   height: 100%;
@@ -220,6 +220,10 @@
   display: none;
 }
 
+.disabled {
+  color: rgb(215, 215, 215) !important;
+}
+
 .active-content {
   display: flex !important;
 }
@@ -326,6 +330,8 @@
 }
 
 .personPicker__container {
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
@@ -337,6 +343,7 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -461,17 +468,37 @@
   margin: 18px 0;
 }
 
+.arrive-departure {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.arrive-date,
+.departure-date {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
 .arrive-date {
-  margin: 5px 0;
-  margin-top: 12px;
+  margin-right: 20px;
 }
 
-.arrive-date span {
-  font-weight: 700;
-}
-
+.arrive-date span,
 .departure-date span {
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.departure-date input,
+.arrive-date input {
+  font-family: "Inter";
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
+  margin-top: 5px;
 }
 
 .cost {
