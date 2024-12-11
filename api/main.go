@@ -4,12 +4,18 @@ import (
 	"dreamchasers/routes"
 	"dreamchasers/services"
 	"log"
+
+	"strings"
+
+	// "dreamchasers/services"
+
 	"net/http"
 )
 
 func main() {
 	envList := services.LoadEnv()
 
+	// ==== -- -- DB -- -- ====
 	db, err := services.InitializeDatabase(envList)
 	if err != nil {
 		log.Fatal(err)
@@ -29,8 +35,8 @@ func main() {
 
 	// In short sends all request to CallHandler. Needed for dynamic routing
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		path := r.URL.Path[1:] // Remove leading slash
-		println(r.Method)
+		path := strings.ToLower(r.URL.Path[1:]) // Remove leading slash
+		println(r.Method + " | " + path)
 
 		routes.ExecuteRouteHandler(routeList, path, w, r)
 	})
