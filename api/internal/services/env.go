@@ -18,7 +18,7 @@ type EnvConfig struct {
 func LoadEnv() EnvConfig {
 	err := godotenv.Load(".env")
 	if err != nil {
-		log.Println("No .env file found!\033[31m")
+		log.Println("No .env file found!")
 	}
 
 	config := EnvConfig{
