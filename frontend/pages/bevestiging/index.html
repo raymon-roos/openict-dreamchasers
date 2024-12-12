@@ -24,7 +24,26 @@
         We hebben uw reservering ontvangen en verwerkt. Hieronder vindt u de
         details van uw boeking.
       </h3>
-      <div class="overviewCard">
+
+      <div class="reserveringsnummer__header">
+        <h4>Reserveringsnummer</h4>
+        <h2>#90121</h2>
+      </div>
+
+      <div class="actions">
+        <a>Terug naar homepagina</a>
+        <div class="actions__right">
+          <button id="print">
+            <i class="fa-solid fa-print"></i>
+            <p>Printen</p>
+          </button>
+          <button id="download">
+            <i class="fa-solid fa-download"></i>
+            <p>Downloaden</p>
+          </button>
+        </div>
+      </div>
+      <div class="overviewCard" id="overviewCard">
         <div class="reserveDetail">
           <i class="fa-solid fa-circle-info"></i>
           <p>Reserveringdetails</p>
@@ -33,36 +52,51 @@
           <div class="detailContent__left">
             <div class="campingLocation-info">
               <div class="campingInfo__header">
-                <i class="fa-solid fa-location-dot"></i>
-                <h4>Campingplek Informatie</h4>
+                <i class="fa-solid fa-user"></i>
+                <h4>Persoonlijke Gegevens</h4>
               </div>
               <div class="campingInfo__content">
-                <p>Reseveernummer: #90121</p>
-                <p>Type: Comfort Kampeerplek</p>
-                <p>Grootte: 100m²</p>
-                <p>Schaduw: Gedeeltelijk</p>
+                <p>Naam: Cedric Heijlman</p>
+                <p>Geboorte Datum: 08-09-2005</p>
+                <p>Telefoonnummer: +31 642822155</p>
+                <p>E-mail: cedric@gmail.com</p>
               </div>
-              <div class="stayDuration">
-                <div class="stayDuration__header">
-                  <i class="fa-solid fa-calendar-days"></i>
-                  <h4>Verblijfsduur</h4>
+            </div>
+            <div class="campingLocation-info">
+              <div class="campingInfo__header">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>Adres</h4>
+              </div>
+              <div class="campingInfo__content">
+                <p>Delacroixstraat 16</p>
+                <p>1328 RD Almere</p>
+                <p>Nederland</p>
+              </div>
+            </div>
+            <div class="stayDuration">
+              <div class="stayDuration__header">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h4>Verblijfsduur</h4>
+              </div>
+              <div class="stayDuration__content">
+                <div class="arrival">
+                  <h5>Aankomst</h5>
+                  <p class="date-box">11-12-2024</p>
+                  <p>Inchecken na: 11:00</p>
                 </div>
-                <div class="stayDuration__content">
-                  <div class="arrival">
-                    <h5>Aankomst</h5>
-                    <div class="date-box">11-12-2024</div>
-                  </div>
-                  <div class="departure">
-                    <h5>Vertrek</h5>
-                    <div class="date-box">01-01-2025</div>
-                  </div>
+                <div class="departure">
+                  <h5>Vertrek</h5>
+                  <p class="date-box">01-01-2025</p>
+                  <p>Uitchecken voor: 11:00</p>
                 </div>
               </div>
-              <div class="companions">
-                <div class="companions__header">
-                  <i class="fa-solid fa-user-group"></i>
-                  <h4>Gezelschap</h4>
-                </div>
+            </div>
+            <div class="companions">
+              <div class="companions__header">
+                <i class="fa-solid fa-user-group"></i>
+                <h4>Gezelschap</h4>
+              </div>
+              <div class="allCompanions">
                 <div class="companions__total">
                   <p>Totaal aantal personen:</p>
                   <p>6</p>
@@ -71,20 +105,19 @@
                   <div class="companions__left">
                     <div class="companion">
                       <i class="fa-solid fa-baby"></i>
-                      <p>Baby's (0-2):</p>
+                      <p>Baby's:</p>
                       <p>1</p>
                     </div>
                     <div class="companion">
                       <i class="fa-solid fa-child"></i>
-                      <p>Kinderen (3-12):</p>
+                      <p>Kinderen:</p>
                       <p>2</p>
                     </div>
                   </div>
-
                   <div class="companions__right">
                     <div class="companion">
                       <i class="fa-solid fa-user"></i>
-                      <p>Jongeren (12-18):</p>
+                      <p>Jongeren:</p>
                       <p>1</p>
                     </div>
                     <div class="companion">
@@ -103,6 +136,18 @@
             </div>
           </div>
           <div class="detailContent__right">
+            <div class="campingLocation-info">
+              <div class="campingInfo__header">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>Campingplek Informatie</h4>
+              </div>
+              <div class="campingInfo__content">
+                <p>Reseveernummer: #90121</p>
+                <p>Type: Comfort Kampeerplek</p>
+                <p>Grootte: 100m²</p>
+                <p>Schaduw: Gedeeltelijk</p>
+              </div>
+            </div>
             <div class="facilities">
               <i class="fas fa-campground tent-icon"></i>
               <h4>Voorzieningen</h4>
@@ -135,13 +180,23 @@
                 <img src="campingPlek1.2.png" alt="camping1.2" />
               </div>
             </div>
+            <div class="campingContact-info">
+              <div class="campingInfo__header">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>Camping Contact</h4>
+              </div>
+              <div class="campingInfo__content">
+                <p>+31 6 12345678</p>
+                <p>Bosweg 45, 5678 CD Veluwe, Nederland</p>
+                <p>info@boerbert.nl</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="confirm-email">
-        <p>U ontvang binnenkort een bevestigingsmail met alle details.</p>
-      </div>
-     <button class="button__homepage"><a href="">Terug naar homepagina</a></button>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

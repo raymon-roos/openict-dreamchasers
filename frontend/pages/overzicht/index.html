@@ -22,22 +22,35 @@
     <div class="header">
       <button class="back-button">
         <i class="fa-solid fa-chevron-left"></i
-        ><a href="../betaalmethodes-pagina/index.html">Ga terug</a>
+        ><a href="../betaalmethodes/index.html">Ga terug</a>
       </button>
+
       <div class="procesbar">
-        <span>1</span>
-        <p>Gegevens</p>
+        <a href="../reserveren/index.html">
+          <span>1</span>
+          <p>Campingplek</p>
+        </a>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
 
       <div class="procesbar">
-        <span>2</span>
-        <p>Betaling</p>
+        <a href="../gegevens-invullen/index.html">
+          <span>2</span>
+          <p>Gegevens</p>
+        </a>
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+
+      <div class="procesbar">
+        <a href="../betaalmethodes/index.html">
+          <span>3</span>
+          <p>Betaling</p>
+        </a>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
       <div class="procesbar active-procesbar">
-        <span>3</span>
-        <p>Bevestiging</p>
+        <span>4</span>
+        <p>Overzicht</p>
       </div>
     </div>
     <div class="mainContainer">
@@ -49,9 +62,7 @@
         <div class="line"></div>
 
         <div class="personalInfo">
-          <a class="edit" href="../gegevens-invullen-pagina/index.html"
-            >Wijzigen</a
-          >
+          <a class="edit" href="../gegevens-invullen/index.html">Wijzigen</a>
           <h3>Persoonlijke gegevens</h3>
           <div class="booker"><h4>Hoofdboeker</h4></div>
           <div class="nameLastname"><p>Naam Achternaam</p></div>
@@ -60,9 +71,7 @@
         </div>
         <div class="line"></div>
         <div class="adress">
-          <a class="edit" href="../gegevens-invullen-pagina/index.html"
-            >Wijzigen</a
-          >
+          <a class="edit" href="../gegevens-invullen/index.html">Wijzigen</a>
           <h3>Adres</h3>
           <div class="street-houseNumber"><p>Straat Huisnummer</p></div>
           <div class="postalcode-city"><p>Postcode Stad</p></div>
@@ -70,8 +79,7 @@
         </div>
         <div class="line"></div>
         <div class="paymentMethod">
-            <a class="edit" href="../betaalmethodes-pagina/index.html"
-            >Wijzigen</a>
+          <a class="edit" href="../betaalmethodes/index.html">Wijzigen</a>
           <h3>Betaalmethode</h3>
           <div name="Ideal" class="ideal">
             <img src="ideal.png" alt="ideal" />
@@ -112,6 +120,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>1 jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">Vanaf 11:00</p>
               </div>
               <div class="departure">
                 <h3>Vertrek</h3>
@@ -119,6 +128,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>5. jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">tot 11:00</p>
               </div>
             </div>
             <div class="stay-duration">
@@ -153,19 +163,15 @@
               <p>€1482</p>
             </div>
           </div>
-            </div>
-            </div>
-            
-            
         </div>
       </div>
     </div>
 
     <div class="reservationButton">
-      <button>
+      <a href="../bevestiging/index.html">
         <i class="fa-regular fa-credit-card"></i>
         <p>Betaal en reserveer</p>
-      </button>
+      </a>
       <p>
         Door te reserveren ga je akkoord met onze
         <a href="algemene-voorwaarden.html" target="_blank"
@@ -177,6 +183,4 @@
 
     <script src="script.js"></script>
   </body>
-</body>
-
 </html>

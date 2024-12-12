@@ -24,19 +24,30 @@
         <i class="fa-solid fa-chevron-left"></i
         ><a href="../gegevens-invullen/index.html  ">Ga terug</a>
       </button>
+
       <div class="procesbar">
-        <span>1</span>
-        <p>Gegevens</p>
+        <a href="../reserveren/index.html"
+          ><span>1</span>
+          <p>Campingplek</p></a
+        >
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+
+      <div class="procesbar">
+        <a href="../gegevens-invullen/index.html"
+          ><span>2</span>
+          <p>Gegevens</p></a
+        >
       </div>
       <i class="fa-solid fa-chevron-right"></i>
 
       <div class="procesbar active-procesbar">
-        <span>2</span>
+        <span>3</span>
         <p>Betaling</p>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
       <div class="procesbar">
-        <span>3</span>
+        <span>4</span>
         <p>Bevestiging</p>
       </div>
     </div>
@@ -70,10 +81,12 @@
           </div>
         </div>
         <div class="buttonContainer">
-          <button class="nextButton">
-            <a>Ga verder</a
-            ><img style="fill: white; color: white" src="arrow-2.svg" alt="" />
-          </button>
+          <a class="nextButton" href="../overzicht/index.html">
+            <button class="disableButton">
+              <p>Ga verder</p>
+              <i class="fa-solid fa-circle-chevron-right"></i>
+            </button>
+          </a>
         </div>
       </div>
 
@@ -96,6 +109,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>1 jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">Vanaf 11:00</p>
               </div>
               <div class="departure">
                 <h3>Vertrek</h3>
@@ -103,6 +117,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>5. jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">Tot 11:00</p>
               </div>
             </div>
             <div class="stay-duration">

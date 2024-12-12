@@ -26,22 +26,32 @@
     <div class="navigation"></div>
     <div class="header">
       <button class="back-button">
-        <i class="fa-solid fa-chevron-left"></i><a href="/">Ga terug</a>
+        <i class="fa-solid fa-chevron-left"></i
+        ><a href="../reserveren/index.html">Ga terug</a>
       </button>
+
+      <div class="procesbar">
+        <a href="../reserveren/index.html"
+          ><span>1</span>
+          <p>Campingplek</p></a
+        >
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+
       <div class="procesbar active-procesbar">
-        <span>1</span>
+        <span>2</span>
         <p>Gegevens</p>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
 
       <div class="procesbar">
-        <span>2</span>
+        <span>3</span>
         <p>Betaling</p>
       </div>
       <i class="fa-solid fa-chevron-right"></i>
       <div class="procesbar">
-        <span>3</span>
-        <p>Bevestiging</p>
+        <span>4</span>
+        <p>Overzicht</p>
       </div>
     </div>
     <div class="mainContainer">
@@ -99,6 +109,16 @@
               <p>E-mail <span>*</span></p>
               <input placeholder="Typ je e-mail" id="email" type="email" />
             </div>
+
+            <div class="inputcontainer">
+              <p>Bevestig e-mail <span>*</span></p>
+              <input
+                placeholder="Typ je e-mail"
+                id="email-confirm"
+                type="email"
+              />
+            </div>
+
             <div class="inputcontainer">
               <p>Telefoonnummer <span>*</span></p>
 
@@ -119,29 +139,32 @@
             <div class="inputcontainer">
               <p>Land <span>*</span></p>
 
-              <select class="selectCountry">
-                <option>Nederland</option>
-                <option>Duitsland</option>
+              <select class="selectCountry" id="selectCountry">
+                <option value="NLD">Nederland</option>
               </select>
             </div>
 
             <div class="postalCode-number">
               <div class="inputSmall">
                 <p>Postcode <span>*</span></p>
-                <input placeholder="Postcode" type="text" />
+                <input id="postalCode" placeholder="Postcode" type="text" />
               </div>
               <div class="inputSmall">
                 <p>Huisnummer <span>*</span></p>
-                <input placeholder="Huisnummer" type="text" />
+                <input id="houseNumber" placeholder="Huisnummer" type="text" />
               </div>
             </div>
+
+            <p id="addressMessage"></p>
+            <!-- Statusbericht -->
+
             <div class="inputcontainer">
               <p>Straatnaam <span>*</span></p>
-              <input placeholder="Straatnaam" type="text" />
+              <input id="streetName" placeholder="Straatnaam" type="text" />
             </div>
             <div class="inputcontainer">
               <p>Plaatsnaam <span>*</span></p>
-              <input placeholder="Plaatsnaam" type="text" />
+              <input id="cityName" placeholder="Plaatsnaam" type="text" />
             </div>
             <div>
               <label>
@@ -158,14 +181,10 @@
             <div></div>
           </div>
           <div class="buttonContainer">
-            <button class="nextButton">
-              <a>Ga verder</a
-              ><img
-                style="fill: white; color: white"
-                src="arrow-2.svg"
-                alt=""
-              />
-            </button>
+            <a class="nextButton">
+              <p href="../betaalmethodes/index.html">Ga verder</p>
+              <i class="fa-solid fa-circle-chevron-right"></i>
+            </a>
           </div>
         </form>
       </div>
@@ -189,6 +208,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>1 jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">Vanaf 11:00</p>
               </div>
               <div class="departure">
                 <h3>Vertrek</h3>
@@ -196,6 +216,7 @@
                   <i class="fa-regular fa-calendar-days"></i>
                   <p>5. jul. 2024</p>
                 </div>
+                <p class="checkin-checkout">Tot 11:00</p>
               </div>
             </div>
             <div class="stay-duration">

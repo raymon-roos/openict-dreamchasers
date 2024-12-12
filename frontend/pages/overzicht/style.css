@@ -20,14 +20,18 @@
   align-items: center;
 }
 
-.active-procesbar {
-  color: #8db411;
-}
-
 .header .procesbar {
   padding: 0 10px;
   display: flex;
   align-items: center;
+}
+
+.header .procesbar a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #cbcbcb;
+  transition: all 0.3s;
 }
 
 .header .procesbar span {
@@ -40,6 +44,22 @@
   font-size: 16px;
   width: 30px;
   height: 30px;
+}
+
+.active-procesbar {
+  color: #8db411;
+}
+
+.header .active-procesbar span {
+  border: 2px solid #8db411;
+}
+
+.header .procesbar a:hover {
+  color: #8db411;
+}
+
+.header .procesbar a:hover span {
+  border: 2px solid #8db411;
 }
 
 .header i {
@@ -95,8 +115,6 @@
   border: 0.5px solid #dadada;
   margin-top: 18px;
 }
-
-
 
 .overviewCard {
   border: 1px solid #b3b3b3;
@@ -170,22 +188,15 @@
   margin-top: 12px;
 }
 
-.arrival {
-  width: 50%;
-}
-
 .departure i,
 .arrival i {
   font-size: 20px;
+  margin-right: 8px;
 }
 
-.departure p,
-.arrival p {
-  margin-left: 10px;
-}
-
-.departure {
-  width: 50%;
+.checkin-checkout {
+  margin-top: 10px;
+  font-size: 13px;
 }
 
 .stay-duration,
@@ -243,7 +254,7 @@
   color: rgb(108, 108, 108);
 }
 
-.edit:hover  {
+.edit:hover {
   color: black;
 }
 
@@ -255,7 +266,6 @@
   margin-top: 20px;
   margin-bottom: 8px;
 }
-
 
 .adress {
   margin-bottom: 20px;
@@ -275,11 +285,7 @@
   position: relative;
 }
 
-
-
-
-.ideal
-{
+.ideal {
   display: flex;
   align-items: center;
   background-color: #efefef;
@@ -294,16 +300,11 @@
   border-radius: 10px 10px 0 0;
 }
 
-
 .ideal:hover {
   transform: scale(1.02);
 }
 
-
-
-
-.ideal img
-{
+.ideal img {
   width: 40px;
   margin: 10px 15px;
   display: flex;
@@ -316,7 +317,7 @@
 }
 
 .readPolicy {
-  color: #8DB411;
+  color: #8db411;
   text-decoration: none;
   display: block;
   margin-top: 30px;
@@ -333,12 +334,11 @@
   width: 100%;
   flex-direction: column;
   margin-bottom: 50px;
-
 }
 
-.reservationButton button {
+.reservationButton a {
   margin-bottom: 20px;
-  background-color: #617C0B;
+  background-color: #617c0b;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -346,12 +346,13 @@
   width: 50%;
   justify-content: center;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
+  border: none;
 }
 
-.reservationButton button p {
+.reservationButton a p {
   margin-left: 10px;
-
+  color: inherit;
+  text-decoration: none;
 }
-
