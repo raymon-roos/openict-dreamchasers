@@ -2,11 +2,13 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
+  padding: 8px;
 }
 
 img {
   width: 25px;
 }
+
 .filterButton {
   border: 1.5px solid black;
   width: fit-content;
@@ -17,12 +19,12 @@ img {
   align-items: center;
   border-radius: 5px;
   cursor: pointer;
+  margin-right: 30px;
 }
 
 .filterButton h3 {
   margin-left: 10px;
   font-family: "Inter";
-  font-weight: 600;
 }
 
 * {
@@ -30,6 +32,7 @@ img {
   padding: 0;
   box-sizing: border-box;
 }
+
 .type {
   border: 1.5px solid black;
   width: fit-content;
@@ -37,11 +40,15 @@ img {
   padding: 12px 30px;
   border-radius: 50px;
   font-family: "Inter";
+  cursor: pointer;
   font-size: 14px;
 }
+
 .type h3 {
-  font-weight: 500;
   margin-right: 10px;
+  font-weight: 500 !important;
+
+
 }
 
 .price {
@@ -50,6 +57,14 @@ img {
   display: flex;
   padding: 12px 30px;
   border-radius: 50px;
+  cursor: pointer;
   font-family: "Inter";
   font-size: 14px;
+  margin-left: 10px;
 }
+
+.price h3 {
+    font-weight: 500 !important;
+  margin-right: 10px;
+}
+
