@@ -367,7 +367,7 @@
   margin-top: 3px;
 }
 
-.personPicker__modal {
+.personPicker__customDropdown {
   display: none;
   position: absolute;
   background-color: white;
@@ -384,20 +384,20 @@
   transition: opacity 0.3s ease, transform 0.3s ease; /* Animatie: soepel dalen */
 }
 
-.personPicker__modal.visible {
-  display: flex; /* Modal wordt zichtbaar als flex-container */
+.personPicker__customDropdown.visible {
+  display: flex; /* Dropdown wordt zichtbaar als flex-container */
   opacity: 1; /* Volledig zichtbaar */
   transform: translateY(0); /* Beweeg naar de uiteindelijke positie */
 }
 
-.personPicker__modal .picker {
+.personPicker__customDropdown .picker {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.personPicker__modal .picker p {
+.personPicker__customDropdown .picker p {
   font-size: 13px;
 }
 
