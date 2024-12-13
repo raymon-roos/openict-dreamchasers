@@ -38,54 +38,33 @@ function displayCosts(costs) {
     costs.pets.petsCosts;
 
   let allCostsContainer = document.getElementById("allCostsContainer");
-  const div = (guestType, totalGuests, totalCostsGuest) => {
+  const dynamicDiv = (guestType, totalGuests, totalCostsGuest) => {
     return `<div class="cost">
-              <p>${totalGuests} ${guestType}</p>
+              <p>${totalGuests}x ${guestType}</p>
               <span>€${totalCostsGuest}</span>
             </div>`;
   };
 
   allCostsContainer.innerHTML = "";
 
-  // Volwassenen
-  if (costs.adults.totalAdults > 0)
-    allCostsContainer.innerHTML += div(
-      "Volwassenen",
-      costs.adults.totalAdults,
-      costs.adults.adultsCosts
-    );
+  // Loop door de keys van het costs-object
+  Object.keys(costs).forEach((key) => {
+    // Dynamisch de displaynaam genereren op basis van de key
+    const guestTypeName = key.charAt(0).toUpperCase() + key.slice(1); // Dit maakt bijvoorbeeld 'adults' naar 'Adults'
 
-  // Jongeren
-  if (costs.youths.totalYouths > 0)
-    allCostsContainer.innerHTML += div(
-      "Jongeren",
-      costs.youths.totalYouths,
-      costs.youths.youthsCosts
-    );
+    // Dynamisch de totaal aantal gasten en kosten ophalen
+    const totalGuestsKey = `total${guestTypeName}`; // Bijvoorbeeld 'totalAdults'
+    const totalCostsKey = `${key}Costs`; // Bijvoorbeeld 'adultsCosts'
 
-  // Kinderen
-  if (costs.children.totalChildren > 0)
-    allCostsContainer.innerHTML += div(
-      "Kinderen",
-      costs.children.totalChildren,
-      costs.children.childrenCosts
-    );
-
-  // Babies
-  if (costs.babies.totalBabies > 0)
-    allCostsContainer.innerHTML += div(
-      "Babies",
-      costs.babies.totalBabies,
-      costs.babies.babiesCosts
-    );
-
-  // Pets
-  if (costs.pets.totalPets > 0)
-    allCostsContainer.innerHTML += div(
-      "Huisdieren",
-      costs.pets.totalPets,
-      costs.pets.petsCosts
-    );
+    // Controleer of er gasten van dit type zijn
+    if (costs[key][totalGuestsKey] > 0) {
+      allCostsContainer.innerHTML += dynamicDiv(
+        guestTypeName,
+        costs[key][totalGuestsKey],
+        costs[key][totalCostsKey]
+      );
+    }
+  });
 
   document.getElementById("total-price").textContent = totalCosts;
 }
