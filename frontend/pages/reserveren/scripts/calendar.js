@@ -1,6 +1,4 @@
 import { calculateAndDisplayCosts } from "./costsHandler.js";
-
-// Calendar Init
 export function initializeCalendar() {
   flatpickr("#calendar", calendarConfig);
 }

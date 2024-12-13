@@ -1,6 +1,6 @@
 import { initializeCalendar } from "./calendar.js";
 import { addGuestEventListeners } from "./guestsHandler.js";
-import { addPersonPickerEventListener } from "./openCloseModal.js";
+import { addPersonPickerEventListener } from "./customDropdown.js";
 import { calculateAndDisplayCosts } from "./costsHandler.js";
 import { initializeCampingInfo } from "./campingInfo.js";
 
