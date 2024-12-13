@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS accommodation_features (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     accommodation_type_id BIGINT UNSIGNED NOT NULL,
     description VARCHAR(255) UNIQUE NOT NULL,
-    price FLOAT NOT NULL,
+    price FLOAT,
     created_at DATETIME DEFAULT now(),
     updated_at DATETIME ON UPDATE now(),
     deleted_at DATETIME,
