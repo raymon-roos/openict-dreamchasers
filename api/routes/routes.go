@@ -37,9 +37,6 @@ func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, 
 		fmt.Print(r.Method + path + " | Execute\n")
 		route.Func(w, r)
 
-		// Not sure if this part is needed.
-		w.WriteHeader(http.StatusOK)
-
 		return
 	}
 	w.WriteHeader(http.StatusNotFound)
