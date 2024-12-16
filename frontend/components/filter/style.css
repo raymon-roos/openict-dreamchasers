@@ -81,6 +81,73 @@ body {
 
 #map {
   display: flex;
-  width: 90%;
+  width: 100%;
   flex-grow: 1;
+}
+.custom-marker {
+  width: 35px;
+  height: 35px;
+  background-color: red; /* of een andere kleur */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mapboxgl-popup {
+  background: white;
+  max-width: 300px; /* Pas dit aan indien nodig */
+  box-shadow: none; /* Verwijder schaduwen */
+  border-radius: 10px !important;
+}
+
+.mapboxgl-popup-content {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  padding: 0 !important;
+  border-radius: 10px !important;
+}
+
+/* Styling voor het kruisje */
+.mapboxgl-popup-close-button {
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px;
+  padding: 0;
+}
+
+.infoCard__content {
+  padding: 10px;
+}
+
+.infoCard img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.infoCard button {
+  padding: 8px 30px;
+  background-color: #8db411;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  margin-top: 10px;
+}
+
+.mapboxgl-popup-tip {
+  display: none; /* Verberg de standaard pijl */
 }
