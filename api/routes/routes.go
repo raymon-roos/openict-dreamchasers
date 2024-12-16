@@ -1,13 +1,11 @@
 package routes
 
 import (
-	"fmt"
+	"dreamchasers/routes/handlers"
 	"net/http"
 	"reflect"
 	"regexp"
 	"strings"
-
-	"dreamchasers/routes/handlers"
 )
 
 type Route struct {
@@ -34,9 +32,8 @@ func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, 
 		if route.Path != path || route.Func == nil || !strings.EqualFold(route.FuncName, r.Method+path) {
 			continue
 		}
-		fmt.Print(r.Method + path + " | Execute\n")
+		println(r.Method + " | " + path)
 		route.Func(w, r)
-
 		return
 	}
 	w.WriteHeader(http.StatusNotFound)
@@ -58,9 +55,13 @@ func GenerateRoutesFromHandlers(list []string) []Route {
 			route.Path = handler
 		}
 
-		//      | 	--- Added this for my own sanity --- 	 |
-		// 			| Objects that points to new instance of & | Returns reflect value as interface | Converts interface to * |
-		route.Func = reflect.ValueOf(&handlers.Handler{}).MethodByName(handler).Interface().(func(http.ResponseWriter, *http.Request))
+		// Objects that point to new instances of &,
+		// Returns reflect value as interface and Converts interface to *
+		route.Func = reflect.
+			ValueOf(&handlers.Handler{}).
+			MethodByName(handler).
+			Interface().(func(http.ResponseWriter, *http.Request))
+
 		route.FuncName = handler
 		routeList = append(routeList, route)
 	}
