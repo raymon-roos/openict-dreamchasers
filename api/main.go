@@ -36,8 +36,6 @@ func main() {
 	// In short sends all request to CallHandler. Needed for dynamic routing
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		path := strings.ToLower(r.URL.Path[1:]) // Remove leading slash
-		println(r.Method + " | " + path)
-
 		routes.ExecuteRouteHandler(routeList, path, w, r)
 	})
 
