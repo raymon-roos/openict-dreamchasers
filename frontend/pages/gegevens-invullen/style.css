@@ -143,10 +143,8 @@
 .postalCode-number {
   display: flex;
   margin-top: 25px;
-}
-
-.inputSmall {
-  margin-right: 40px;
+  justify-content: left;
+  align-items: flex-start;
 }
 
 .phoneNumberContainer {
@@ -164,12 +162,17 @@
   border-radius: 5px;
 }
 
+.inputSmall {
+  margin-right: 20px;
+}
+
 .inputSmall input {
   padding: 15px 18px;
   border-radius: 5px;
   border: 1px solid #a7a7a7;
   color: #8d8d8d;
   font-size: 16px;
+  max-width: 150px;
 }
 
 .inputSmall p {

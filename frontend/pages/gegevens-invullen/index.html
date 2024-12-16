@@ -7,7 +7,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/css/intlTelInput.css"
     />
 
     <link rel="stylesheet" href="style.css" />
@@ -87,7 +87,7 @@
 
             <div class="inputcontainer">
               <p>Geboortedatum<span>*</span></p>
-              <div class="date-picker">
+              <div id="date" class="date-picker">
                 <select id="day" name="day" required>
                   <option value="">Kies dag</option>
                   <!-- Days will be dynamically generated in JavaScript -->
@@ -128,7 +128,6 @@
                 type="tel"
                 required
               />
-              <span id="valid-msg" class="hide"></span>
               <span id="error-msg" class="hide just-validate-error"></span>
             </div>
           </div>
@@ -152,6 +151,10 @@
               <div class="inputSmall">
                 <p>Huisnummer <span>*</span></p>
                 <input id="houseNumber" placeholder="Huisnummer" type="text" />
+              </div>
+              <div class="inputSmall">
+                <p>Toevoeging</p>
+                <input placeholder="Toevoeging" type="text" />
               </div>
             </div>
 
@@ -193,7 +196,7 @@
         <div class="overviewCard">
           <h2>Overzicht</h2>
           <div class="placeInfo">
-            <img src="camping1.jpg" alt="" />
+            <img src="campingplek.jpg" alt="" />
             <div class="placeInfo__text">
               <h3>Plek 1</h3>
               <p>★★★★</p>
@@ -255,11 +258,11 @@
       </div>
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/intlTelInput.min.js"></script>
 
     <script>
       const validate = new window.JustValidate("#bookingForm");
     </script>
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
