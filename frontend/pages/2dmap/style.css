@@ -1,0 +1,224 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.filterbar {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 8px;
+  width: 100%;
+}
+
+img {
+  width: 25px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+}
+
+#map {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+}
+.custom-marker {
+  width: 35px;
+  height: 35px;
+  background-color: white; /* of een andere kleur */
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 1.3s;
+}
+
+.custom-marker:hover {
+  background-color: green;
+  color: white;
+}
+
+.mapboxgl-popup {
+  background: white;
+  max-width: 300px; /* Pas dit aan indien nodig */
+  box-shadow: none; /* Verwijder schaduwen */
+  border-radius: 10px !important;
+}
+
+.mapboxgl-popup-content {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  padding: 0 !important;
+  border-radius: 10px !important;
+}
+
+/* Styling voor het kruisje */
+.mapboxgl-popup-close-button {
+  background: rgb(21, 255, 0);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px;
+  padding: 0;
+}
+
+.infoCard__content {
+  padding: 10px;
+}
+
+.infoCard img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  border-top: 1px solid rgb(176, 176, 176);
+  padding-right: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+}
+
+.infoCard button {
+  padding: 8px 30px;
+  background-color: #8db411;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  margin-top: 10px;
+}
+
+.mapboxgl-popup-tip {
+  display: none; /* Verberg de standaard pijl */
+}
+
+.filterButton {
+  z-index: 99;
+  position: absolute;
+  display: flex;
+  left: 20px;
+  top: 20px;
+  border: none;
+  padding: 10px 30px;
+  align-items: center;
+  border-radius: 5px;
+  padding-right: 25px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.filterButton p {
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Inter";
+  margin-right: 15px;
+  display: flex;
+  margin-bottom: 1.9px;
+}
+
+.filterButton i {
+  font-size: 17px;
+}
+
+.filterModal {
+  position: absolute;
+  top: 130px; /* Adjust modal position relative to button */
+  left: 30px;
+  background-color: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 250px;
+}
+
+.filterModal h1 {
+  margin-bottom: 10px;
+}
+
+.filterModal button {
+  padding: 10px;
+  font-weight: 500;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #8db411;
+  color: white;
+  cursor: pointer;
+}
+
+#typePlace {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#typePlace h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.type {
+  cursor: pointer;
+  border: 3px solid rgb(183, 183, 183);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.type:hover {
+  border-color: #8db411;
+  border-width: 3px;
+  transition: all 0.5s;
+}
+
+.activeType {
+  border-color: #6d8a0c !important;
+}
+
+.type i {
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.type p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.filtered {
+  background-color: rgb(120, 40, 233) !important;
+}
