@@ -347,16 +347,6 @@
   font-weight: 600;
 }
 
-#day,
-#month,
-#year {
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  color: #8d8d8d;
-  border: 1px solid #8d8d8d;
-}
-
 #phoneNumber {
   width: 100%;
 }
@@ -396,9 +386,13 @@
   border: 1.9px solid rgb(189, 3, 3) !important;
 }
 
-.error-phone-label {
+#error-msg {
   color: rgb(169, 4, 4) !important;
   font-size: 13px;
   margin-top: 7px;
   margin-left: 6px;
+}
+
+.error {
+  border: 1px solid red !important;
 }
