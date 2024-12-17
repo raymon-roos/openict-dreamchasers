@@ -69,7 +69,6 @@
                 id="firstName"
                 min="1"
                 max="90"
-                pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,50}"
                 placeholder="Typ je voornaam"
                 type="text"
               />
@@ -87,22 +86,7 @@
 
             <div class="inputcontainer">
               <p>Geboortedatum<span>*</span></p>
-              <div id="date" class="date-picker">
-                <select id="day" name="day" required>
-                  <option value="">Kies dag</option>
-                  <!-- Days will be dynamically generated in JavaScript -->
-                </select>
-
-                <select id="month" name="month" required>
-                  <option value="">Kies maand</option>
-                  <!-- Months will be dynamically generated in JavaScript -->
-                </select>
-
-                <select id="year" name="year" required>
-                  <option value="">Kies jaar</option>
-                  <!-- Years will be dynamically generated in JavaScript -->
-                </select>
-              </div>
+              <input type="date" id="dob" name="dob" required />
             </div>
 
             <div class="inputcontainer">
@@ -114,7 +98,7 @@
               <p>Bevestig e-mail <span>*</span></p>
               <input
                 placeholder="Typ je e-mail"
-                id="email-confirm"
+                id="confirm-email"
                 type="email"
               />
             </div>
@@ -184,10 +168,10 @@
             <div></div>
           </div>
           <div class="buttonContainer">
-            <a class="nextButton">
+            <button class="nextButton" type="submit">
               <p href="../betaalmethodes/index.html">Ga verder</p>
               <i class="fa-solid fa-circle-chevron-right"></i>
-            </a>
+            </button>
           </div>
         </form>
       </div>
@@ -263,6 +247,7 @@
     <script>
       const validate = new window.JustValidate("#bookingForm");
     </script>
+    <script type="module" src="./scripts/inputValidation.js"></script>
     <script src="script.js" type="module"></script>
   </body>
 </html>

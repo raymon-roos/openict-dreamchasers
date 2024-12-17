@@ -6,11 +6,10 @@ export function initializePhoneInputValidation() {
 
   // here, the index maps to the error code returned from getValidationError - see readme
   const errorMap = [
-    "Invalid number",
-    "Invalid country code",
-    "Too short",
-    "Too long",
-    "Invalid number",
+    "Ongeldige Nummer",
+    "Ongeldige landcode",
+    "Te kort",
+    "Te lang",
   ];
 
   // initialise plugin
@@ -40,11 +39,11 @@ export function initializePhoneInputValidation() {
   button.addEventListener("click", () => {
     reset();
     if (!input.value.trim()) {
-      showError("Required");
+      showError("Vul je telefoonnummer in.");
     } else if (iti.isValidNumber()) {
     } else {
       const errorCode = iti.getValidationError();
-      const msg = errorMap[errorCode] || "Invalid number";
+      const msg = errorMap[errorCode] || "Ongeldig nummer";
       showError(msg);
     }
   });
