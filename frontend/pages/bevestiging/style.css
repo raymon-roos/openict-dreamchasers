@@ -73,6 +73,7 @@
   font-weight: 500;
   border-radius: 6px;
   font-size: 14px;
+  text-decoration: none;
 }
 
 .actions__right {
@@ -249,6 +250,7 @@ h5 {
   background-color: #f5f5f5 !important;
   padding: 15px 20px;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .companions__total {
@@ -383,3 +385,8 @@ h5 {
 .confirm-email {
   margin-top: 40px;
 }
+
+.campingInfo__content {
+  margin-bottom: 20px;
+}
+

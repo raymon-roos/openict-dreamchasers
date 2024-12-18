@@ -1,27 +1,84 @@
-// Print
 document.getElementById("print").addEventListener("click", function () {
   const overviewCard = document.getElementById("overviewCard");
-  const printWindow = window.open("", "", "height=500,width=500");
 
-  // Open and write the content to the new print window
-  printWindow.document.write("<html><head><title>Print Content</title>");
+  // Maak een nieuw venster aan voor de printweergave
+  const printWindow = window.open("", "_blank");
 
-  // Include the necessary stylesheets (both inline and external)
-  const styleSheets = document.querySelectorAll(
-    'link[rel="stylesheet"], style'
-  );
-  styleSheets.forEach(function (sheet) {
-    printWindow.document.write(sheet.outerHTML);
-  });
+  // Verzamel alle stijlen (externe en inline)
+  const stylesheets = Array.from(document.styleSheets)
+    .map(sheet => {
+      try {
+        if (sheet.href) {
+          return `<link rel="stylesheet" href="${sheet.href}">`;  // Voeg externe stylesheets toe
+        } else {
+          return [...sheet.cssRules].map(rule => rule.cssText).join("\n");  // Voeg inline stijlen toe
+        }
+      } catch (e) {
+        return ""; // Externe stijlen kunnen CORS-beperkingen hebben
+      }
+    })
+    .join("\n");
 
-  // Write the content you want to print
-  printWindow.document.write("</head><body>");
-  printWindow.document.write(overviewCard.innerHTML);
-  printWindow.document.write("</body></html>");
+  // Voeg de HTML voor de printweergave toe, inclusief de print-specifieke stijlen
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Print Overview Card</title>
+        <!-- Link naar externe stijlen -->
+        ${Array.from(document.styleSheets)
+          .map(sheet => sheet.href ? `<link rel="stylesheet" href="${sheet.href}">` : "")
+          .join("\n")}
+        <!-- Voeg de inline stijlen toe -->
+        <style>
+          /* Stijlen voor printen */
+          @media print {
+            body {
+              margin: 0;
+              font-family: Arial, sans-serif;
+              line-height: 1.4;
+              width: 450mm; /* Verhoogde breedte (250mm in plaats van 210mm) */
+              height: 297mm; /* A4 hoogte */
+            }
+            .overviewCard {
+              max-width: 100%;
+              overflow: hidden;
+              page-break-before: auto;
+              page-break-after: auto;
+            }
+            h1, h2, h3, p {
+              margin: 10px 0;
+              padding: 0;
+            }
+            /* Zorg ervoor dat alles netjes op de pagina past */
+            * {
+              box-sizing: border-box;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        ${overviewCard.outerHTML}
+        <script>
+          window.onload = function() {
+            // Wacht even en voer de printopdracht uit
+            setTimeout(function() {
+              window.print();
+              window.onafterprint = function() {
+                window.close();
+              };
+            }, 500); // 500ms vertraging om ervoor te zorgen dat alles goed is geladen
+          }
+        </script>
+      </body>
+    </html>
+  `);
 
-  printWindow.document.close(); // Close the document to finish the setup
-  printWindow.print(); // Open the print dialog
+  // Sluit het document om wijzigingen door te voeren
+  printWindow.document.close();
 });
+
+
+
 
 // Download
 document.getElementById("download").addEventListener("click", function () {
@@ -50,4 +107,3 @@ document.getElementById("download").addEventListener("click", function () {
     pdf.save("overviewCard.pdf");
   });
 });
-
