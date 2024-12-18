@@ -56,7 +56,7 @@
     </div>
     <div class="mainContainer">
       <div class="mainContainer__left">
-        <form id="bookingForm">
+        <form id="bookingForm" autocomplete="off" novalidate="novalidate">
           <div class="personalDetails">
             <h1 class="title">Vul je gegevens in</h1>
             <p>
@@ -67,6 +67,7 @@
               <p>Voornaam <span>*</span></p>
               <input
                 id="firstName"
+                name="firstName"
                 min="1"
                 max="90"
                 placeholder="Typ je voornaam"
@@ -78,6 +79,7 @@
               <p>Achternaam<span>*</span></p>
               <input
                 id="lastName"
+                name="lastName"
                 placeholder="Typ je achternaam"
                 pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,50}"
                 type="text"
@@ -91,7 +93,12 @@
 
             <div class="inputcontainer">
               <p>E-mail <span>*</span></p>
-              <input placeholder="Typ je e-mail" id="email" type="email" />
+              <input
+                placeholder="Typ je e-mail"
+                name="email"
+                id="email"
+                type="email"
+              />
             </div>
 
             <div class="inputcontainer">
@@ -100,6 +107,7 @@
                 placeholder="Typ je e-mail"
                 id="confirm-email"
                 type="email"
+                name="confirm-email"
               />
             </div>
 
@@ -110,6 +118,7 @@
                 placeholder="Typ je telefoonnummer"
                 id="phoneNumber"
                 type="tel"
+                name="phoneNumber"
                 required
               />
               <span id="error-msg" class="hide just-validate-error"></span>
@@ -122,7 +131,11 @@
             <div class="inputcontainer">
               <p>Land <span>*</span></p>
 
-              <select class="selectCountry" id="selectCountry">
+              <select
+                name="selectCountry"
+                class="selectCountry"
+                id="selectCountry"
+              >
                 <option value="NLD">Nederland</option>
               </select>
             </div>
@@ -130,15 +143,25 @@
             <div class="postalCode-number">
               <div class="inputSmall">
                 <p>Postcode <span>*</span></p>
-                <input id="postalCode" placeholder="Postcode" type="text" />
+                <input
+                  name="postalCode"
+                  id="postalCode"
+                  placeholder="Postcode"
+                  type="text"
+                />
               </div>
               <div class="inputSmall">
                 <p>Huisnummer <span>*</span></p>
-                <input id="houseNumber" placeholder="Huisnummer" type="text" />
+                <input
+                  name="houseNumber"
+                  id="houseNumber"
+                  placeholder="Huisnummer"
+                  type="text"
+                />
               </div>
               <div class="inputSmall">
                 <p>Toevoeging</p>
-                <input placeholder="Toevoeging" type="text" />
+                <input name="toevoeging" placeholder="Toevoeging" type="text" />
               </div>
             </div>
 
@@ -147,11 +170,21 @@
 
             <div class="inputcontainer">
               <p>Straatnaam <span>*</span></p>
-              <input id="streetName" placeholder="Straatnaam" type="text" />
+              <input
+                name="streetName"
+                id="streetName"
+                placeholder="Straatnaam"
+                type="text"
+              />
             </div>
             <div class="inputcontainer">
               <p>Plaatsnaam <span>*</span></p>
-              <input id="cityName" placeholder="Plaatsnaam" type="text" />
+              <input
+                name="cityName"
+                id="cityName"
+                placeholder="Plaatsnaam"
+                type="text"
+              />
             </div>
             <div>
               <label>
@@ -169,7 +202,7 @@
           </div>
           <div class="buttonContainer">
             <button class="nextButton" type="submit">
-              <p href="../betaalmethodes/index.html">Ga verder</p>
+              <p>Ga verder</p>
               <i class="fa-solid fa-circle-chevron-right"></i>
             </button>
           </div>
@@ -243,11 +276,6 @@
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/intlTelInput.min.js"></script>
-
-    <script>
-      const validate = new window.JustValidate("#bookingForm");
-    </script>
-    <script type="module" src="./scripts/inputValidation.js"></script>
     <script src="script.js" type="module"></script>
   </body>
 </html>

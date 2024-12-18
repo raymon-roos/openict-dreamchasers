@@ -1,4 +1,6 @@
-const validator = new JustValidate("#bookingForm");
+const validator = new JustValidate("#bookingForm", {
+  showErrors: true, // Houd de globale validatie-instellingen aan
+});
 
 validator
   .addField("#firstName", [
@@ -68,4 +70,18 @@ validator
       rule: "required",
       errorMessage: "Ga akkoord om verder te gaan.",
     },
+  ])
+  .addField("#postalCode", [
+    {
+      rule: "required",
+      errorMessage: "Vul een postcode in.",
+    },
+  ])
+  .addField("#houseNumber", [
+    {
+      rule: "required",
+      errorMessage: "Vul een huisnummer in.",
+    },
   ]);
+
+export { validator };
