@@ -8,6 +8,7 @@ initializePhoneInputValidation();
 // Vult automatisch adres in als je postcode en huisnummer invult
 autoFillAddress();
 
+// Form submit
 document
   .querySelector("#bookingForm")
   .addEventListener("submit", function (event) {
