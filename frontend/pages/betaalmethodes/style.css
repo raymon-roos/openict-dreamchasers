@@ -294,7 +294,12 @@
   transition: all 0.5s;
 }
 
-.ideal {
+.ideal,
+.maestro {
+  margin-bottom: 0;
+}
+
+.dropdownContainer {
   margin-bottom: 0;
   border-radius: 10px 10px 0 0;
 }
@@ -345,4 +350,49 @@
   border-color: #b3b3b3;
   border-radius: 10px;
   transition: all 0.5s;
+}
+
+.maestroContainer {
+  display: none;
+  flex-direction: column;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 25px 20px;
+}
+
+.cardDetails {
+  display: flex;
+}
+
+.cardDetails > div {
+  width: 50%;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.inputContainer input {
+  margin: 8px 0;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+  color: #919191;
+}
+
+.cardDetails div {
+  margin-right: 5px;
+}
+
+.cardDetails div input {
+  height: fit-content;
 }
