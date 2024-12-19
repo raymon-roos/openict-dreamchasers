@@ -1,9 +1,15 @@
-// Toggle modal visibility
+// Zet de modal aan of uit
 function toggleModal() {
   const modal = document.querySelector(".filterModal");
   modal.style.display = modal.style.display === "flex" ? "none" : "flex";
 }
 
+// Kies plek en ga naar reserveren
+function choosePlace() {
+  window.location.href = "../reserveren/index.html";
+}
+
+// Filter - Type Campingplek (Bungalow of Camping)
 function chooseType(e) {
   const clickedType = e.getAttribute("data-info");
   if (clickedType == "bungalow") {
@@ -16,8 +22,11 @@ function chooseType(e) {
   document.getElementById(clickedType).classList.add("activeType");
 }
 
+// Variabelen om actieve filters, markers bij te houden
 let activeType = "";
+let activeMarker = "";
 
+// Mapbox API key (Later met .env file opslaan)
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY2VkcmljamFkZW4iLCJhIjoiY20zaWd2eXp4MDBzeDJrc2I3OXl2YXM4NyJ9.5FhoOI_VaE2SwbzPm2Volg";
 
@@ -65,6 +74,7 @@ map.on("load", function () {
     },
   });
 
+  // Handmatige campingplekken (Later dynamisch met backend API)
   const plekken = [
     {
       nummer: 1,
@@ -92,6 +102,7 @@ map.on("load", function () {
     },
   ];
 
+  // Camping plekken dynamisch renderen
   plekken.forEach((plek) => {
     // Maak een custom marker (rondje met een getal)
     const el = document.createElement("div");
@@ -113,21 +124,43 @@ map.on("load", function () {
             <p>${plek.prijs}</p>
             </div>
               <div class='buttonContainer'>
-            <button>Kies campingplek</button>
+            <button id='chooseCampingPlaceBtn'>Kies campingplek</button>
             </div>
             </div>`
           )
       )
       .addTo(map); // Marker toevoegen aan de kaart
 
+    // Voegt functionaliteit aan knop
+    marker.getPopup().on("open", () => {
+      const button = document.querySelector("#chooseCampingPlaceBtn");
+      if (button) {
+        button.addEventListener("click", () => {
+          choosePlace(); // Je custom functie hier uitvoeren
+        });
+      } else {
+        console.error("Knop niet gevonden in de popup");
+      }
+    });
+
+    //
     markers.push({ marker, element: el, type: plek.type });
 
     // Voeg een klikgebeurtenis toe aan de marker
     el.addEventListener("click", () => {
+      // Verwijder de actieve status van de vorige marker
+      if (activeMarker) {
+        activeMarker.classList.remove("activeMarker");
+      }
+
+      // Stel de nieuwe actieve marker in
+      el.classList.add("activeMarker");
+      activeMarker = el;
+
       // Focus op de marker door de kaart te verplaatsen
       map.flyTo({
         center: plek.coords,
-        zoom: 10, // Zoomniveau bij focus
+        zoom: 10.5, // Zoomniveau bij focus
         essential: true,
         offset: [0, -100], // Adjust the offset (x, y) to move the map center
       });
@@ -135,14 +168,28 @@ map.on("load", function () {
   });
 });
 
-// Filter markers op basis van type
+// Filter Functionaliteit - disabled class voor de weggefilterde markers
 function filterMarkers() {
-  console.log("test");
-  markers.forEach(({ element, type: markerType }) => {
-    if (markerType === activeType) {
-      element.classList.add("filtered"); // Verander kleur voor gefilterde markers
+  markers.forEach(({ element, type }) => {
+    if (type !== activeType) {
+      element.classList.add("disabled");
     } else {
-      element.classList.remove("filtered");
+      element.classList.remove("disabled");
     }
   });
+}
+
+// Functie om de mapfilter en markerzichtbaarheid te resetten
+function resetMapFilter() {
+  // Verwijder de actieve filter op de map-laag
+  map.setFilter("camping-map-layer", null); // Vervang 'camping-map-layer' met je eigen laag ID
+
+  // Reset de zichtbaarheid van de markers
+  markers.forEach(({ element }) => {
+    element.classList.remove("disabled"); // Verwijder de "disabled" klasse van de marker
+  });
+
+  // Reset actieve filters of markers
+  activeType = "";
+  activeMarker = "";
 }

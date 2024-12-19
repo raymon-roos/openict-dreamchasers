@@ -30,29 +30,40 @@
         </button>
       </div>
       <div class="filterModal">
-        <h1>Filters</h1>
-        <div id="typePlace">
-          <h2>Camping Type</h2>
-          <div
-            class="type"
-            id="bungalow"
-            data-info="bungalow"
-            onclick="chooseType(this)"
-          >
-            <i class="fa-solid fa-house"></i>
-            <p>Bungalow</p>
-          </div>
-          <div
-            class="type"
-            id="camping"
-            data-info="camping"
-            onclick="chooseType(this)"
-          >
-            <i class="fa-solid fa-campground"></i>
-            <p>Camping</p>
+        <div class="filterModal__header">
+          <p></p>
+          <h1>Filters</h1>
+          <i class="fa-solid fa-x closeModal" onclick="toggleModal()"></i>
+        </div>
+        <div class="filterModal__content">
+          <div id="typePlace">
+            <h2>Camping Type</h2>
+            <div
+              class="type"
+              id="bungalow"
+              data-info="bungalow"
+              onclick="chooseType(this)"
+            >
+              <i class="fa-solid fa-house"></i>
+              <p>Bungalow</p>
+            </div>
+            <div
+              class="type"
+              id="camping"
+              data-info="camping"
+              onclick="chooseType(this)"
+            >
+              <i class="fa-solid fa-campground"></i>
+              <p>Camping</p>
+            </div>
           </div>
         </div>
-        <button onclick="filterMarkers()">Laat 3 plekken zien</button>
+        <div class="filterModal__footer">
+          <button id="reset-filter" onclick="resetMapFilter()">Reset</button>
+          <button id="show-places-btn" onclick="filterMarkers()">
+            Filter plekken
+          </button>
+        </div>
       </div>
     </div>
 

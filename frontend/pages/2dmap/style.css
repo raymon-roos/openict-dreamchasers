@@ -35,10 +35,10 @@ body {
   flex-grow: 1;
 }
 .custom-marker {
-  width: 35px;
-  height: 35px;
-  background-color: white; /* of een andere kleur */
-  color: black;
+  width: 40px;
+  height: 40px;
+  background-color: #ff8446; /* of een andere kleur */
+  color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -47,10 +47,11 @@ body {
   cursor: pointer;
   text-align: center;
   transition: all 1.3s;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px !important;
 }
 
 .custom-marker:hover {
-  background-color: green;
+  background-color: #e44202;
   color: white;
 }
 
@@ -154,13 +155,8 @@ body {
   display: none;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   border-radius: 10px;
-  min-width: 250px;
-}
-
-.filterModal h1 {
-  margin-bottom: 10px;
+  min-width: 300px;
 }
 
 .filterModal button {
@@ -172,6 +168,39 @@ body {
   background-color: #8db411;
   color: white;
   cursor: pointer;
+}
+
+.filterModal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  padding: 15px 20px;
+}
+
+.filterModal__header h1 {
+  font-size: 20px;
+}
+
+.filterModal__header i {
+  cursor: pointer;
+}
+
+.filterModal__content {
+  padding: 10px 20px;
+  display: flex;
+  width: 100%;
+}
+
+.filterModal__footer {
+  padding: 10px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid rgb(219, 219, 219);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #typePlace {
@@ -219,6 +248,25 @@ body {
   font-weight: 600;
 }
 
-.filtered {
-  background-color: rgb(120, 40, 233) !important;
+.disabled {
+  background-color: rgb(208, 208, 209) !important;
+  color: white;
+  cursor: initial;
+}
+
+.activeMarker {
+  background-color: #e44202;
+}
+
+#reset-filter {
+  background-color: transparent;
+  padding: 0;
+  margin-left: 10px;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+}
+
+#reset-filter:hover {
+  text-decoration: underline;
 }
