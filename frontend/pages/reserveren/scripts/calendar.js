@@ -36,11 +36,32 @@ const unavailableDates = [
 const calendarConfig = {
   mode: "range",
   inline: true,
+  locale: "nl", // Zet de locale naar Nederlands
+  timeZone: "Europe/Amsterdam", // Dit is niet standaard ondersteund, maar kan later worden opgelost in de onChange functie
+
   dateFormat: "Y-m-d",
   minDate: "today",
   disable: unavailableDates,
   onChange: handleDataChange,
 };
+
+// Functie om de datum om te zetten naar 'YYYY-MM-DD' in de Nederlandse tijdzone (Europe/Amsterdam)
+function formatDateToDutchTimeZone(date) {
+  const dateObj = new Date(date);
+
+  // Zet de datum om naar de Nederlandse tijdzone (tijdzoneverschil met UTC)
+  const offset = 1; // CET (UTC+1) of CEST (UTC+2) afhankelijk van de tijd van het jaar
+
+  // Pas de tijd aan naar Nederlandse tijd
+  dateObj.setHours(dateObj.getHours() + offset);
+
+  // Haal de datum op in 'YYYY-MM-DD' formaat
+  const year = dateObj.getFullYear();
+  const month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // Maand is 0-gebaseerd
+  const day = ("0" + dateObj.getDate()).slice(-2);
+
+  return `${year}-${month}-${day}`;
+}
 
 // Wanneer er geklikt wordt op een datum
 function handleDataChange(selectedDates) {
@@ -52,9 +73,11 @@ function handleDataChange(selectedDates) {
     return;
   }
 
+  console.log(selectedDates);
+
   if (selectedDates.length === 2) {
-    arriveElement.value = selectedDates[0].toISOString().split("T")[0]; // Datum in 'YYYY-MM-DD'-formaat
-    departureElement.value = selectedDates[1].toISOString().split("T")[0];
+    arriveElement.value = formatDateToDutchTimeZone(selectedDates[0]);
+    departureElement.value = formatDateToDutchTimeZone(selectedDates[1]);
 
     // Bereken het aantal dagen
     const totalDays = calculateTotalDays(selectedDates[0], selectedDates[1]);
@@ -64,10 +87,8 @@ function handleDataChange(selectedDates) {
 
     // Display prijzen
     calculateAndDisplayCosts();
-
-    // Select eerste date
   } else if (selectedDates.length === 1) {
-    arriveElement.value = selectedDates[0].toISOString().split("T")[0];
+    arriveElement.value = formatDateToDutchTimeZone(selectedDates[0]);
     departureElement.value = ""; // Leegmaken als de vertrekdatum nog niet is geselecteerd
   }
 }
