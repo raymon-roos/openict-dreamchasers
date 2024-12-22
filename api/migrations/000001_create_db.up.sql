@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS countries (
-    iso_code VARCHAR(3) PRIMARY KEY,
+    iso_code CHAR(2) PRIMARY KEY,
     name VARCHAR(255) UNIQUE NOT NULL
 );
 
