@@ -1,13 +1,13 @@
-.navbar {
-  background-color: #8db411;
-  padding: 20px;
-  border-radius: 0 0 10px 10px;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #8db411;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
 }
 
 .header {
@@ -46,8 +46,8 @@
 }
 
 .header i {
-  font-size: 20px;
-  margin: 0 10px;
+  font-size: 16px;
+  margin: 0 5px;
 }
 
 .container {
@@ -56,14 +56,14 @@
   padding: 15px 35px;
   font-family: "Inter";
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .camping-info-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
   width: 85%;
 }
 
@@ -85,6 +85,19 @@
 .back-link {
   margin: 10px 0;
   font-weight: 600;
+  align-self: flex-start;
+  color: #8db411;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 2px solid #8db411;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  background-color: #8db411;
+  color: white;
 }
 
 .camping-info__container {
@@ -128,9 +141,12 @@
   text-align: center;
 }
 
+.pay-button:hover {
+  background-color: #76a10e;
+}
+
 .carousel {
   display: flex;
-
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -138,36 +154,49 @@
 
 .carousel .camping-img {
   display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel .camping-img.active {
+  display: block;
+  opacity: 1;
+}
+
+.carousel .arrow-left,
+.carousel .arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 40px; /* Make it square */
+  height: 40px; /* Make it square */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel .arrow-left:hover,
+.carousel .arrow-right:hover {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .carousel .arrow-left {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.721);
-  margin-left: 30px;
-  padding: 10px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  left: 20px; /* Increased distance from the left side */
 }
 
 .carousel .arrow-right {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.594);
-  right: 0;
-  margin-right: 30px;
-  padding: 10px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  right: 20px; /* Increased distance from the right side */
 }
 
 .dots-navigation {
   position: absolute;
-  top: 90%; /* Adjust as needed */
+  top: 90%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -187,16 +216,15 @@
 }
 
 .active {
-  background-color: #ffffff;
+  background-color: #8db411;
 }
 
 .infoTabs {
   display: flex;
   background-color: #f2f2f2;
   width: fit-content;
-  margin-top: 15px;
+  margin: 15px 0;
   border-radius: 6px;
-  margin-bottom: 15px;
 }
 
 .infoTabs .tab {
@@ -208,12 +236,24 @@
   color: #9e9e9e;
   cursor: pointer;
   margin: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.infoTabs .tab:hover {
+  background-color: #e0e0e0;
+  color: #8db411;
+  transform: scale(1.05);
 }
 
 .activeTab {
   background-color: white;
   color: black !important;
   border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.activeTab:hover {
+  transform: scale(1.05);
 }
 
 .content {
@@ -250,17 +290,15 @@
   margin-top: 20px;
 }
 
-#overview .features__left {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin-right: 35px;
-}
-
+#overview .features__left,
 #overview .features__right {
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+
+#overview .features__left {
+  margin-right: 35px;
 }
 
 #overview .feature {
@@ -278,16 +316,23 @@
   font-size: 12px;
 }
 
-#facilities {
+#facilities,
+#house-rules {
   border: 1px solid #e0e0e0;
   padding: 20px 30px;
   border-radius: 6px;
   flex-direction: column;
 }
 
-#facilities h2 {
+#facilities h2,
+#house-rules h2 {
   margin-bottom: 20px;
   font-size: 30px;
+}
+
+#facilities .facilities__item,
+#house-rules p {
+  font-size: 14px;
 }
 
 #facilities .facilities__item {
@@ -296,35 +341,13 @@
   margin-bottom: 8px;
 }
 
-#facilities .facilities__item p {
-  font-size: 14px;
-}
-
 #facilities .facilities__item i {
   margin-right: 10px;
   font-size: 18px;
 }
 
-#house-rules {
-  border: 1px solid #e0e0e0;
-  padding: 20px 30px;
-  border-radius: 6px;
-  flex-direction: column;
-}
-
-#house-rules h2 {
-  margin-bottom: 20px;
-  font-size: 30px;
-}
-
-#house-rules p {
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-
 .korting__infoText {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
   font-size: 14px;
   color: rgb(102, 102, 102);
 }
@@ -373,21 +396,20 @@
   background-color: white;
   border: 1px solid rgb(187, 187, 187);
   border-radius: 0 0 10px 10px;
-
   left: 0;
   top: 100%;
   width: 100%;
   flex-direction: column;
   padding: 30px 35px;
-  opacity: 0; /* Onzichtbaar */
-  transform: translateY(-5px); /* Verplaatst omhoog */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Animatie: soepel dalen */
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .personPicker__customDropdown.visible {
-  display: flex; /* Dropdown wordt zichtbaar als flex-container */
-  opacity: 1; /* Volledig zichtbaar */
-  transform: translateY(0); /* Beweeg naar de uiteindelijke positie */
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .personPicker__customDropdown .picker {
@@ -444,14 +466,13 @@
 }
 
 .personPickerArrowIcon.rotated {
-  transform: rotate(90deg); /* Rotate the image by 90 degrees */
+  transform: rotate(90deg);
 }
 
 .person-control i {
   margin: 0 10px;
   font-size: 25px;
   transition: all 0.2s;
-
   cursor: pointer;
 }
 
@@ -523,16 +544,13 @@
   font-weight: 600;
 }
 
-/* Algemene styling voor de kalender container */
 .calendar-container {
   width: 100%;
-
   padding: 20px;
-  border-radius: 12px; /* Afgeronde hoeken */
+  border-radius: 12px;
   font-family: "Inter";
 }
 
-/* Foutmelding stijl */
 .error {
   color: red;
   font-size: 14px;
@@ -540,50 +558,46 @@
   text-align: center;
 }
 
-/* Inline Flatpickr kalender */
 #calendar {
-  width: 100%; /* Kalender neemt 100% van de container breedte */
+  width: 100%;
 }
 
-/* Header van de kalender */
 .flatpickr-month {
-  font-size: 16px; /* Grotere tekst voor de maandnaam */
-  font-weight: bold; /* Vetgedrukte maandnaam */
-  color: #333; /* Donkere tekstkleur */
-  margin-bottom: 10px; /* Ruimte onder de maandnaam */
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
   display: flex;
-  justify-content: space-between; /* Pijltjes goed uitlijnen */
+  justify-content: space-between;
 }
 
 .flatpickr-prev-month,
 .flatpickr-next-month {
   cursor: pointer;
-  font-size: 18px; /* Grotere pijlen */
-  color: #888; /* Neutrale kleur voor pijlen */
+  font-size: 18px;
+  color: #888;
 }
 
 .flatpickr-prev-month:hover,
 .flatpickr-next-month:hover {
-  color: #000; /* Pijlen donkerder bij hover */
+  color: #000;
 }
 
-/* Dagen van de week */
 .flatpickr-weekdays {
   display: flex;
   justify-content: space-between;
   color: #888;
   font-weight: bold;
-  margin-bottom: 5px; /* Ruimte tussen weekdagen en datums */
+  margin-bottom: 5px;
   background-color: transparent !important;
 }
 
 .flatpickr-weekday {
-  width: 36px; /* Breedte voor elke dag */
+  width: 36px;
   text-align: center;
   background-color: transparent !important;
 }
 
-/* Styling voor de datums */
 .flatpickr-day {
   width: 36px;
   height: 36px;
@@ -595,27 +609,24 @@
 }
 
 .flatpickr-day:hover {
-  background-color: #f0f0f0; /* Hover achtergrondkleur */
+  background-color: #f0f0f0;
 }
 
-/* Selecteerbare dagen (range selectie) */
 .flatpickr-day.startRange,
 .flatpickr-day.endRange {
-  background-color: #61b546 !important; /* Groen voor de geselecteerde range */
-  color: white; /* Witte tekstkleur */
+  background-color: #61b546 !important;
+  color: white;
   font-weight: bold;
   border-radius: 3px !important;
   border: none !important;
 }
 
-/* Uitgeschakelde dagen */
 .flatpickr-day.disabled {
   background-color: #f9f9f9;
   color: #ccc;
   cursor: not-allowed;
 }
 
-/* Custom styling voor het weergeven van de geselecteerde datums */
 #selected-dates {
   margin-top: 20px;
 }
@@ -627,5 +638,115 @@
 
 #selected-dates span {
   font-weight: bold;
-  color: #61b546; /* Groen voor de geselecteerde datums */
+  color: #61b546;
+}
+
+.footer {
+  background-color: #8db411;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .camping-info__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .camping-info__left,
+  .reservation-section {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .carousel {
+    flex-direction: column;
+  }
+
+  .carousel .arrow-left,
+  .carousel .arrow-right {
+    position: absolute;
+    margin: 0;
+  }
+
+  .dots-navigation {
+    top: auto;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .header .procesbar p {
+    display: none;
+  }
+
+  .header .procesbar:not(.active-procesbar) span {
+    margin-right: 0;
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .header .active-procesbar p {
+    display: inline;
+  }
+
+  .header i {
+    display: inline;
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 10px 35px;
+  }
+
+  .camping-info-header {
+    width: 100%;
+  }
+
+  .camping-info__container {
+    width: 100%;
+  }
+
+  .camping-info__left {
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .reservation-section {
+    margin-left: 0;
+  }
+
+  .infoTabs {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .infoTabs .tab {
+    margin: 5px;
+  }
+
+  .tab-content {
+    padding: 10px;
+  }
+
+  .pay-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
 }

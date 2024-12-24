@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <link
@@ -16,42 +16,20 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Document</title>
+    <title>Campingplek Reserveren</title>
   </head>
   <body>
-    <nav class="navbar">Navbar</nav>
+    <nav class="navbar" aria-label="Main navigation">Navbar</nav>
     <main class="container">
-      <a class="back-link">Ga terug</a>
+      <a class="back-link" aria-label="Go back">Ga terug</a>
 
-      <div class="header">
-        <div class="procesbar active-procesbar">
-          <span>1</span>
-          <p>Campingplek</p>
-        </div>
-        <i class="fa-solid fa-chevron-right"></i>
-
-        <div class="procesbar">
-          <span>2</span>
-          <p>Gegevens</p>
-        </div>
-        <i class="fa-solid fa-chevron-right"></i>
-
-        <div class="procesbar">
-          <span>3</span>
-          <p>Betaling</p>
-        </div>
-        <i class="fa-solid fa-chevron-right"></i>
-        <div class="procesbar">
-          <span>4</span>
-          <p>Overzicht</p>
-        </div>
-      </div>
+      <!-- Header component will be inserted here by JavaScript -->
 
       <!-- Camping Info Header -->
-      <section class="camping-info-header">
+      <section class="camping-info-header" aria-labelledby="camping-title">
         <div>
-          <h1>Camping Plek 1</h1>
-          <div>★ ★ ★ ★</div>
+          <h1 id="camping-title">Camping Plek 1</h1>
+          <div aria-label="Rating">★ ★ ★ ★</div>
         </div>
         <p class="price">
           €<output id="camping-price">25</output> <span>per nacht</span>
@@ -62,10 +40,13 @@
       <section class="camping-info__container">
         <!-- Camping Info Linker kant Pagina -->
         <section class="camping-info__left">
-          <!-- Image Coarousel -->
-          <div class="carousel">
+          <!-- Image Carousel -->
+          <div class="carousel" aria-label="Image carousel">
             <!-- Arrow Left -->
-            <i class="fa-solid fa-chevron-left arrow-left prev"></i>
+            <i
+              class="fa-solid fa-chevron-left arrow-left prev"
+              aria-label="Previous image"
+            ></i>
 
             <!-- Carousel images -->
             <img class="camping-img" alt="Foto 1" src="campingplek.jpg" />
@@ -73,21 +54,52 @@
             <img class="camping-img" alt="Foto 3" src="campingplek.jpg" />
 
             <!-- Arrow Right-->
-            <i class="fa-solid fa-chevron-right arrow-right next"></i>
+            <i
+              class="fa-solid fa-chevron-right arrow-right next"
+              aria-label="Next image"
+            ></i>
 
-            <div class="dots-navigation"></div>
+            <div
+              class="dots-navigation"
+              aria-label="Image navigation dots"
+            ></div>
           </div>
 
           <!-- Info tabs (Voorzieningen ed.) -->
-          <div class="infoTabs">
-            <p class="tab activeTab" data-content="overview">Overzicht</p>
-            <p class="tab" data-content="facilities">Voorzieningen</p>
-            <p class="tab" data-content="house-rules">Huisregels</p>
+          <div class="infoTabs" aria-label="Information tabs">
+            <p
+              class="tab activeTab"
+              id="overview-tab"
+              data-content="overview"
+              aria-controls="overview"
+            >
+              Overzicht
+            </p>
+            <p
+              class="tab"
+              id="facilities-tab"
+              data-content="facilities"
+              aria-controls="facilities"
+            >
+              Voorzieningen
+            </p>
+            <p
+              class="tab"
+              id="house-rules-tab"
+              data-content="house-rules"
+              aria-controls="house-rules"
+            >
+              Huisregels
+            </p>
           </div>
 
           <!-- Tab content (State) -->
           <div class="tab-content">
-            <div id="overview" class="content active-content">
+            <div
+              id="overview"
+              class="content active-content"
+              aria-labelledby="overview-tab"
+            >
               <h2>Overzicht</h2>
               <p>
                 Geniet van de natuur op onze ruime campingplek A12 'Bosrand
@@ -127,22 +139,42 @@
                 </div>
               </div>
             </div>
-            <div id="facilities" class="content">
+            <div
+              id="facilities"
+              class="content"
+              aria-labelledby="facilities-tab"
+            >
               <h2>Voorzieningen</h2>
               <div class="facilities__item">
-                <i class="fa-regular fa-square-check"></i>
+                <i
+                  class="fa-regular fa-square-check"
+                  aria-hidden="true"
+                  aria-label="Checkmark"
+                ></i>
                 <p>Moderne sanitaire voorzieningen met warme douches</p>
               </div>
               <div class="facilities__item">
-                <i class="fa-regular fa-square-check"></i>
+                <i
+                  class="fa-regular fa-square-check"
+                  aria-hidden="true"
+                  aria-label="Checkmark"
+                ></i>
                 <p>Elektrische aansluitingen bij elke kampeerplaats</p>
               </div>
               <div class="facilities__item">
-                <i class="fa-regular fa-square-check"></i>
+                <i
+                  class="fa-regular fa-square-check"
+                  aria-hidden="true"
+                  aria-label="Checkmark"
+                ></i>
                 <p>Gratis Wi-Fi op het hele terrein</p>
               </div>
             </div>
-            <div id="house-rules" class="content">
+            <div
+              id="house-rules"
+              class="content"
+              aria-labelledby="house-rules-tab"
+            >
               <h2>Huisregels</h2>
               <p>
                 1. Respecteer de rust van andere kampeerders, vooral tussen
@@ -164,10 +196,13 @@
             </div>
           </div>
         </section>
-        <section class="reservation-section">
-          <h2>Reserveren</h2>
+        <section
+          class="reservation-section"
+          aria-labelledby="reservation-title"
+        >
+          <h2 id="reservation-title">Reserveren</h2>
           <p>Selecteer uw data en voorkeuren</p>
-          <div class="calendar-container">
+          <div class="calendar-container" aria-label="Calendar">
             <!-- Inline Flatpickr calendar -->
             <div id="calendar"></div>
           </div>
@@ -175,11 +210,21 @@
           <div class="arrive-departure">
             <p class="arrive-date">
               <span>Aankomstdatum</span>
-              <input id="arrive" type="date" readonly />
+              <input
+                id="arrive"
+                type="date"
+                readonly
+                aria-label="Arrival date"
+              />
             </p>
             <p class="departure-date">
               <span>Vertrekdatum</span>
-              <input id="departure" type="date" readonly />
+              <input
+                id="departure"
+                type="date"
+                readonly
+                aria-label="Departure date"
+              />
             </p>
           </div>
           <p class="korting__infoText">
@@ -187,12 +232,16 @@
             gratis!
           </p>
           <div class="personPicker__container">
-            <div class="personPicker">
+            <div class="personPicker" aria-label="Guest picker">
               <div class="personPicker__text">
                 <h5>Gasten</h5>
                 <p id="personPicker__totalPeople">1 Persoon</p>
               </div>
-              <img class="personPickerArrowIcon" src="arrow.png" />
+              <img
+                class="personPickerArrowIcon"
+                src="arrow.png"
+                alt="Toggle guest picker"
+              />
             </div>
             <div class="personPicker__customDropdown">
               <div class="picker">
@@ -204,11 +253,13 @@
                   <i
                     data-type="adults"
                     class="fa-regular fa-square-minus minus"
+                    aria-label="Decrease adults"
                   ></i>
                   <p id="adults" data-type="adults">1</p>
                   <i
                     data-type="adults"
                     class="fa-solid fa-square-plus plus"
+                    aria-label="Increase adults"
                   ></i>
                 </div>
               </div>
@@ -224,11 +275,13 @@
                   <i
                     data-type="youths"
                     class="fa-regular fa-square-minus minus"
+                    aria-label="Decrease youths"
                   ></i>
                   <p data-type="youths" id="youths">0</p>
                   <i
                     data-type="youths"
                     class="fa-solid fa-square-plus plus"
+                    aria-label="Increase youths"
                   ></i>
                 </div>
               </div>
@@ -244,11 +297,13 @@
                   <i
                     data-type="children"
                     class="fa-regular fa-square-minus minus"
+                    aria-label="Decrease children"
                   ></i>
                   <p data-type="children" id="children">0</p>
                   <i
                     class="fa-solid fa-square-plus plus"
                     data-type="children"
+                    aria-label="Increase children"
                   ></i>
                 </div>
               </div>
@@ -264,11 +319,13 @@
                   <i
                     data-type="babies"
                     class="fa-regular fa-square-minus minus"
+                    aria-label="Decrease babies"
                   ></i>
                   <p data-type="babies" id="babies">0</p>
                   <i
                     data-type="babies"
                     class="fa-solid fa-square-plus plus"
+                    aria-label="Increase babies"
                   ></i>
                 </div>
               </div>
@@ -281,31 +338,42 @@
                   <i
                     data-type="pets"
                     class="fa-regular fa-square-minus minus"
+                    aria-label="Decrease pets"
                   ></i>
                   <p data-type="pets" id="pets">0</p>
-                  <i data-type="pets" class="fa-solid fa-square-plus plus"></i>
+                  <i
+                    data-type="pets"
+                    class="fa-solid fa-square-plus plus"
+                    aria-label="Increase pets"
+                  ></i>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="line"></div>
+          <hr class="line" />
 
           <div class="costs" id="allCostsContainer"></div>
 
-          <div class="line"></div>
+          <hr class="line" />
 
           <div class="total-price">
             <p>Totaal</p>
             <span>€<output id="total-price">1002</output></span>
           </div>
 
-          <a class="pay-button" href="../gegevens-invullen/index.html"
+          <a
+            class="pay-button"
+            href="../gegevens-invullen/index.html"
+            aria-label="Proceed to payment"
             >Ga naar betalen</a
           >
         </section>
       </section>
     </main>
+    <footer class="footer">
+      <p>&copy; 2023 DreamChasers. All rights reserved.</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="./scripts/dotsNavigation.js"></script>
     <script type="module" src="./scripts/script.js"></script>

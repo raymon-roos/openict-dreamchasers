@@ -1,61 +1,56 @@
-let currentIndex = 0;
-const images = document.querySelectorAll(".camping-img");
-const dotsNavigation = document.querySelector(".dots-navigation");
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".carousel .camping-img");
+  const dotsNavigation = document.querySelector(".dots-navigation");
+  let currentIndex = 0;
 
-const createDots = () => {
-  dotsNavigation.innerHTML = ""; // Leegmaken dots-container
+  const createDots = () => {
+    dotsNavigation.innerHTML = "";
+    images.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      dot.addEventListener("click", () => showImage(i));
+      dotsNavigation.appendChild(dot);
+    });
+  };
 
-  images.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    dot.addEventListener("click", () => showImage(i)); // Klikbare dot
-    dotsNavigation.appendChild(dot);
-  });
-};
+  const showImage = (index) => {
+    currentIndex = (index + images.length) % images.length;
+    images.forEach((img, i) => {
+      img.classList.toggle("active", i === currentIndex);
+    });
+    updateDots();
+  };
 
-const showImage = (index) => {
-  currentIndex = (index + images.length) % images.length;
+  const updateDots = () => {
+    const dots = dotsNavigation.querySelectorAll(".dot");
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  };
 
-  images.forEach(
-    (img, i) => (img.style.display = i === currentIndex ? "block" : "none")
-  );
+  const changeImage = (increment) => {
+    showImage(currentIndex + increment);
+  };
 
-  updateDots();
-};
+  document
+    .querySelector(".arrow-left")
+    .addEventListener("click", () => changeImage(-1));
+  document
+    .querySelector(".arrow-right")
+    .addEventListener("click", () => changeImage(1));
 
-const updateDots = () => {
-  const dots = dotsNavigation.querySelectorAll(".dot");
+  createDots();
+  showImage(currentIndex);
 
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === currentIndex); // Actieve dot markeren
-    dot.style.display =
-      Math.abs(i - currentIndex) < 3 ? "inline-block" : "none"; // Max 3 dots zichtbaar
-  });
-};
-
-const changeImage = (increment) => {
-  showImage(currentIndex + increment);
-};
-
-// Event listeners voor navigatie knoppen
-document.querySelector(".next").addEventListener("click", () => changeImage(1));
-document
-  .querySelector(".prev")
-  .addEventListener("click", () => changeImage(-1));
-
-// Initialiseren van het dot systeem en het tonen van de eerste afbeelding
-createDots();
-showImage(currentIndex);
-
-// Event listeners voor tab navigatie
-document.querySelectorAll(".tab").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    document
-      .querySelectorAll(".tab, .content")
-      .forEach((el) => el.classList.remove("activeTab", "active-content"));
-    tab.classList.add("activeTab");
-    document
-      .getElementById(tab.getAttribute("data-content"))
-      .classList.add("active-content");
+  document.querySelectorAll(".tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document
+        .querySelectorAll(".tab, .content")
+        .forEach((el) => el.classList.remove("activeTab", "active-content"));
+      tab.classList.add("activeTab");
+      document
+        .getElementById(tab.getAttribute("data-content"))
+        .classList.add("active-content");
+    });
   });
 });
