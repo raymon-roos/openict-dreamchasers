@@ -19,6 +19,9 @@ function getTotalGuests() {
     const countElement = document.getElementById(guestType);
     totalGuests += parseInt(countElement.textContent);
   });
+  document.getElementById("personPicker__totalPeople").textContent =
+    totalGuests == 1 ? "1 Gast" : `${totalGuests} Gasten`;
+
   return totalGuests;
 }
 
