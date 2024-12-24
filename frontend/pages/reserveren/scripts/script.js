@@ -3,8 +3,17 @@ import { addGuestEventListeners } from "./guestsHandler.js";
 import { addPersonPickerEventListener } from "./customDropdown.js";
 import { calculateAndDisplayCosts } from "./costsHandler.js";
 import { initializeCampingInfo } from "./campingInfo.js";
+import { createHeader } from "./headerComponent.js";
 
 function main() {
+  // Add header component to the DOM
+  const container = document.querySelector(".container");
+  const header = createHeader();
+  container.insertBefore(
+    header,
+    container.querySelector(".camping-info-header")
+  );
+
   // Calendar
   initializeCalendar();
 
