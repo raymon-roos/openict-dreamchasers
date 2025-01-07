@@ -246,9 +246,9 @@
               />
             </div>
             <div class="personPicker__customDropdown">
-              <div class="picker">
+              <div class="picker" data-type="adults">
                 <div class="picker__info">
-                  <h4>Volwassenen <span>(18-99 jaar)</span></h4>
+                  <h4>Volwassenen <span>(18+)</span></h4>
                   <p id="adults-price-per-night">€35.00/nacht</p>
                 </div>
                 <div class="person-control">
@@ -265,7 +265,7 @@
                   ></i>
                 </div>
               </div>
-              <div class="picker">
+              <div class="picker" data-type="youths">
                 <div class="picker__info">
                   <h4>
                     Jongeren <span>(12-18 jaar)</span>
@@ -287,7 +287,7 @@
                   ></i>
                 </div>
               </div>
-              <div class="picker">
+              <div class="picker" data-type="children">
                 <div class="picker__info">
                   <h4>
                     Kinderen <span>(3-12 jaar)</span>
@@ -309,7 +309,7 @@
                   ></i>
                 </div>
               </div>
-              <div class="picker">
+              <div class="picker" data-type="babies">
                 <div class="picker__info">
                   <h4>
                     Baby's <span>(0-2 jaar)</span>
@@ -331,7 +331,7 @@
                   ></i>
                 </div>
               </div>
-              <div class="picker">
+              <div class="picker" data-type="pets">
                 <div>
                   <h4>Huisdieren*</h4>
                   <p id="pets-price-per-night"></p>
@@ -364,10 +364,7 @@
             <span>€<output id="total-price">1002</output></span>
           </div>
 
-          <a
-            class="pay-button"
-            href="../gegevens-invullen/index.html"
-            aria-label="Proceed to payment"
+          <a class="pay-button" aria-label="Proceed to payment"
             >Ga naar betalen</a
           >
         </section>
@@ -378,6 +375,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="./scripts/dotsNavigation.js"></script>
+    <script src="./scripts/saveReservationPlace.js"></script>
     <script type="module" src="./scripts/script.js"></script>
   </body>
 </html>

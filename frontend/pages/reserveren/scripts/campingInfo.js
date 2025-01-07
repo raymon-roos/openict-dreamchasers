@@ -41,20 +41,23 @@ export async function initializeCampingInfo() {
     // Toon de kosten per nacht per type in de UI
     document.getElementById(
       "adults-price-per-night"
-    ).innerText = `€${costs.adults.adultsCosts} per nacht`;
+    ).innerHTML = `€<span class='price-per-night'>${costs.adults.adultsCosts}</span> per nacht`;
     document.getElementById(
       "youths-price-per-night"
-    ).innerText = `€${costs.youths.youthsCosts} per nacht`;
+    ).innerHTML = `€<span class='price-per-night'>${costs.youths.youthsCosts}</span> per nacht`;
     document.getElementById(
       "children-price-per-night"
-    ).innerText = `€${costs.children.childrenCosts} per nacht`;
-    document.getElementById("babies-price-per-night").innerText = `€${
+    ).innerHTML = `€<span class='price-per-night'>${costs.children.childrenCosts}</span> per nacht`;
+    document.getElementById(
+      "babies-price-per-night"
+    ).innerHTML = `€<span class='price-per-night'>${
       costs.babies.babiesCosts === 0 ? "Gratis" : costs.babies.babiesCosts
-    } per nacht`;
+    }</span> per nacht`;
     document.getElementById(
       "pets-price-per-night"
-    ).innerText = `€${costs.pets.petsCosts} per nacht`;
+    ).innerHTML = `€<span class='price-per-night'>${costs.pets.petsCosts}</span> per nacht`;
 
+    localStorage.removeItem("totalDays");
     // Catch Error
   } catch (error) {
     console.error("Er is een fout opgetreden:", error);
