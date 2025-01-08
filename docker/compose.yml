@@ -1,0 +1,15 @@
+services:
+  api:
+    build:
+      context: ../
+      dockerfile: ./docker/api.Dockerfile
+    ports:
+      - "4000:4000"
+  
+  frontend:
+    build:
+      context: ../
+      dockerfile: ./docker/frontend.Dockerfile
+    ports:
+      - "80:80"
+

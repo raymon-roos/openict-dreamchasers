@@ -4,7 +4,7 @@ FROM golang:1.23
 
 WORKDIR /source
 
-COPY . /source/
+COPY ../api /source/
 
 RUN go mod download && go build -o /main . && echo "Build completed"
 
