@@ -4,8 +4,13 @@ FROM nginx
 
 WORKDIR /
 
-COPY default.conf /etc/nginx/conf.d/
-COPY . /usr/share/html/
+COPY ./docker/default.conf /etc/nginx/conf.d/
+COPY ./frontend /usr/share/html/dreamchasers
+
+# ==== ==== ==== ==== ==== ==== ====
+# STAGE: PHP | Team B
+
+COPY team-B/ /usr/share/html/teamB
 
 # ==== ==== ==== ==== ==== ==== ====
 EXPOSE 80
