@@ -23,18 +23,22 @@ const TOTAL_GUEST_LIMIT = 6; // hardcoded / later naar backend
 // Functie om het totale aantal gasten te berekenen
 function getTotalGuests() {
   let totalGuests = 0;
+  let totalPets = 0;
 
   Object.keys(initState.guests).forEach((guestType) => {
     if (guestType !== "pets") {
       const countElement = document.getElementById(guestType);
       totalGuests += parseInt(countElement.textContent);
+    } else {
+      const countElement = document.getElementById("pets");
+      totalPets = parseInt(countElement.textContent);
     }
   });
 
   document.getElementById("personPicker__totalPeople").textContent =
     totalGuests == 1 ? "1 Gast" : `${totalGuests} Gasten`;
 
-  updateState({ totalGuests });
+  updateState({ totalGuests, totalPets });
 
   return totalGuests;
 }
