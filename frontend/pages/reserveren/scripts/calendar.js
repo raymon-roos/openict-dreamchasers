@@ -1,3 +1,4 @@
+import { updateState } from "../../../state-manager/reservationState.js";
 import { calculateAndDisplayCosts } from "./costsHandler.js";
 export function initializeCalendar() {
   flatpickr("#calendar", calendarConfig);
@@ -96,6 +97,7 @@ function handleDataChange(selectedDates) {
 // Functie om het aantal dagen op te slaan in localStorage
 function saveDaysToLocalStorage(totalDays) {
   localStorage.setItem("totalDays", totalDays);
+  updateState({ totalDays });
   console.log(`Totaal aantal dagen opgeslagen in localStorage: ${totalDays}`);
 }
 

@@ -1,3 +1,5 @@
+import { updateState } from "../../../state-manager/reservationState.js";
+
 const submitButton = document.querySelector(".pay-button");
 
 // Arriveer en Vertrek Inputs
@@ -34,8 +36,6 @@ function savePickerData() {
   }
 }
 
-
-
 submitButton.addEventListener("click", () => {
   const arriveDate = arriveInput.value;
   const departureDate = departureInput.value;
@@ -43,9 +43,10 @@ submitButton.addEventListener("click", () => {
   savePickerData();
 
   if (arriveDate && departureDate) {
-    console.log("Datums ingevuld");
+    updateState({ arriveDate, departureDate });
     localStorage.setItem("arriveDate", arriveDate);
     localStorage.setItem("departureDate", departureDate);
+    window.location.href = "../gegevens-invullen/index.html";
   } else {
     console.log("Datums niet");
   }

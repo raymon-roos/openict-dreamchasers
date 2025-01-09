@@ -1,3 +1,8 @@
+import { renderOverviewCard } from "../../components/overviewCard.js";
+
+// Initial Render OverviewCard
+renderOverviewCard("overviewCard");
+
 document
   .querySelectorAll(".paypal, .ideal, .maestro, .visa")
   .forEach((item) => {

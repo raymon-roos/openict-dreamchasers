@@ -103,7 +103,7 @@
   margin-bottom: 10px;
 }
 .mainContainer__right {
-  width: fit-content;
+  width: 80%;
   margin-left: 50px;
   max-width: 500px;
 }
@@ -231,13 +231,15 @@
 }
 
 .stay-duration,
-.guests {
+.guests,
+.pets {
   display: flex;
   align-items: center;
 }
 
 .stay-duration i,
-.guests i {
+.guests i,
+.pets i {
   margin: 20px 0;
   font-size: 23px;
   margin-right: 17px;
@@ -395,4 +397,8 @@
 
 .cardDetails div input {
   height: fit-content;
+}
+.companions {
+  display: flex;
+  justify-content: space-between;
 }

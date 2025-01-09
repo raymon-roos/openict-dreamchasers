@@ -307,13 +307,15 @@
 }
 
 .stay-duration,
-.guests {
+.guests,
+.pets {
   display: flex;
   align-items: center;
 }
 
 .stay-duration i,
-.guests i {
+.guests i,
+.pets i {
   margin: 20px 0;
   font-size: 23px;
   margin-right: 17px;
@@ -395,4 +397,9 @@
 
 .error {
   border: 1px solid red !important;
+}
+
+.companions {
+  display: flex;
+  justify-content: space-between;
 }

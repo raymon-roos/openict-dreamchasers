@@ -1,7 +1,7 @@
 import { autoFillAddress } from "./scripts/autoFillAddress.js";
 import { initializePhoneInputValidation } from "./scripts/phoneInputValidation.js";
 import { validator } from "./scripts/inputValidation.js";
-import { displayReservationInfo } from "./scripts/displayReservationInfo.js";
+import { renderOverviewCard } from "../../components/overviewCard.js";
 
 // Input validation
 initializePhoneInputValidation();
@@ -9,7 +9,8 @@ initializePhoneInputValidation();
 // Vult automatisch adres in als je postcode en huisnummer invult
 autoFillAddress();
 
-displayReservationInfo();
+// Initial Render OverviewCard
+renderOverviewCard("overviewCard");
 
 // Form submit
 document
