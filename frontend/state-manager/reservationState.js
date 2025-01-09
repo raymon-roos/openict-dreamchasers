@@ -9,10 +9,11 @@ export const initialState = {
   departureTime: "10:00",
   stayDuration: "7 nachten",
   guests: {
-    adults: 0, // Aantal volwassenen
+    adults: 1, // Aantal volwassenen
     youths: 0, // Aantal jongeren
     children: 0, // Aantal kinderen
     babies: 0, // Aantal baby's
+    pets: 0,
   },
   totalGuests: 4,
   totalPets: 0, // Aantal huisdieren
@@ -42,6 +43,15 @@ export function saveStateToStorage(state) {
 // Werk de state bij en sla deze op
 export function updateState(newState) {
   const currentState = getStateFromStorage(); // Haal de huidige state op
+  // Als er een 'guests'-object wordt bijgewerkt, merge het met het bestaande guests-object
+  if (newState.guests) {
+    newState.guests = {
+      ...currentState.guests, // Behoud de bestaande guests
+      ...newState.guests, // Update alleen de gewijzigde velden
+    };
+    return saveStateToStorage({ ...currentState, ...newState }); // Sla de nieuwe state op
+  }
+  console.log("new");
   const updatedState = { ...currentState, ...newState }; // Werk de state bij
   saveStateToStorage(updatedState); // Sla de nieuwe state op
 }

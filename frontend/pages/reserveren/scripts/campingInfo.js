@@ -1,3 +1,4 @@
+import { getStateFromStorage } from "../../../state-manager/reservationState.js";
 import { calculateCosts } from "./costsHandler.js";
 
 export async function initializeCampingInfo() {
@@ -37,6 +38,18 @@ export async function initializeCampingInfo() {
       babies,
       pets
     );
+
+    const initState = getStateFromStorage();
+
+    console.log(initState);
+
+    // Toon de huidige gasten in de UI
+    console.log(2);
+    document.getElementById("adults").innerHTML = initState.guests.adults;
+    document.getElementById("youths").innerHTML = initState.guests.youths;
+    document.getElementById("children").innerHTML = initState.guests.children;
+    document.getElementById("babies").innerHTML = initState.guests.babies;
+    document.getElementById("pets").innerHTML = initState.guests.pets;
 
     // Toon de kosten per nacht per type in de UI
     document.getElementById(

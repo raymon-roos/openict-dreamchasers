@@ -1,3 +1,8 @@
+import {
+  getStateFromStorage,
+  updateState,
+} from "../../../state-manager/reservationState.js";
+
 // Limieten voor het aantal gasten
 const GUEST_LIMITS = {
   adults: { min: 1, max: Infinity }, // Minimaal 1 volwassene, geen bovenlimiet
@@ -5,6 +10,9 @@ const GUEST_LIMITS = {
   youths: { min: 0, max: Infinity }, // Geen limiet voor jongeren
   babies: { min: 0, max: Infinity }, // Geen limiet voor baby's
 };
+
+// Krijg initiële staat van centrale state-manager
+const initState = getStateFromStorage();
 
 // Limiet voor huisdieren
 const PET_LIMIT = { min: 0, max: 2 }; // Maximaal 2 huisdieren
@@ -15,12 +23,18 @@ const TOTAL_GUEST_LIMIT = 6; // hardcoded / later naar backend
 // Functie om het totale aantal gasten te berekenen
 function getTotalGuests() {
   let totalGuests = 0;
-  Object.keys(GUEST_LIMITS).forEach((guestType) => {
-    const countElement = document.getElementById(guestType);
-    totalGuests += parseInt(countElement.textContent);
+
+  Object.keys(initState.guests).forEach((guestType) => {
+    if (guestType !== "pets") {
+      const countElement = document.getElementById(guestType);
+      totalGuests += parseInt(countElement.textContent);
+    }
   });
+
   document.getElementById("personPicker__totalPeople").textContent =
     totalGuests == 1 ? "1 Gast" : `${totalGuests} Gasten`;
+
+  updateState({ totalGuests });
 
   return totalGuests;
 }
@@ -73,6 +87,7 @@ export function updateGuestCount(countElement, increment, guestType) {
     newCount <= limits.max &&
     (guestType === "pets" || totalGuests + increment <= TOTAL_GUEST_LIMIT)
   ) {
+    updateState({ guests: { [guestType]: newCount } });
     countElement.textContent = newCount;
   } else if (newCount < limits.min) {
     // Waarschuwing als het aantal lager is dan het minimum
