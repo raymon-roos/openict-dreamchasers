@@ -35,8 +35,8 @@ body {
   flex-grow: 1;
 }
 .custom-marker {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: #ff8446; /* of een andere kleur */
   color: white;
   border-radius: 50%;

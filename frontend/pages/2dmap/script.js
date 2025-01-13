@@ -36,7 +36,8 @@ const map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/empty-v9", // Gebruik een lege kaartstijl, geen Mapbox achtergrond
   center: [0.0, 51.35], // Nieuwe center van de kaart [longitude, latitude]
   attributionControl: false, // Zet de Mapbox-attributie uit, zodat er geen Mapbox-logootje wordt weergegeven
-  zoom: 1,
+  zoom: 9.9,
+  maxZoom: 10.9, // Maximaal inzoomniveau
   dragRotate: false, // Schakel rotatie door slepen uit
 });
 
@@ -166,7 +167,7 @@ map.on("load", function () {
     },
     {
       nummer: 12,
-      coords: [-0.090, 51.390], // Locatie van de derde campingplek
+      coords: [-0.09, 51.39], // Locatie van de derde campingplek
       naam: "Campingplek 3",
       prijs: "€30 per nacht",
       type: "bungalow",
