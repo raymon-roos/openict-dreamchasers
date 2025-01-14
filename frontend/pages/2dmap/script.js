@@ -181,6 +181,238 @@ map.on("load", function () {
       type: "bungalow",
       foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
     },
+    {
+      nummer: 14,
+      coords: [-0.1, 51.345], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 15,
+      coords: [-0.08, 51.329], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 16,
+      coords: [-0.07, 51.345], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 17,
+      coords: [-0.06, 51.38], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 18,
+      coords: [-0.05, 51.395], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 19,
+      coords: [-0.01, 51.375], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 20,
+      coords: [-0.03, 51.362], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 21,
+      coords: [-0.02, 51.345], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 22,
+      coords: [0.01, 51.34], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 23,
+      coords: [0.04, 51.343], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 24,
+      coords: [0.04, 51.361], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 25,
+      coords: [0.04, 51.38], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 26,
+      coords: [0.04, 51.397], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 27,
+      coords: [0.081, 51.38], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 28,
+      coords: [0.084, 51.362], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 29,
+      coords: [0.091, 51.345], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 30,
+      coords: [0.12, 51.345], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 31,
+      coords: [0.15, 51.346], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 32,
+      coords: [0.158, 51.364], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 33,
+      coords: [0.158, 51.383], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 34,
+      coords: [0.145, 51.4], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 35,
+      coords: [-0.119, 51.445], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 36,
+      coords: [-0.09, 51.456], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 37,
+      coords: [-0.055, 51.457], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 38,
+      coords: [0.015, 51.457], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 39,
+      coords: [0.065, 51.457], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 40,
+      coords: [0.12, 51.458], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 41,
+      coords: [0.155, 51.458], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
+    {
+      nummer: 42,
+      coords: [0.194, 51.455], // Locatie van de derde campingplek
+      naam: "Campingplek 3",
+      prijs: "€30 per nacht",
+      type: "bungalow",
+      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+    },
   ];
 
   // Camping plekken dynamisch renderen
