@@ -111,8 +111,7 @@ document.getElementById("download").addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", () => {
   // Trigger confetti
   confetti({
-    particleCount: 100,
+    particleCount: 140,
     spread: 100,
-    origin: { y: 0.6 },
   });
 });
