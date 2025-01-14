@@ -419,7 +419,13 @@ map.on("load", function () {
   plekken.forEach((plek) => {
     // Maak een custom marker (rondje met een getal)
     const el = document.createElement("div");
-    el.className = "custom-marker";
+
+    if (plek.type == "bungalow") {
+      el.className = "custom-marker-bungalow";
+    } else {
+      el.className = "custom-marker";
+    }
+
     el.innerHTML = plek.nummer;
 
     // Voeg de marker toe aan de kaart
