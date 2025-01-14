@@ -43,12 +43,12 @@ func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, 
 
 // With handlers from "GetHandlers"
 // Create a Router path: {Method}/{functionName}/{OptionalParameter?}
-func GenerateRoutesFromHandlers(list []string) []Route {
+func GenerateRoutesFromHandlers(handlerList []string) []Route {
 	var routeList []Route
 
 	re := regexp.MustCompile("([A-Z][a-z]*)")
 
-	for _, handler := range list {
+	for _, handler := range handlerList {
 		route := Route{}
 		parts := re.FindAllString(handler, -1)
 		if len(parts) > 1 {
