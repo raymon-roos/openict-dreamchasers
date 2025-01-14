@@ -13,3 +13,23 @@ services:
     ports:
       - "80:80"
 
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-compose
+    environment:
+      context: ../
+      env_file:
+        ./api/.env
+      MARIADB_DATABASE: DB_NAME
+      MARIADB_USER: DB_USER
+      MARIADB_PASSWORD: DB_PASSWORD
+      MARIADB_ROOT_PASSWORD: DB_PASSWORD
+    ports:
+      - "3306:3306"
+    networks:
+      - mariadb_network
+
+networks:
+  mariadb_network:
+    driver: bridge
+
