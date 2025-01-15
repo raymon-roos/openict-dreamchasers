@@ -24,192 +24,171 @@
 
   <body>
     <div class="navigation"></div>
-    <div class="header">
-      <button class="back-button">
-        <i class="fa-solid fa-chevron-left"></i
-        ><a href="../reserveren/index.html">Ga terug</a>
-      </button>
-
-      <div class="procesbar">
-        <a href="../reserveren/index.html"
-          ><span>1</span>
-          <p>Campingplek</p></a
-        >
-      </div>
-      <i class="fa-solid fa-chevron-right"></i>
-
-      <div class="procesbar active-procesbar">
-        <span>2</span>
-        <p>Gegevens</p>
-      </div>
-      <i class="fa-solid fa-chevron-right"></i>
-
-      <div class="procesbar">
-        <span>3</span>
-        <p>Betaling</p>
-      </div>
-      <i class="fa-solid fa-chevron-right"></i>
-      <div class="procesbar">
-        <span>4</span>
-        <p>Overzicht</p>
-      </div>
-    </div>
-    <div class="mainContainer">
-      <div class="mainContainer__left">
-        <form id="bookingForm" autocomplete="off" novalidate="novalidate">
-          <div class="personalDetails">
-            <h1 class="title">Vul je gegevens in</h1>
-            <p>
-              We gebruiken deze gegevens om je te informeren over je boeking.
-            </p>
-            <div class="line"></div>
-            <div class="inputcontainer">
-              <p>Voornaam <span>*</span></p>
-              <input
-                id="firstName"
-                name="firstName"
-                min="1"
-                max="90"
-                placeholder="Typ je voornaam"
-                type="text"
-              />
-            </div>
-
-            <div class="inputcontainer">
-              <p>Achternaam<span>*</span></p>
-              <input
-                id="lastName"
-                name="lastName"
-                placeholder="Typ je achternaam"
-                pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,50}"
-                type="text"
-              />
-            </div>
-
-            <div class="inputcontainer">
-              <p>Geboortedatum<span>*</span></p>
-              <input type="date" id="dob" name="dob" required />
-            </div>
-
-            <div class="inputcontainer">
-              <p>E-mail <span>*</span></p>
-              <input
-                placeholder="Typ je e-mail"
-                name="email"
-                id="email"
-                type="email"
-              />
-            </div>
-
-            <div class="inputcontainer">
-              <p>Bevestig e-mail <span>*</span></p>
-              <input
-                placeholder="Typ je e-mail"
-                id="confirm-email"
-                type="email"
-                name="confirm-email"
-              />
-            </div>
-
-            <div class="inputcontainer">
-              <p>Telefoonnummer <span>*</span></p>
-
-              <input
-                placeholder="Typ je telefoonnummer"
-                id="phoneNumber"
-                type="tel"
-                name="phoneNumber"
-                required
-              />
-              <span id="error-msg" class="hide just-validate-error"></span>
-            </div>
-          </div>
-
-          <div class="adresGegevens">
-            <h1 class="title">Adres</h1>
-            <div class="line"></div>
-            <div class="inputcontainer">
-              <p>Land <span>*</span></p>
-
-              <select
-                name="selectCountry"
-                class="selectCountry"
-                id="selectCountry"
-              >
-                <option value="NLD">Nederland</option>
-              </select>
-            </div>
-
-            <div class="postalCode-number">
-              <div class="inputSmall">
-                <p>Postcode <span>*</span></p>
+    <div class="container">
+      <a class="back-link" href="../2dmap/index.html" aria-label="Go back"
+        >Ga terug</a
+      >
+      <div class="mainContainer">
+        <div class="mainContainer__left">
+          <form id="bookingForm" autocomplete="off" novalidate="novalidate">
+            <div class="personalDetails">
+              <h1 class="title">Vul je gegevens in</h1>
+              <p>
+                We gebruiken deze gegevens om je te informeren over je boeking.
+              </p>
+              <div class="line"></div>
+              <div class="inputcontainer">
+                <p>Voornaam <span>*</span></p>
                 <input
-                  name="postalCode"
-                  id="postalCode"
-                  placeholder="Postcode"
+                  id="firstName"
+                  name="firstName"
+                  min="1"
+                  max="90"
+                  placeholder="Typ je voornaam"
                   type="text"
                 />
               </div>
-              <div class="inputSmall">
-                <p>Huisnummer <span>*</span></p>
+
+              <div class="inputcontainer">
+                <p>Achternaam<span>*</span></p>
                 <input
-                  name="houseNumber"
-                  id="houseNumber"
-                  placeholder="Huisnummer"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Typ je achternaam"
+                  pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,50}"
                   type="text"
                 />
               </div>
-              <div class="inputSmall">
-                <p>Toevoeging</p>
-                <input name="toevoeging" placeholder="Toevoeging" type="text" />
+
+              <div class="inputcontainer">
+                <p>Geboortedatum<span>*</span></p>
+                <input type="date" id="dob" name="dob" required />
+              </div>
+
+              <div class="inputcontainer">
+                <p>E-mail <span>*</span></p>
+                <input
+                  placeholder="Typ je e-mail"
+                  name="email"
+                  id="email"
+                  type="email"
+                />
+              </div>
+
+              <div class="inputcontainer">
+                <p>Bevestig e-mail <span>*</span></p>
+                <input
+                  placeholder="Typ je e-mail"
+                  id="confirm-email"
+                  type="email"
+                  name="confirm-email"
+                />
+              </div>
+
+              <div class="inputcontainer">
+                <p>Telefoonnummer <span>*</span></p>
+
+                <input
+                  placeholder="Typ je telefoonnummer"
+                  id="phoneNumber"
+                  type="tel"
+                  name="phoneNumber"
+                  required
+                />
+                <span id="error-msg" class="hide just-validate-error"></span>
               </div>
             </div>
 
-            <p id="addressMessage"></p>
-            <!-- Statusbericht -->
+            <div class="adresGegevens">
+              <h1 class="title">Adres</h1>
+              <div class="line"></div>
+              <div class="inputcontainer">
+                <p>Land <span>*</span></p>
 
-            <div class="inputcontainer">
-              <p>Straatnaam <span>*</span></p>
-              <input
-                name="streetName"
-                id="streetName"
-                placeholder="Straatnaam"
-                type="text"
-              />
-            </div>
-            <div class="inputcontainer">
-              <p>Plaatsnaam <span>*</span></p>
-              <input
-                name="cityName"
-                id="cityName"
-                placeholder="Plaatsnaam"
-                type="text"
-              />
-            </div>
-            <div>
-              <label>
-                <input type="checkbox" name="terms" id="terms" />
-                Ik accepteer de
-                <a href="/algemene-voorwaarden" target="_blank"
-                  >algemene voorwaarden</a
+                <select
+                  name="selectCountry"
+                  class="selectCountry"
+                  id="selectCountry"
                 >
-                en het
-                <a href="/privacybeleid" target="_blank">privacybeleid</a>.
-              </label>
-            </div>
-            <br />
-            <div></div>
-          </div>
-          <div class="buttonContainer">
-            <button class="nextButton" type="submit">
-              <p>Ga verder</p>
-              <i class="fa-solid fa-circle-chevron-right"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+                  <option value="NLD">Nederland</option>
+                </select>
+              </div>
 
-      <div id="overviewCard" class="mainContainer__right"></div>
+              <div class="postalCode-number">
+                <div class="inputSmall">
+                  <p>Postcode <span>*</span></p>
+                  <input
+                    name="postalCode"
+                    id="postalCode"
+                    placeholder="Postcode"
+                    type="text"
+                  />
+                </div>
+                <div class="inputSmall">
+                  <p>Huisnummer <span>*</span></p>
+                  <input
+                    name="houseNumber"
+                    id="houseNumber"
+                    placeholder="Huisnummer"
+                    type="text"
+                  />
+                </div>
+                <div class="inputSmall">
+                  <p>Toevoeging</p>
+                  <input
+                    name="toevoeging"
+                    placeholder="Toevoeging"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <p id="addressMessage"></p>
+              <!-- Statusbericht -->
+
+              <div class="inputcontainer">
+                <p>Straatnaam <span>*</span></p>
+                <input
+                  name="streetName"
+                  id="streetName"
+                  placeholder="Straatnaam"
+                  type="text"
+                />
+              </div>
+              <div class="inputcontainer">
+                <p>Plaatsnaam <span>*</span></p>
+                <input
+                  name="cityName"
+                  id="cityName"
+                  placeholder="Plaatsnaam"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label>
+                  <input type="checkbox" name="terms" id="terms" />
+                  Ik accepteer de
+                  <a href="/algemene-voorwaarden" target="_blank"
+                    >algemene voorwaarden</a
+                  >
+                  en het
+                  <a href="/privacybeleid" target="_blank">privacybeleid</a>.
+                </label>
+              </div>
+              <br />
+              <div></div>
+            </div>
+            <div class="buttonContainer">
+              <button class="nextButton" type="submit">
+                <p>Ga verder</p>
+                <i class="fa-solid fa-circle-chevron-right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div id="overviewCard" class="mainContainer__right"></div>
+      </div>
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/intlTelInput.min.js"></script>

@@ -2,6 +2,12 @@ import { autoFillAddress } from "./scripts/autoFillAddress.js";
 import { initializePhoneInputValidation } from "./scripts/phoneInputValidation.js";
 import { validator } from "./scripts/inputValidation.js";
 import { renderOverviewCard } from "../../components/overviewCard.js";
+import { createHeader } from "../../components/headerComponent.js";
+
+// Add header component to the DOM
+const container = document.querySelector(".container");
+const header = createHeader();
+container.insertBefore(header, container.querySelector(".mainContainer"));
 
 // Input validation
 initializePhoneInputValidation();
