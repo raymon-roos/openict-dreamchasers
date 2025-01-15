@@ -68,6 +68,7 @@ function formatDateToDutchTimeZone(date) {
 function handleDataChange(selectedDates) {
   const arriveElement = document.getElementById("arrive");
   const departureElement = document.getElementById("departure");
+  const button = document.querySelector(".pay-button");
 
   if (!arriveElement || !departureElement) {
     console.error("Kan de DOM-elementen niet vinden");
@@ -79,6 +80,7 @@ function handleDataChange(selectedDates) {
   if (selectedDates.length === 2) {
     arriveElement.value = formatDateToDutchTimeZone(selectedDates[0]);
     departureElement.value = formatDateToDutchTimeZone(selectedDates[1]);
+    button.classList.remove("disabledButton");
 
     // Bereken het aantal dagen
     const totalDays = calculateTotalDays(selectedDates[0], selectedDates[1]);
