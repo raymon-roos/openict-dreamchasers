@@ -3,7 +3,7 @@ import { addGuestEventListeners } from "./guestsHandler.js";
 import { addPersonPickerEventListener } from "./customDropdown.js";
 import { calculateAndDisplayCosts } from "./costsHandler.js";
 import { initializeCampingInfo } from "./campingInfo.js";
-import { createHeader } from "./headerComponent.js";
+import { createHeader } from "../../../components/headerComponent.js";
 import { updateState } from "../../../state-manager/reservationState.js";
 
 function main() {
