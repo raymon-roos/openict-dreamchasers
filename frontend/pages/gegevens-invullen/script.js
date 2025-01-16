@@ -6,7 +6,7 @@ import { createHeader } from "../../components/headerComponent.js";
 
 // Add header component to the DOM
 const container = document.querySelector(".container");
-const header = createHeader();
+const header = createHeader(2);
 container.insertBefore(header, container.querySelector(".mainContainer"));
 
 // Input validation

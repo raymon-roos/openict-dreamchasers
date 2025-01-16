@@ -425,11 +425,6 @@
   border: 1px solid red !important;
 }
 
-.companions {
-  display: flex;
-  justify-content: space-between;
-}
-
 @media (max-width: 768px) {
   .header {
     flex-direction: row;

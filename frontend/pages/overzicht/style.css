@@ -124,7 +124,7 @@
 }
 
 .mainContainer__left {
-  width: 30%;
+  width: 100%;
   margin-right: 50px;
   height: 100%;
 }
@@ -132,7 +132,7 @@
   margin-bottom: 10px;
 }
 .mainContainer__right {
-  width: 40%;
+  width: 100%;
   margin-left: 50px;
   max-width: 500px;
 }
@@ -226,13 +226,15 @@
 }
 
 .stay-duration,
-.guests {
+.guests,
+.pets {
   display: flex;
   align-items: center;
 }
 
 .stay-duration i,
-.guests i {
+.guests i,
+.pets i {
   margin: 20px 0;
   font-size: 23px;
   margin-right: 17px;
@@ -384,6 +386,30 @@
 }
 
 @media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column; /* Zet link en rechts onder elkaar */
+  }
+
+  .mainContainer__left {
+    width: 100%; /* Neemt volledige breedte */
+  }
+
+  .mainContainer__right {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: white; /* Maak achtergrond neutraal */
+    border-top: 1px solid #ccc;
+    padding: 16px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Visuele scheiding */
+  }
+
+  .overviewCard {
+    width: 100%; /* Laat de kaart de volledige breedte nemen */
+  }
+
   .header {
     flex-direction: row;
     flex-wrap: wrap;

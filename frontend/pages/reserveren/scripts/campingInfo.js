@@ -14,7 +14,7 @@ export async function initializeCampingInfo() {
     // Haal de basisprijs op (bijvoorbeeld 30 euro per nacht)
     //const basePrice = data.prijzen.basisPrijs;
 
-    const basePrice = 30;
+    const basePrice = 38;
 
     // Display base Price
     document.getElementById("camping-price").innerHTML = basePrice;

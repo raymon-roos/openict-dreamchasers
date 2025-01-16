@@ -71,7 +71,7 @@ function displayCosts(costs) {
 
 function calculateAndDisplayCosts() {
   // Haal het aantal dagen op uit localStorage
-  let days = localStorage.getItem("totalDays") || 8; // Als er geen waarde is, stel in op 8
+  let days = localStorage.getItem("totalDays") || 0; // Als er geen waarde is, stel in op 8
 
   // Haal alle inputs/informatie op
   let basePrice =
