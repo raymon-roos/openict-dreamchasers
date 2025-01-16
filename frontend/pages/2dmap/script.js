@@ -75,481 +75,316 @@ map.on("load", function () {
     },
   });
 
-  // Handmatige campingplekken (Later dynamisch met backend API)
   const plekken = [
     {
-      nummer: 1,
-      coords: [-0.133, 51.245], // Locatie van de eerste campingplek
-      naam: "Campingplek 1",
-      type: "camping",
-      prijs: "€30 per nacht",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 1,
+      "coordinate": {"long": -0.133, "lat": 51.245},
+      "type": { "type": "kampeerplaats", "price": 20 }
     },
     {
-      nummer: 2,
-      coords: [-0.08, 51.245], // Locatie van de tweede campingplek
-      naam: "Campingplek 2",
-      type: "camping",
-      prijs: "€30 per nacht",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 2,
+      "coordinate": {"long": -0.08, "lat": 51.245},
+      "type": { "type": "kampeerplaats", "price": 25 }
     },
     {
-      nummer: 3,
-      coords: [-0.08, 51.265], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 3,
+      "coordinate": {"long": -0.08, "lat": 51.265},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 4,
-      coords: [-0.01, 51.265], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 4,
+      "coordinate": {"long": -0.01, "lat": 51.265},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 5,
-      coords: [-0.01, 51.245], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 5,
+      "coordinate": {"long": -0.01, "lat": 51.245},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 6,
-      coords: [0.02, 51.245], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 6,
+      "coordinate": {"long": 0.02, "lat": 51.245},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 7,
-      coords: [0.05, 51.245], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 7,
+      "coordinate": {"long": 0.05, "lat": 51.245},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 8,
-      coords: [0.04, 51.265], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 8,
+      "coordinate": {"long": 0.04, "lat": 51.265},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 9,
-      coords: [0.127, 51.27], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 9,
+      "coordinate": {"long": 0.127, "lat": 51.27},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 10,
-      coords: [0.127, 51.245], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 10,
+      "coordinate": {"long": 0.127, "lat": 51.245},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 11,
-      coords: [0.16, 51.245], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 11,
+      "coordinate": {"long": 0.16, "lat": 51.245},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 12,
-      coords: [-0.09, 51.39], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 12,
+      "coordinate": {"long": -0.09, "lat": 51.39},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 13,
-      coords: [-0.09, 51.375], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 13,
+      "coordinate": {"long": -0.09, "lat": 51.375},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 14,
-      coords: [-0.1, 51.345], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 14,
+      "coordinate": {"long": -0.1, "lat": 51.345},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 15,
-      coords: [-0.08, 51.329], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 15,
+      "coordinate": {"long": -0.08, "lat": 51.329},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 16,
-      coords: [-0.07, 51.345], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 16,
+      "coordinate": {"long": -0.07, "lat": 51.345},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 17,
-      coords: [-0.06, 51.38], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 17,
+      "coordinate": {"long": -0.06, "lat": 51.38},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 18,
-      coords: [-0.05, 51.395], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 18,
+      "coordinate": {"long": -0.05, "lat": 51.395},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 19,
-      coords: [-0.01, 51.375], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 19,
+      "coordinate": {"long": -0.01, "lat": 51.375},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 20,
-      coords: [-0.03, 51.362], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 20,
+      "coordinate": {"long": -0.03, "lat": 51.362},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 21,
-      coords: [-0.02, 51.345], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 21,
+      "coordinate": {"long": -0.02, "lat": 51.345},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 22,
-      coords: [0.01, 51.34], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 22,
+      "coordinate": {"long": 0.01, "lat": 51.34},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 23,
-      coords: [0.04, 51.343], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 23,
+      "coordinate": {"long": 0.04, "lat": 51.343},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 24,
-      coords: [0.04, 51.361], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 24,
+      "coordinate": {"long": 0.04, "lat": 51.361},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 25,
-      coords: [0.04, 51.38], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 25,
+      "coordinate": {"long": 0.04, "lat": 51.38},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 26,
-      coords: [0.04, 51.397], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 26,
+      "coordinate": {"long": 0.04, "lat": 51.397},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 27,
-      coords: [0.081, 51.38], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 27,
+      "coordinate": {"long": 0.081, "lat": 51.38},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 28,
-      coords: [0.084, 51.362], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 28,
+      "coordinate": {"long": 0.084, "lat": 51.362},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 29,
-      coords: [0.091, 51.345], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 29,
+      "coordinate": {"long": 0.091, "lat": 51.345},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 30,
-      coords: [0.12, 51.345], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 30,
+      "coordinate": {"long": 0.12, "lat": 51.345},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 31,
-      coords: [0.15, 51.346], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 31,
+      "coordinate": {"long": 0.15, "lat": 51.346},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 32,
-      coords: [0.158, 51.364], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 32,
+      "coordinate": {"long": 0.158, "lat": 51.364},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 33,
-      coords: [0.158, 51.383], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 33,
+      "coordinate": {"long": 0.158, "lat": 51.383},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 34,
-      coords: [0.145, 51.4], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 34,
+      "coordinate": {"long": 0.145, "lat": 51.4},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 35,
-      coords: [-0.119, 51.445], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 35,
+      "coordinate": {"long": -0.119, "lat": 51.445},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 36,
-      coords: [-0.09, 51.456], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 36,
+      "coordinate": {"long": -0.09, "lat": 51.456},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 37,
-      coords: [-0.055, 51.457], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 37,
+      "coordinate": {"long": -0.055, "lat": 51.457},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 38,
-      coords: [0.015, 51.457], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 38,
+      "coordinate": {"long": 0.015, "lat": 51.457},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 39,
-      coords: [0.065, 51.457], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 39,
+      "coordinate": {"long": 0.065, "lat": 51.457},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 40,
-      coords: [0.12, 51.458], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 40,
+      "coordinate": {"long": 0.12, "lat": 51.458},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 41,
-      coords: [0.155, 51.458], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 41,
+      "coordinate": {"long": 0.155, "lat": 51.458},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 42,
-      coords: [0.194, 51.455], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€30 per nacht",
-      type: "camping",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 42,
+      "coordinate": {"long": 0.194, "lat": 51.455},
+      "type": { "type": "kampeerplaats", "price": 30 }
     },
     {
-      nummer: 43,
-      coords: [0.24, 51.455], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 43,
+      "coordinate": {"long": 0.24, "lat": 51.455},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 44,
-      coords: [0.285, 51.455], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 44,
+      "coordinate": {"long": 0.285, "lat": 51.455},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 45,
-      coords: [0.24, 51.428], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 45,
+      "coordinate": {"long": 0.24, "lat": 51.428},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 46,
-      coords: [0.285, 51.428], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 46,
+      "coordinate": {"long": 0.285, "lat": 51.428},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 47,
-      coords: [0.238, 51.365], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 47,
+      "coordinate": {"long": 0.238, "lat": 51.365},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 48,
-      coords: [0.285, 51.365], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 48,
+      "coordinate": {"long": 0.285, "lat": 51.365},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 49,
-      coords: [0.22, 51.248], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 49,
+      "coordinate": {"long": 0.22, "lat": 51.248},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 50,
-      coords: [0.27, 51.248], // Locatie van de derde campingplek
-      naam: "Campingplek 3",
-      prijs: "€60 per nacht",
-      type: "bungalow",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 50,
+      "coordinate": {"long": 0.27, "lat": 51.248},
+      "type": { "type": "bungalow", "price": 30 }
     },
     {
-      nummer: 1,
-      coords: [0.142, 51.445], // Locatie van de derde campingplek
-      naam: "toilet",
-      type: "icon",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 901,
+      "coordinate": {"long": 0.142, "lat": 51.445},
+      "type": {"type": "toilet"}
     },
     {
-      nummer: 2,
-      coords: [0.265, 51.335], // Locatie van de derde campingplek
-      naam: "toilet",
-      type: "icon",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 902,
+      "coordinate": {"long": 0.265, "lat": 51.335},
+      "type": {"type": "toilet"}
     },
     {
-      nummer: 3,
-      coords: [-0.18, 51.375], // Locatie van de derde campingplek
-      naam: "toilet",
-      type: "icon",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 903,
+      "coordinate": {"long": -0.18, "lat": 51.375},
+      "type": {"type": "toilet"}
     },
     {
-      nummer: 1,
-      coords: [-0.15, 51.295], // Locatie van de derde campingplek
-      naam: "washer",
-      type: "icon",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 904,
+      "coordinate": {"long": -0.15, "lat": 51.295},
+      "type": {"type": "washer"}
     },
     {
-      nummer: 1,
-      coords: [-0.217, 51.27], // Locatie van de derde campingplek
-      naam: "restaurant",
-      type: "icon",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
+      "accommodation_number": 905,
+      "coordinate": {"long": -0.217, "lat": 51.27},
+      "type": {"type": "restaurant"}
     },
     {
-      nummer: 1,
-      coords: [-0.243, 51.255], // Locatie van de derde campingplek
-      naam: "reception",
-      type: "icon",
-      foto: "./placeholderCamping.jpg", // Pad naar de afbeelding van de plek
-    },
+      "accommodation_number": 906,
+      "coordinate": {"long": -0.243, "lat": 51.255},
+      "type": {"type": "reception"}
+    }
   ];
 
-  // Camping plekken dynamisch renderen
-  plekken.forEach((plek) => {
-    const el = document.createElement("div"); // Container voor elke marker
+function createPOIs(pois) {
+  pois.forEach((poi) => {
+    const el = document.createElement("div");
     const circle = document.createElement("div"); // Cirkel voor icoon
+    circle.className = "circle";
 
     // Voeg de juiste klasse toe voor het type marker
-    if (plek.type === "bungalow") {
+    if (poi.type.type === "bungalow") {
       el.className = "marker custom-marker-bungalow";
-      circle.className = "circle";
-      el.innerHTML = plek.nummer; // Zet het nummer direct in de cirkel
-    } else if (plek.type === "camping") {
+      el.innerHTML = poi.accommodation_number; // Zet het nummer direct in de cirkel
+    } else if (poi.type.type === "kampeerplaats") {
       el.className = "marker custom-marker";
-      circle.className = "circle";
-      el.innerHTML = plek.nummer; // Zet het nummer direct in de cirkel
-    } else if (plek.type === "icon") {
+      el.innerHTML = poi.accommodation_number; // Zet het nummer direct in de cirkel
+    } else { // overige POI types
       el.className = "marker icon-marker";
-      circle.className = "circle";
 
       // Voer de juiste icoon in op basis van de naam van de marker
       const icon = document.createElement("i");
 
       // Hier bepalen we welk icoon bij deze marker hoort, gebaseerd op de naam
-      if (plek.naam === "restaurant") {
+      if (poi.type.type === "restaurant") {
         icon.className = "fa-solid fa-utensils"; // Restaurant
-      } else if (plek.naam === "toilet") {
+      } else if (poi.type.type === "toilet") {
         icon.className = "fa-solid fa-restroom"; // Toilet
-      } else if (plek.naam === "washer") {
+      } else if (poi.type.type === "washer") {
         icon.className = "fa-solid fa-tshirt"; // Wasmachine
-      } else if (plek.naam === "reception") {
+      } else if (poi.type.type === "reception") {
         icon.className = "fa-solid fa-info";
       }
 
@@ -562,62 +397,61 @@ map.on("load", function () {
       el.appendChild(arrowIcon);
     }
 
+    const coords = [poi.coordinate.long, poi.coordinate.lat];
+
     // Voeg de marker toe aan de kaart
     const marker = new mapboxgl.Marker(el)
-      .setLngLat(plek.coords) // Marker positie instellen
+      .setLngLat(coords) // Marker positie instellen
       .setPopup(
         new mapboxgl.Popup({ offset: 25 }) // Popup offset om de popup iets van de marker af te plaatsen
-          .setLngLat(plek.coords) // Zet de positie van de popup op de locatie van de marker
+          .setLngLat(coords) // Zet de positie van de popup op de locatie van de marker
           .setHTML(
-            plek.type === "icon"
-              ? // Popup voor de icon-markers (zoals toilet, restaurant, wasmachine)
-                plek.naam === "toilet"
-                ? `<div class='infoCard'>
-                      <img src='${plek.foto}' />
-                      <div class='infoCard__content'>
-                        <h3>Toilet ${plek.nummer}</h3>
-                        <p>Onze toiletten zijn schoon, goed onderhouden en 24/7 toegankelijk. Ze zijn uitgerust met gratis toiletpapier, zeep en handdroging. Ideaal voor een comfortabel verblijf!</p>
-                        <div>6x <i class="fa-solid fa-shower"></i> | 6x <i class="fa-solid fa-toilet"></i></div>
-                      </div>
-                    </div>`
-                : plek.naam === "restaurant"
-                ? `<div class='infoCard'>
-                      <img src='${plek.foto}' />
-                      <div class='infoCard__content'>
-                        <h3>Restaurant ${plek.nummer}</h3>
-                        <p>Geniet van een heerlijke maaltijd in ons gezellige restaurant. We bieden lokale gerechten en dagelijkse specials aan voor een smaakvolle ervaring!</p>
-                        <div><i class="fa-solid fa-utensils"></i></div>
-                      </div>
-                    </div>`
-                : plek.naam === "washer"
-                ? `<div class='infoCard'>
-                      <img src='${plek.foto}' />
-                      <div class='infoCard__content'>
-                        <h3>Wasmachine ${plek.nummer}</h3>
-                        <p>6 wasmachines en 6 drogers, 24/7 beschikbaar voor een snelle en efficiënte wasbeurt tijdens je verblijf.</p>
-                      </div>
-                    </div>`
-                : plek.naam === "reception"
-                ? `<div class='infoCard'>
-  <img src='${plek.foto}' />
-  <div class='infoCard__content'>
-    <h3>Receptie ${plek.nummer}</h3>
-    <p>Onze receptie is 24/7 geopend voor al je vragen, reserveringen en hulp tijdens je verblijf. Hier kun je ook extra voorzieningen aanvragen en informatie krijgen over de omgeving.</p>
-  </div>
-</div>`
-                : ""
-              : // Popup voor andere markers zoals campingplek en bungalow
-                `<div class='infoCard'>
-                  <img src='${plek.foto}' />
-                  <div class='infoCard__content'>
-                    <h3>Campingplek ${plek.nummer}</h3>
-                    <p>★★★</p>
-                    <p>${plek.prijs}</p>
-                  </div>
-                  <div class='buttonContainer'>
-                    <button id='chooseCampingPlaceBtn'>Kies campingplek</button>
-                  </div>
-                </div>`
+            poi.type.type === "toilet"
+              ? `<div class='infoCard'>
+                    <img src='./placeholderCamping.jpg' />
+                    <div class='infoCard__content'>
+                      <h3>Toilet ${poi.accommodation_number}</h3>
+                      <p>Onze toiletten zijn schoon, goed onderhouden en 24/7 toegankelijk. Ze zijn uitgerust met gratis toiletpapier, zeep en handdroging. Ideaal voor een comfortabel verblijf!</p>
+                      <div>6x <i class="fa-solid fa-shower"></i> | 6x <i class="fa-solid fa-toilet"></i></div>
+                    </div>
+                  </div>`
+              : poi.type.type === "restaurant"
+              ? `<div class='infoCard'>
+                    <img src='./placeholderCamping.jpg' />
+                    <div class='infoCard__content'>
+                      <h3>Restaurant ${poi.accommodation_number}</h3>
+                      <p>Geniet van een heerlijke maaltijd in ons gezellige restaurant. We bieden lokale gerechten en dagelijkse specials aan voor een smaakvolle ervaring!</p>
+                      <div><i class="fa-solid fa-utensils"></i></div>
+                    </div>
+                  </div>`
+              : poi.type.type === "washer"
+              ? `<div class='infoCard'>
+                    <img src='./placeholderCamping.jpg' />
+                    <div class='infoCard__content'>
+                      <h3>Wasmachine ${poi.accommodation_number}</h3>
+                      <p>6 wasmachines en 6 drogers, 24/7 beschikbaar voor een snelle en efficiënte wasbeurt tijdens je verblijf.</p>
+                    </div>
+                  </div>`
+              : poi.type.type === "reception"
+              ? `<div class='infoCard'>
+                    <img src='./placeholderCamping.jpg' />
+                    <div class='infoCard__content'>
+                      <h3>interesting</h3>
+                      <p>Onze receptie is 24/7 geopend voor al je vragen, reserveringen en hulp tijdens je verblijf. Hier kun je ook extra voorzieningen aanvragen en informatie krijgen over de omgeving.</p>
+                    </div>
+                  </div>`
+            : // Popup voor andere markers zoals campingpoi en bungalow
+              `<div class='infoCard'>
+                <img src='./placeholderCamping.jpg' />
+                <div class='infoCard__content'>
+                  <h3>Camping ${poi.accommodation_number}</h3>
+                  <p>★★★</p>
+                  <p>€${poi.type.price} per nacht</p>
+                </div>
+                <div class='buttonContainer'>
+                  <button id='chooseCampingPlaceBtn'>Kies campingpoi</button>
+                </div>
+              </div>`
           )
       )
       .addTo(map); // Marker toevoegen aan de kaart
@@ -634,8 +468,7 @@ map.on("load", function () {
       }
     });
 
-    //
-    markers.push({ marker, element: el, type: plek.type });
+    markers.push({ marker, element: el, type: poi.type.type });
 
     // Voeg een klikgebeurtenis toe aan de marker
     el.addEventListener("click", () => {
@@ -650,13 +483,34 @@ map.on("load", function () {
 
       // Focus op de marker door de kaart te verplaatsen
       map.flyTo({
-        center: plek.coords,
+        center: coords,
         zoom: 10.5, // Zoomniveau bij focus
         essential: true,
         offset: [0, -100], // Adjust the offset (x, y) to move the map center
       });
     });
   });
+}
+
+
+
+  fetch("http://localhost:4000/accommodations").then(
+    async response => {
+      if (!response.ok) {
+        console.error("page not found:", error);
+        createPOIs(plekken);
+      } else {
+        createPOIs(await response.json());
+      }
+    },
+    error => {
+        console.error("Something went wrong, falling back to manual POIs:", error);
+        // This is a weird thing to do, but at least if something
+        // goes wrong with the API during a demo it should still work.
+        createPOIs(plekken)
+    }
+
+  );
 });
 
 // Filter Functionaliteit - disabled class voor de weggefilterde markers
