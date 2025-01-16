@@ -33,6 +33,7 @@ func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, 
 			continue
 		}
 		println(r.Method + " | " + path)
+		w.Header().Set("Content-Type", "application/json")
 		route.Func(w, r)
 		return
 	}

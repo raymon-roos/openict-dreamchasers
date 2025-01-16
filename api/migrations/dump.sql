@@ -41,13 +41,11 @@ INSERT INTO payment_methods (id, name) VALUES
 (2, 'PayPal'),
 (3, 'Ideal');
 
--- Insert payment statuses with explicit IDs
 INSERT INTO payment_statuses (id, status) VALUES
 (1, 'Pending'),
 (2, 'Completed'),
 (3, 'Failed');
 
--- Insert payments with explicit IDs
 INSERT INTO payments (id, method_id, status_id, total_price, completed_at) VALUES
 (1, 1, 2, 100.0, '2023-12-20 14:00:00'),
 (2, 2, 1, 200.0, NULL),
@@ -58,25 +56,66 @@ INSERT INTO payments (id, method_id, status_id, total_price, completed_at) VALUE
 (7, 1, 2, 300.0, '2023-12-24 12:00:00'),
 (8, 2, 1, 400.0, NULL);
 
--- Insert accommodation types with explicit IDs
 INSERT INTO accommodation_types (id, type, max_guests, price) VALUES
-(1, 'Single Room', 1, 50.0),
-(2, 'Double Room', 2, 75.0);
+(1, 'kampeerplaats', 1, 50.0),
+(2, 'bungalow', 2, 75.0);
 
--- Insert accommodation features with explicit IDs
 INSERT INTO accommodation_features (id, accommodation_type_id, description, price) VALUES
 (1, 1, 'Ocean View', 10.0),
 (2, 2, 'Balcony', 15.0);
 
--- Insert accommodations with explicit IDs
 INSERT INTO accommodations (id, accommodation_type_id, accommodation_number, coordinate) VALUES
-(1, 1, 101, ST_GeomFromText('POINT(40.7128 -74.0060)')),
-(2, 2, 202, ST_GeomFromText('POINT(43.65107 -79.347015)')),
-(3, 1, 102, ST_GeomFromText('POINT(51.5074 -0.1278)')),
-(4, 2, 203, ST_GeomFromText('POINT(52.379189 4.899431)')),
-(5, 2, 204, ST_GeomFromText('POINT(48.8566 2.3522)'));
+(1, 1, 1, ST_GeomFromText('POINT(-0.133 51.245)')),
+(2, 1, 2, ST_GeomFromText('POINT(-0.08 51.245)')),
+(3, 1, 3, ST_GeomFromText('POINT(-0.08 51.265)')),
+(4, 1, 4, ST_GeomFromText('POINT(-0.01 51.265)')),
+(5, 1, 5, ST_GeomFromText('POINT(-0.01 51.245)')),
+(6, 1, 6, ST_GeomFromText('POINT(0.02 51.245)')),
+(7, 1, 7, ST_GeomFromText('POINT(0.05 51.245)')),
+(8, 1, 8, ST_GeomFromText('POINT(0.04 51.265)')),
+(9, 1, 9, ST_GeomFromText('POINT(0.127 51.27)')),
+(10, 1, 10, ST_GeomFromText('POINT(0.127 51.245)')),
+(11, 1, 11, ST_GeomFromText('POINT(0.16 51.245)')),
+(12, 1, 12, ST_GeomFromText('POINT(-0.09 51.39)')),
+(13, 1, 13, ST_GeomFromText('POINT(-0.09 51.375)')),
+(14, 1, 14, ST_GeomFromText('POINT(-0.1 51.345)')),
+(15, 1, 15, ST_GeomFromText('POINT(-0.08 51.329)')),
+(16, 1, 16, ST_GeomFromText('POINT(-0.07 51.345)')),
+(17, 1, 17, ST_GeomFromText('POINT(-0.06 51.38)')),
+(18, 1, 18, ST_GeomFromText('POINT(-0.05 51.395)')),
+(19, 1, 19, ST_GeomFromText('POINT(-0.01 51.375)')),
+(20, 1, 20, ST_GeomFromText('POINT(-0.03 51.362)')),
+(21, 1, 21, ST_GeomFromText('POINT(-0.02 51.345)')),
+(22, 1, 22, ST_GeomFromText('POINT(0.01 51.34)')),
+(23, 1, 23, ST_GeomFromText('POINT(0.04 51.343)')),
+(24, 1, 24, ST_GeomFromText('POINT(0.04 51.361)')),
+(25, 1, 25, ST_GeomFromText('POINT(0.04 51.38)')),
+(26, 1, 26, ST_GeomFromText('POINT(0.04 51.397)')),
+(27, 1, 27, ST_GeomFromText('POINT(0.081 51.38)')),
+(28, 1, 28, ST_GeomFromText('POINT(0.084 51.362)')),
+(29, 1, 29, ST_GeomFromText('POINT(0.091 51.345)')),
+(30, 1, 30, ST_GeomFromText('POINT(0.12 51.345)')),
+(31, 1, 31, ST_GeomFromText('POINT(0.15 51.346)')),
+(32, 1, 32, ST_GeomFromText('POINT(0.158 51.364)')),
+(33, 1, 33, ST_GeomFromText('POINT(0.158 51.383)')),
+(34, 1, 34, ST_GeomFromText('POINT(0.145 51.4)')),
+(35, 1, 35, ST_GeomFromText('POINT(-0.119 51.445)')),
+(36, 1, 36, ST_GeomFromText('POINT(-0.09 51.456)')),
+(37, 1, 37, ST_GeomFromText('POINT(-0.055 51.457)')),
+(38, 1, 38, ST_GeomFromText('POINT(0.015 51.457)')),
+(39, 1, 39, ST_GeomFromText('POINT(0.065 51.457)')),
+(40, 1, 40, ST_GeomFromText('POINT(0.12 51.458)')),
+(41, 1, 41, ST_GeomFromText('POINT(0.155 51.458)')),
+(42, 1, 42, ST_GeomFromText('POINT(0.194 51.455)')),
+(43, 2, 43, ST_GeomFromText('POINT(0.24 51.455)')),
+(44, 2, 44, ST_GeomFromText('POINT(0.285 51.455)')),
+(45, 2, 45, ST_GeomFromText('POINT(0.24 51.428)')),
+(46, 2, 46, ST_GeomFromText('POINT(0.285 51.428)')),
+(47, 2, 47, ST_GeomFromText('POINT(0.238 51.365)')),
+(48, 2, 48, ST_GeomFromText('POINT(0.285 51.365)')),
+(49, 2, 49, ST_GeomFromText('POINT(0.22 51.248)')),
+(50, 2, 50, ST_GeomFromText('POINT(0.27 51.248)'));
 
--- Insert reservations with explicit IDs
 INSERT INTO reservations (id, guest_id, payment_id, accommodation_id, checkin, checkout) VALUES
 (1, 1, 1, 1, '2024-01-01', '2024-01-05'),
 (2, 2, 2, 2, '2024-02-01', '2024-02-10'),
@@ -87,12 +126,10 @@ INSERT INTO reservations (id, guest_id, payment_id, accommodation_id, checkin, c
 (7, 7, 7, 2, '2024-07-01', '2024-07-06'),
 (8, 8, 8, 3, '2024-08-01', '2024-08-07');
 
--- Insert price categories with explicit IDs
 INSERT INTO price_categories (id, category_name, price) VALUES
 (1, 'Standard Cleaning Fee', 20.0),
 (2, 'Late Checkout Fee', 30.0);
 
--- Insert line items with explicit IDs
 INSERT INTO line_items (id, payment_id, category_id, quantity) VALUES
 (1, 1, 1, 1),
 (2, 2, 2, 2),

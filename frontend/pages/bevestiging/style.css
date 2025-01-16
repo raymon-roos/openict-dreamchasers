@@ -26,11 +26,15 @@
 .container h1 {
   font-size: 50px;
   margin-top: 20px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .container h2 {
   font-size: 40px;
   color: #8db411;
+  text-align: center;
 }
 
 .container h3 {
@@ -39,6 +43,8 @@
   max-width: 460px;
   text-align: center;
   margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .reserveringsnummer__header {
@@ -51,6 +57,7 @@
   color: white;
   border-radius: 10px;
   width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .reserveringsnummer__header h2 {
@@ -59,10 +66,12 @@
 
 .actions {
   display: flex;
-  width: 60%;
-  align-items: center;
+  width: 90%;
+  align-items: flex-end;
   justify-content: space-between;
   margin-top: 35px;
+  max-width: 900px;
+  flex-wrap: wrap;
 }
 
 .actions a {
@@ -79,12 +88,14 @@
 .actions__right {
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 .actions__right button {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   display: flex;
   align-items: center;
-  margin-left: 10px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -102,10 +113,13 @@
 }
 
 .overviewCard {
-  width: 60%;
+  width: 90%;
   border-radius: 10px;
   margin-top: 25px;
   margin-bottom: 50px;
+  max-width: 900px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .reserveDetail {
@@ -137,6 +151,37 @@
   border-bottom-right-radius: 10px;
   padding: 30px;
   display: flex;
+}
+
+@media (max-width: 868px) {
+  .detailContent {
+    flex-direction: column;
+  }
+
+  .detailContent__left {
+    width: 100% !important;
+  }
+  .detailContent__right {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 407px) {
+  .companions__details {
+    flex-direction: column;
+  }
+
+  .stayDuration__content {
+    flex-direction: column;
+  }
+
+  .arrival {
+    margin-bottom: 10px;
+  }
+}
+
+#download {
+  margin-left: 10px;
 }
 
 .campingLocation-info {
@@ -300,6 +345,8 @@ h5 {
 
 .detailContent__right {
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .detailContent__left {
@@ -360,6 +407,7 @@ h5 {
   margin-top: 20px;
   flex-direction: column;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .pictures__container i {
@@ -376,10 +424,12 @@ h5 {
 .pictures {
   display: flex;
   margin-top: 15px;
+  width: 100%;
 }
 
 .pictures img {
-  width: 200px;
+  width: 50%;
+  margin-right: 5px;
 }
 
 .confirm-email {
