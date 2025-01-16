@@ -58,7 +58,11 @@ INSERT INTO payments (id, method_id, status_id, total_price, completed_at) VALUE
 
 INSERT INTO accommodation_types (id, type, max_guests, price) VALUES
 (1, 'kampeerplaats', 1, 50.0),
-(2, 'bungalow', 2, 75.0);
+(2, 'bungalow', 2, 75.0),
+(3, 'toilet', 0, 0),
+(4, 'restaurant', 0, 0),
+(5, 'washer', 0, 0),
+(6, 'reception', 0, 0);
 
 INSERT INTO accommodation_features (id, accommodation_type_id, description, price) VALUES
 (1, 1, 'Ocean View', 10.0),
@@ -114,7 +118,13 @@ INSERT INTO accommodations (id, accommodation_type_id, accommodation_number, coo
 (47, 2, 47, ST_GeomFromText('POINT(0.238 51.365)')),
 (48, 2, 48, ST_GeomFromText('POINT(0.285 51.365)')),
 (49, 2, 49, ST_GeomFromText('POINT(0.22 51.248)')),
-(50, 2, 50, ST_GeomFromText('POINT(0.27 51.248)'));
+(50, 2, 50, ST_GeomFromText('POINT(0.27 51.248)')),
+(51, 3, 901, ST_GeomFromText('POINT(0.142 51.445)')),
+(52, 3, 902, ST_GeomFromText('POINT(0.265 51.335)')),
+(53, 3, 903, ST_GeomFromText('POINT(-0.18 51.375)')),
+(54, 5, 904, ST_GeomFromText('POINT(-0.15 51.295)')),
+(55, 4, 905, ST_GeomFromText('POINT(-0.217 51.27)')),
+(56, 6, 906, ST_GeomFromText('POINT(-0.243 51.255)'));
 
 INSERT INTO reservations (id, guest_id, payment_id, accommodation_id, checkin, checkout) VALUES
 (1, 1, 1, 1, '2024-01-01', '2024-01-05'),

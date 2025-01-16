@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS accommodation_features (
 CREATE TABLE IF NOT EXISTS accommodations (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     accommodation_type_id BIGINT UNSIGNED NOT NULL,
-    accommodation_number TINYINT UNSIGNED NOT NULL,
+    accommodation_number SMALLINT UNSIGNED NOT NULL,
     coordinate GEOMETRY NOT NULL,
     created_at DATETIME DEFAULT now(),
     updated_at DATETIME ON UPDATE now(),

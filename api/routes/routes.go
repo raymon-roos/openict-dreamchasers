@@ -34,6 +34,7 @@ func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, 
 		}
 		println(r.Method + " | " + path)
 		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Access-Control-Allow-Origin", "*") // Allow access to any domain (insecure?)
 		route.Func(w, r)
 		return
 	}

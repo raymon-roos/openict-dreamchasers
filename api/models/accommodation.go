@@ -1,8 +1,8 @@
 package models
 
 type Coordinate struct {
-	Long float32
-	Lat  float32
+	Long float32 `json:"long,omitempty"`
+	Lat  float32 `json:"lat,omitempty"`
 }
 
 type Accommodation struct {
