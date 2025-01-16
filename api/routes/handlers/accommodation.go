@@ -28,7 +28,7 @@ func queryAccommodations() ([]models.Accommodation, error) {
 	}
 
 	rows, err := db.Query(`
-		SELECT a.accommodation_number, a.coordinate, at.type, at.price
+		SELECT a.accommodation_number, ST_X(a.coordinate) as longitude, ST_Y(a.coordinate) as lattitude, at.type, at.price
 		FROM accommodations a
 		left join accommodation_types at
 		on a.accommodation_type_id = at.id;
@@ -43,7 +43,7 @@ func queryAccommodations() ([]models.Accommodation, error) {
 
 	for rows.Next() {
 		var a models.Accommodation
-		err := rows.Scan(&a.AccommodationNumber, &a.Coordinate, &a.Type.Type, &a.Type.Price)
+		err := rows.Scan(&a.AccommodationNumber, &a.Coordinate.Long, &a.Coordinate.Lat, &a.Type.Type, &a.Type.Price)
 		if err != nil {
 			log.Println(fmt.Sprintf("Failed to query 'accommodations': %+v ", err))
 			return nil, err
