@@ -287,3 +287,36 @@ body {
 #reset-filter:hover {
   text-decoration: underline;
 }
+
+.circle {
+  border: solid 5px rgb(118, 151, 250);
+  border-radius: 100px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+}
+
+.circle i {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+}
+
+.arrow-down-icon {
+  position: absolute;
+  top: 90%; /* Zet het icoon direct onder de cirkel */
+  left: 50%; /* Centreer het icoon horizontaal ten opzichte van de cirkel */
+  transform: translateX(
+    -50%
+  ); /* Zorgt ervoor dat het icoon precies gecentreerd is */
+  font-size: 23px; /* Grootte van het pijl-icoon */
+  color: rgb(118, 151, 250);
+}
+
+.marker {
+  position: relative;
+  cursor: pointer;
+}
