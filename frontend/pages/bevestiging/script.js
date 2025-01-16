@@ -6,12 +6,12 @@ document.getElementById("print").addEventListener("click", function () {
 
   // Verzamel alle stijlen (externe en inline)
   const stylesheets = Array.from(document.styleSheets)
-    .map(sheet => {
+    .map((sheet) => {
       try {
         if (sheet.href) {
-          return `<link rel="stylesheet" href="${sheet.href}">`;  // Voeg externe stylesheets toe
+          return `<link rel="stylesheet" href="${sheet.href}">`; // Voeg externe stylesheets toe
         } else {
-          return [...sheet.cssRules].map(rule => rule.cssText).join("\n");  // Voeg inline stijlen toe
+          return [...sheet.cssRules].map((rule) => rule.cssText).join("\n"); // Voeg inline stijlen toe
         }
       } catch (e) {
         return ""; // Externe stijlen kunnen CORS-beperkingen hebben
@@ -26,7 +26,9 @@ document.getElementById("print").addEventListener("click", function () {
         <title>Print Overview Card</title>
         <!-- Link naar externe stijlen -->
         ${Array.from(document.styleSheets)
-          .map(sheet => sheet.href ? `<link rel="stylesheet" href="${sheet.href}">` : "")
+          .map((sheet) =>
+            sheet.href ? `<link rel="stylesheet" href="${sheet.href}">` : ""
+          )
           .join("\n")}
         <!-- Voeg de inline stijlen toe -->
         <style>
@@ -77,9 +79,6 @@ document.getElementById("print").addEventListener("click", function () {
   printWindow.document.close();
 });
 
-
-
-
 // Download
 document.getElementById("download").addEventListener("click", function () {
   const overviewCard = document.getElementById("overviewCard");
@@ -105,5 +104,14 @@ document.getElementById("download").addEventListener("click", function () {
 
     // Save the PDF
     pdf.save("overviewCard.pdf");
+  });
+});
+
+// Confetti
+document.addEventListener("DOMContentLoaded", () => {
+  // Trigger confetti
+  confetti({
+    particleCount: 140,
+    spread: 100,
   });
 });
