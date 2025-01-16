@@ -41,13 +41,11 @@ INSERT INTO payment_methods (id, name) VALUES
 (2, 'PayPal'),
 (3, 'Ideal');
 
--- Insert payment statuses with explicit IDs
 INSERT INTO payment_statuses (id, status) VALUES
 (1, 'Pending'),
 (2, 'Completed'),
 (3, 'Failed');
 
--- Insert payments with explicit IDs
 INSERT INTO payments (id, method_id, status_id, total_price, completed_at) VALUES
 (1, 1, 2, 100.0, '2023-12-20 14:00:00'),
 (2, 2, 1, 200.0, NULL),
@@ -58,17 +56,14 @@ INSERT INTO payments (id, method_id, status_id, total_price, completed_at) VALUE
 (7, 1, 2, 300.0, '2023-12-24 12:00:00'),
 (8, 2, 1, 400.0, NULL);
 
--- Insert accommodation types with explicit IDs
 INSERT INTO accommodation_types (id, type, max_guests, price) VALUES
-(1, 'Single Room', 1, 50.0),
-(2, 'Double Room', 2, 75.0);
+(1, 'kampeerplaats', 1, 50.0),
+(2, 'bungalow', 2, 75.0);
 
--- Insert accommodation features with explicit IDs
 INSERT INTO accommodation_features (id, accommodation_type_id, description, price) VALUES
 (1, 1, 'Ocean View', 10.0),
 (2, 2, 'Balcony', 15.0);
 
--- Insert accommodations with explicit IDs
 INSERT INTO accommodations (id, accommodation_type_id, accommodation_number, coordinate) VALUES
 (1, 1, 101, ST_GeomFromText('POINT(40.7128 -74.0060)')),
 (2, 2, 202, ST_GeomFromText('POINT(43.65107 -79.347015)')),
@@ -76,7 +71,6 @@ INSERT INTO accommodations (id, accommodation_type_id, accommodation_number, coo
 (4, 2, 203, ST_GeomFromText('POINT(52.379189 4.899431)')),
 (5, 2, 204, ST_GeomFromText('POINT(48.8566 2.3522)'));
 
--- Insert reservations with explicit IDs
 INSERT INTO reservations (id, guest_id, payment_id, accommodation_id, checkin, checkout) VALUES
 (1, 1, 1, 1, '2024-01-01', '2024-01-05'),
 (2, 2, 2, 2, '2024-02-01', '2024-02-10'),
@@ -87,12 +81,10 @@ INSERT INTO reservations (id, guest_id, payment_id, accommodation_id, checkin, c
 (7, 7, 7, 2, '2024-07-01', '2024-07-06'),
 (8, 8, 8, 3, '2024-08-01', '2024-08-07');
 
--- Insert price categories with explicit IDs
 INSERT INTO price_categories (id, category_name, price) VALUES
 (1, 'Standard Cleaning Fee', 20.0),
 (2, 'Late Checkout Fee', 30.0);
 
--- Insert line items with explicit IDs
 INSERT INTO line_items (id, payment_id, category_id, quantity) VALUES
 (1, 1, 1, 1),
 (2, 2, 2, 2),
