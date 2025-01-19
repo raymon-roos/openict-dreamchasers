@@ -47,7 +47,7 @@ const markers = [];
 map.on("load", function () {
   map.addSource("camping-map", {
     type: "image",
-    url: "./map.jpg", // Hier geef je het pad naar jouw campingkaart afbeelding op
+    url: "../assets/map.jpg", // Hier geef je het pad naar jouw campingkaart afbeelding op
     coordinates: [
       [-0.6, 51.6], // Linksbovenhoek (verhoogd)
       [0.6, 51.6], // Rechtsbovenhoek (verhoogd)
@@ -408,7 +408,7 @@ function createPOIs(pois) {
           .setHTML(
             poi.type.type === "toilet"
               ? `<div class='infoCard'>
-                    <img src='./placeholderCamping.jpg' />
+                    <img src='../assets/placeholderCamping.jpg' />
                     <div class='infoCard__content'>
                       <h3>Toilet ${poi.accommodation_number}</h3>
                       <p>Onze toiletten zijn schoon, goed onderhouden en 24/7 toegankelijk. Ze zijn uitgerust met gratis toiletpapier, zeep en handdroging. Ideaal voor een comfortabel verblijf!</p>
@@ -417,7 +417,7 @@ function createPOIs(pois) {
                   </div>`
               : poi.type.type === "restaurant"
               ? `<div class='infoCard'>
-                    <img src='./placeholderCamping.jpg' />
+                    <img src='../assets/placeholderCamping.jpg' />
                     <div class='infoCard__content'>
                       <h3>Restaurant ${poi.accommodation_number}</h3>
                       <p>Geniet van een heerlijke maaltijd in ons gezellige restaurant. We bieden lokale gerechten en dagelijkse specials aan voor een smaakvolle ervaring!</p>
@@ -426,7 +426,7 @@ function createPOIs(pois) {
                   </div>`
               : poi.type.type === "washer"
               ? `<div class='infoCard'>
-                    <img src='./placeholderCamping.jpg' />
+                    <img src='../assets/placeholderCamping.jpg' />
                     <div class='infoCard__content'>
                       <h3>Wasmachine ${poi.accommodation_number}</h3>
                       <p>6 wasmachines en 6 drogers, 24/7 beschikbaar voor een snelle en efficiënte wasbeurt tijdens je verblijf.</p>
@@ -434,7 +434,7 @@ function createPOIs(pois) {
                   </div>`
               : poi.type.type === "reception"
               ? `<div class='infoCard'>
-                    <img src='./placeholderCamping.jpg' />
+                    <img src='../assets/placeholderCamping.jpg' />
                     <div class='infoCard__content'>
                       <h3>interesting</h3>
                       <p>Onze receptie is 24/7 geopend voor al je vragen, reserveringen en hulp tijdens je verblijf. Hier kun je ook extra voorzieningen aanvragen en informatie krijgen over de omgeving.</p>
@@ -442,14 +442,14 @@ function createPOIs(pois) {
                   </div>`
             : // Popup voor andere markers zoals campingpoi en bungalow
               `<div class='infoCard'>
-                <img src='./placeholderCamping.jpg' />
+                <img src='../assets/placeholderCamping.jpg' />
                 <div class='infoCard__content'>
                   <h3>Camping ${poi.accommodation_number}</h3>
                   <p>★★★</p>
                   <p>€${poi.type.price} per nacht</p>
                 </div>
                 <div class='buttonContainer'>
-                  <button id='chooseCampingPlaceBtn'>Kies campingpoi</button>
+                  <button id='chooseCampingPlaceBtn'>Kies kampeerplaats</button>
                 </div>
               </div>`
           )
