@@ -1,5 +1,5 @@
 export const initialState = {
-  imgSrc: "campingplek.jpg",
+  imgSrc: "../assets/campingplek.jpg",
   placeName: "Plek 1",
   rating: "★★★★",
   pricePerNight: 38,
