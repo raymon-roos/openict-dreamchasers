@@ -2,6 +2,7 @@ package routes
 
 import (
 	"dreamchasers/routes/handlers"
+	"log"
 	"net/http"
 	"reflect"
 	"regexp"
@@ -32,7 +33,7 @@ func ExecuteRouteHandler(routeList []Route, path string, w http.ResponseWriter, 
 		if route.Path != path || route.Func == nil || !strings.EqualFold(route.FuncName, r.Method+path) {
 			continue
 		}
-		println(r.Method + " | " + path)
+		log.Println(r.Method + " | " + path)
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Access-Control-Allow-Origin", "*") // Allow access to any domain (insecure?)
 		route.Func(w, r)
