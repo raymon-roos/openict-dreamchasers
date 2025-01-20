@@ -2,7 +2,7 @@
 
 START TRANSACTION;
 
-INSERT INTO addresses (id, country_id, postcode, city, street, number, suffix) VALUES
+INSERT INTO addresses (id, country_code, postcode, city, street, number, suffix) VALUES
 (1, 'US', '10001', 'New York', 'Broadway', 123, 'A'),
 (2, 'CA', 'M5H 2N2', 'Toronto', 'Queen St', 456, ''),
 (3, 'GB', 'SW1A 1AA', 'London', 'Downing St', 10, ''),

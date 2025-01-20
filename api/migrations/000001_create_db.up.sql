@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS countries (
 
 CREATE TABLE IF NOT EXISTS addresses (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    country_id VARCHAR(3) NOT NULL,
+    country_code VARCHAR(3) NOT NULL,
     postcode VARCHAR(20),
     city VARCHAR(255),
     street VARCHAR(255),
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS addresses (
     created_at DATETIME DEFAULT now(),
     updated_at DATETIME ON UPDATE now(),
     deleted_at DATETIME,
-    FOREIGN KEY (country_id) REFERENCES countries(iso_code)
+    FOREIGN KEY (country_code) REFERENCES countries(iso_code)
 );
 
 CREATE TABLE IF NOT EXISTS guests (
