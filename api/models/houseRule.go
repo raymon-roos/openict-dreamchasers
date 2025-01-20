@@ -1,7 +1,7 @@
 package models
 
 type HouseRule struct {
-	ID        int    `json:"id,omitempty"`
+	ID        int64  `json:"id,omitempty"`
 	Sort      int    `json:"sort,omitempty"`
 	RuleText  string `json:"rule_text,omitempty"`
 	CreatedAt string `json:"created_at,omitempty"`

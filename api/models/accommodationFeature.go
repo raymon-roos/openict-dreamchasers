@@ -1,8 +1,8 @@
 package models
 
 type AccommodationFeature struct {
-	ID                  int     `json:"id,omitempty"`
-	AccommodationTypeID string  `json:"accommodation_type_id,omitempty"`
+	ID                  int64   `json:"id,omitempty"`
+	AccommodationTypeID int64   `json:"accommodation_type_id,omitempty"`
 	Description         string  `json:"description,omitempty"`
 	Price               float32 `json:"price,omitempty"`
 	CreatedAt           string  `json:"created_at,omitempty"`

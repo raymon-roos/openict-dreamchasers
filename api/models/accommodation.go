@@ -6,8 +6,8 @@ type Coordinate struct {
 }
 
 type Accommodation struct {
-	ID                  int               `json:"id,omitempty"`
-	AccommodationTypeID int               `json:"accommodation_type_id,omitempty"`
+	ID                  int64             `json:"id,omitempty"`
+	AccommodationTypeID int64             `json:"accommodation_type_id,omitempty"`
 	AccommodationNumber int               `json:"accommodation_number,omitempty"`
 	Coordinate          Coordinate        `json:"coordinate,omitempty"`
 	CreatedAt           string            `json:"created_at,omitempty"`
