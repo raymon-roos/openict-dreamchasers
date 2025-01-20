@@ -1,8 +1,10 @@
 import { renderOverviewCard } from "../../components/overviewCard.js";
 import { createHeader } from "../../components/headerComponent.js";
+import { updateState } from "../../state-manager/reservationState.js";
 
 // Add header component to the DOM
 const container = document.querySelector(".container");
+const disabledButton = document.querySelector(".disableButton");
 const header = createHeader();
 container.insertBefore(header, container.querySelector(".mainContainer"));
 
@@ -38,7 +40,7 @@ document
       }
 
       // Zet de knop 'Volgende' in staat om ingeschakeld te worden
-      document.querySelector(".disableButton").disabled = false;
+      disabledButton.disabled = false;
 
       // Bewaar de geselecteerde betaalmethode (optioneel)
       const selectedMethod = this.getAttribute("data-method");
@@ -47,7 +49,18 @@ document
   });
 
 // Zet de 'Volgende' knop weer uitgeschakeld bij laden van de pagina
-document.querySelector(".disableButton").disabled = true;
+disabledButton.disabled = true;
+
+document.querySelector(".nextButton").addEventListener("click", function () {
+  if (!disabledButton.disabled) {
+    const selectedMethod = document
+      .querySelector(".selected")
+      .getAttribute("name");
+
+    updateState({ paymentMethod: selectedMethod });
+    window.location.href = "../overzicht/index.html";
+  }
+});
 
 function blockNumbers(event) {
   // Verkrijg de ingevoerde waarde

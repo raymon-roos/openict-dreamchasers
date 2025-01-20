@@ -58,13 +58,13 @@
               <div class="stayDuration__content">
                 <div class="arrival">
                   <h5>Aankomst</h5>
-                  <p class="date-box">11-12-2024</p>
+                  <p id="arrivalDate" class="date-box">11-12-2024</p>
                   <p>Inchecken:</p>
                   <p>15:00 tot 20:00</p>
                 </div>
                 <div class="departure">
                   <h5>Vertrek</h5>
-                  <p class="date-box">01-01-2025</p>
+                  <p id="departureDate" class="date-box">01-01-2025</p>
                   <p>Uitchecken:</p>
                   <p>Uiterlijk voor 10:00</p>
                 </div>
@@ -77,37 +77,37 @@
               </div>
               <div class="allCompanions">
                 <div class="companions__total">
-                  <p>Totaal aantal personen: 6</p>
+                  <p id="totalGuests">Totaal aantal personen: 6</p>
                 </div>
                 <div class="companions__details">
                   <div class="companions__left">
                     <div class="companion">
                       <i class="fa-solid fa-baby"></i>
                       <p>Baby's:</p>
-                      <p>1</p>
+                      <p id="babies">1</p>
                     </div>
                     <div class="companion">
                       <i class="fa-solid fa-child"></i>
                       <p>Kinderen:</p>
-                      <p>2</p>
+                      <p id="children">2</p>
                     </div>
                   </div>
                   <div class="companions__right">
                     <div class="companion">
                       <i class="fa-solid fa-user"></i>
                       <p>Jongeren:</p>
-                      <p>1</p>
+                      <p id="youths">1</p>
                     </div>
                     <div class="companion">
                       <i class="fa-solid fa-user-tie"></i>
                       <p>Volwassenen:</p>
-                      <p>2</p>
+                      <p id="adults">2</p>
                     </div>
                   </div>
                 </div>
                 <div class="companions__pets">
                   <i class="fa-solid fa-paw"></i>
-                  <p>Huisdieren: 1</p>
+                  <p id="pets">Huisdieren: 1</p>
                   <p>(max. 2 toegestaan)</p>
                 </div>
               </div>
@@ -117,13 +117,13 @@
                   <h4>Persoonlijke Gegevens</h4>
                 </div>
                 <div class="campingInfo__content">
-                  <p>Naam: Cedric Heijlman</p>
-                  <p>Geboorte Datum: 08-09-2005</p>
-                  <p>Delacroixstraat 16</p>
-                  <p>1328 RD Almere</p>
-                  <p>Nederland</p>
-                  <p>Telefoonnummer: +31 642822155</p>
-                  <p>E-mail: cedric@gmail.com</p>
+                  <p id="name">Naam: Cedric Heijlman</p>
+                  <p id="date">Geboorte Datum: 08-09-2005</p>
+                  <p id="street">Delacroixstraat 16</p>
+                  <p id="street2">1328 RD Almere</p>
+                  <p id="country">Nederland</p>
+                  <p id="number">Telefoonnummer: +31 642822155</p>
+                  <p id="email">E-mail: cedric@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -191,6 +191,6 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
