@@ -1,7 +1,7 @@
 package models
 
 type priceCategory struct {
-	ID           string  `json:"id,omitempty"`
+	ID           int64   `json:"id,omitempty"`
 	CategoryName string  `json:"category_name,omitempty"`
 	Price        float32 `json:"price,omitempty"`
 	CreatedAt    string  `json:"created_at,omitempty"`
