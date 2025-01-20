@@ -20,10 +20,20 @@ export const initialState = {
   totalPrice: 1482,
   serviceCosts: 32,
   totalDays: 10,
+  paymentMethod: "iDeal",
   // Andere gegevens zoals klantinfo kunnen hier worden toegevoegd
   customerInfo: {
-    name: "John Doe",
+    name: "John",
+    lastName: "Doe",
+    birthdate: "01-01-2000",
     email: "johndoe@example.com",
+    number: "0612345678",
+    postalCode: "1234AB",
+    houseNumber: "1",
+    city: "Amsterdam",
+    country: "Nederland",
+    extension: "155",
+    streetName: "Amsterdamseweg",
   },
 };
 
@@ -40,18 +50,27 @@ export function saveStateToStorage(state) {
   localStorage.setItem("appState", JSON.stringify(state));
 }
 
-// Werk de state bij en sla deze op
 export function updateState(newState) {
   const currentState = getStateFromStorage(); // Haal de huidige state op
-  // Als er een 'guests'-object wordt bijgewerkt, merge het met het bestaande guests-object
+
+  // Update specifieke objecten in de state
+  if (newState.customerInfo) {
+    newState.customerInfo = {
+      ...currentState.customerInfo, // Behoud bestaande customerInfo
+      ...newState.customerInfo, // Update gewijzigde velden
+    };
+  }
+
   if (newState.guests) {
     newState.guests = {
-      ...currentState.guests, // Behoud de bestaande guests
-      ...newState.guests, // Update alleen de gewijzigde velden
+      ...currentState.guests, // Behoud bestaande guests
+      ...newState.guests, // Update gewijzigde velden
     };
-    return saveStateToStorage({ ...currentState, ...newState }); // Sla de nieuwe state op
   }
-  console.log("new");
-  const updatedState = { ...currentState, ...newState }; // Werk de state bij
-  saveStateToStorage(updatedState); // Sla de nieuwe state op
+
+  // Algemene state update
+  const updatedState = { ...currentState, ...newState };
+
+  // Sla de bijgewerkte state op
+  saveStateToStorage(updatedState);
 }

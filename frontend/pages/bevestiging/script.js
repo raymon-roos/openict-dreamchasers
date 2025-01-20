@@ -1,3 +1,7 @@
+import { displayCustomerInfo } from "./scripts/displayInfo.js";
+
+displayCustomerInfo();
+
 document.getElementById("print").addEventListener("click", function () {
   const overviewCard = document.getElementById("overviewCard");
 
