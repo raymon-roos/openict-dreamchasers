@@ -11,4 +11,7 @@ type Reservation struct {
 	UpdatedAt       string        `json:"updated_at,omitempty"`
 	DeletedAt       string        `json:"deleted_at,omitempty"`
 	CanceledAt      string        `json:"canceled_at,omitempty"`
+	Guest           Guest         `json:"guest,omitempty"`
+	Payment         Payment       `json:"payment,omitempty"`
+	Accommodation   Accommodation `json:"accommodations,omitempty"`
 }
