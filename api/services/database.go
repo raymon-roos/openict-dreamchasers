@@ -15,11 +15,13 @@ func InitializeDatabase(env EnvConfig) (*sql.DB, error) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/", env.User, env.Password, env.Host, env.Port)
 	db, err := connectDB(dsn)
 	if err != nil {
+		log.Println("Failed to initialize database:\n", err)
 		return nil, err
 	}
 
 	err = createDatabaseIfNotExists(db, env.DBName)
 	if err != nil {
+		log.Println("Failed to create missing database:\n", err)
 		return nil, err
 	}
 
