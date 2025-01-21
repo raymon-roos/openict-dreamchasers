@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reservations Dashboard</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Reservation ID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Check in</th>
+                    <th>Checkout</th>
+                </tr>
+            </thead>
+            <tbody id="reservations-table-body">
+                <!-- Data from the API will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </main>
+    <script>
+        // Fetch data from the API and populate the table
+        async function fetchReservations() {
+            try {
+                const response = await fetch('/api/reservations'); // API endpoint in your Go server
+                const data = await response.json();
+
+                const tableBody = document.getElementById('reservations-table-body');
+                tableBody.innerHTML = ''; // Clear existing rows
+
+                data.forEach(reservation => {
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td>${reservation.reservation_id}</td>
+                        <td>${reservation.first_name}</td>
+                        <td>${reservation.last_name}</td>
+                        <td>${reservation.email}</td>
+                        <td>${reservation.check_in}</td>
+                        <td>${reservation.check_out}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching reservations:', error);
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = fetchReservations;
+    </script>
+</body>
+</html>

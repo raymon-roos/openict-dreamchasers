@@ -65,6 +65,5 @@ func GenerateRoutesFromHandlers(list []string) []Route {
 		route.FuncName = handler
 		routeList = append(routeList, route)
 	}
-
 	return routeList
 }
