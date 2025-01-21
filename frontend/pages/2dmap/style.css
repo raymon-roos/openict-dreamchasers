@@ -320,3 +320,36 @@ body {
   position: relative;
   cursor: pointer;
 }
+
+.carousel {
+  display: flex;
+  position: relative;
+  margin-bottom: 155px;
+  justify-content: center;
+}
+
+.carousel img {
+  position: absolute;
+  height: 155px;
+}
+
+.arrowIcon--left,
+.arrowIcon--right {
+  position: absolute;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.531);
+  padding: 8px 12px;
+  color: white;
+  z-index: 99;
+  border-radius: 5px;
+  cursor: pointer;
+  top: 63px; /* Dit plaatst de iconen verticaal in het midden */
+}
+
+.arrowIcon--left {
+  left: 10px;
+}
+
+.arrowIcon--right {
+  right: 10px;
+}
