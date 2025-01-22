@@ -459,12 +459,11 @@ map.on("load", function () {
                     <img src='../assets/washer ${poi.accommodation_number}.3.jpg' />
                     <img src='../assets/washer ${poi.accommodation_number}.4.jpg' />
                     <img src='../assets/washer ${poi.accommodation_number}.6.jpg' />
-                    <img src='../assets/washer ${poi.accommodation_number}.7.jpg' />
                     <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
                     </div>                    
                     <div class='infoCard__content'>
                       <h3>Wasmachine ${poi.accommodation_number}</h3>
-                      <p>6 wasmachines en 6 drogers, 24/7 beschikbaar voor een snelle en efficiënte wasbeurt tijdens je verblijf.</p>
+                      <p>24/7 beschikbaar voor een snelle en efficiënte wasbeurt tijdens je verblijf.</p>
                     </div>
                   </div>`
                 : poi.type.type === "reception"
