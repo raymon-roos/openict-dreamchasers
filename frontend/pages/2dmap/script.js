@@ -491,9 +491,11 @@ map.on("load", function () {
           activeMarker.classList.remove("activeMarker");
         }
 
-        // Stel de nieuwe actieve marker in
-        el.classList.add("activeMarker");
-        activeMarker = el;
+        // Voeg de actieve status alleen toe voor camping en bungalow types
+        if (poi.type.type === "bungalow" || poi.type.type === "kampeerplaats") {
+          el.classList.add("activeMarker");
+          activeMarker = el;
+        }
 
         // Focus op de marker door de kaart te verplaatsen
         map.flyTo({
