@@ -22,6 +22,14 @@ function chooseType(e) {
   document.getElementById(clickedType).classList.add("activeType");
 }
 
+// Voeg een klikgebeurtenis toe aan de filter knop
+const filterButton = document.getElementById("filterButton");
+if (filterButton) {
+  filterButton.addEventListener("click", filterMarkers);
+} else {
+  console.error("Filter button not found");
+}
+
 // Variabelen om actieve filters, markers bij te houden
 let activeType = "";
 let activeMarker = "";
@@ -558,10 +566,14 @@ map.on("load", function () {
 // Filter Functionaliteit - disabled class voor de weggefilterde markers
 function filterMarkers() {
   markers.forEach(({ element, type }) => {
-    if (type !== activeType) {
-      element.classList.add("disabled");
-    } else {
-      element.classList.remove("disabled");
+    if (type === "bungalow" || type === "kampeerplaats") {
+      if (activeType === "bungalow" && type !== "bungalow") {
+        element.classList.add("disabled");
+      } else if (activeType === "camping" && type !== "kampeerplaats") {
+        element.classList.add("disabled");
+      } else {
+        element.classList.remove("disabled");
+      }
     }
   });
 }
