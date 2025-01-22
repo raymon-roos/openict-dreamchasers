@@ -472,10 +472,7 @@ map.on("load", function () {
                     <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
                     <img src='../assets/reception ${poi.accommodation_number}.1.jpg' />
                     <img src='../assets/reception ${poi.accommodation_number}.2.jpg' />
-                    <img src='../assets/reception ${poi.accommodation_number}.3.jpg' />
-                    <img src='../assets/reception ${poi.accommodation_number}.4.jpg' />
-                    <img src='../assets/reception ${poi.accommodation_number}.6.jpg' />
-                    <img src='../assets/reception ${poi.accommodation_number}.7.jpg' />
+      
                     <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
                     </div>                    
                     <div class='infoCard__content'>
