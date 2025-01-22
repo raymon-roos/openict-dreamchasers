@@ -342,17 +342,17 @@ map.on("load", function () {
       type: { type: "toilet" },
     },
     {
-      accommodation_number: 904,
+      accommodation_number: 1,
       coordinate: { long: -0.15, lat: 51.295 },
       type: { type: "washer" },
     },
     {
-      accommodation_number: 905,
+      accommodation_number: 1,
       coordinate: { long: -0.217, lat: 51.27 },
       type: { type: "restaurant" },
     },
     {
-      accommodation_number: 906,
+      accommodation_number: 1,
       coordinate: { long: -0.243, lat: 51.255 },
       type: { type: "reception" },
     },
@@ -427,8 +427,16 @@ map.on("load", function () {
                   </div>`
                 : poi.type.type === "restaurant"
                 ? `<div class='infoCard'>
-                    <img src='../assets/placeholderCamping.jpg' />
-                    <div class='infoCard__content'>
+ <div class='carousel'>
+                    <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
+                    <img src='../assets/restaurant ${poi.accommodation_number}.1.jpg' />
+                    <img src='../assets/restaurant ${poi.accommodation_number}.2.jpg' />
+                    <img src='../assets/restaurant ${poi.accommodation_number}.3.jpg' />
+                    <img src='../assets/restaurant ${poi.accommodation_number}.4.jpg' />
+                    <img src='../assets/restaurant ${poi.accommodation_number}.6.jpg' />
+                    <img src='../assets/restaurant ${poi.accommodation_number}.7.jpg' />
+                    <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
+                    </div>                    <div class='infoCard__content'>
                       <h3>Restaurant ${poi.accommodation_number}</h3>
                       <p>Geniet van een heerlijke maaltijd in ons gezellige restaurant. We bieden lokale gerechten en dagelijkse specials aan voor een smaakvolle ervaring!</p>
                       <div><i class="fa-solid fa-utensils"></i></div>
@@ -436,7 +444,16 @@ map.on("load", function () {
                   </div>`
                 : poi.type.type === "washer"
                 ? `<div class='infoCard'>
-                    <img src='../assets/placeholderCamping.jpg' />
+                   <div class='carousel'>
+                    <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
+                    <img src='../assets/washer ${poi.accommodation_number}.1.jpg' />
+                    <img src='../assets/washer ${poi.accommodation_number}.2.jpg' />
+                    <img src='../assets/washer ${poi.accommodation_number}.3.jpg' />
+                    <img src='../assets/washer ${poi.accommodation_number}.4.jpg' />
+                    <img src='../assets/washer ${poi.accommodation_number}.6.jpg' />
+                    <img src='../assets/washer ${poi.accommodation_number}.7.jpg' />
+                    <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
+                    </div>                    
                     <div class='infoCard__content'>
                       <h3>Wasmachine ${poi.accommodation_number}</h3>
                       <p>6 wasmachines en 6 drogers, 24/7 beschikbaar voor een snelle en efficiënte wasbeurt tijdens je verblijf.</p>
@@ -444,9 +461,18 @@ map.on("load", function () {
                   </div>`
                 : poi.type.type === "reception"
                 ? `<div class='infoCard'>
-                    <img src='../assets/placeholderCamping.jpg' />
+                   <div class='carousel'>
+                    <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
+                    <img src='../assets/reception ${poi.accommodation_number}.1.jpg' />
+                    <img src='../assets/reception ${poi.accommodation_number}.2.jpg' />
+                    <img src='../assets/reception ${poi.accommodation_number}.3.jpg' />
+                    <img src='../assets/reception ${poi.accommodation_number}.4.jpg' />
+                    <img src='../assets/reception ${poi.accommodation_number}.6.jpg' />
+                    <img src='../assets/reception ${poi.accommodation_number}.7.jpg' />
+                    <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
+                    </div>                    
                     <div class='infoCard__content'>
-                      <h3>interesting</h3>
+                      <h3>Receptie ${poi.accommodation_number}</h3>
                       <p>Onze receptie is 24/7 geopend voor al je vragen, reserveringen en hulp tijdens je verblijf. Hier kun je ook extra voorzieningen aanvragen en informatie krijgen over de omgeving.</p>
                     </div>
                   </div>`
