@@ -6,12 +6,10 @@ WORKDIR /source
 
 COPY ../api /source/
 
-RUN go mod download && go build -o /main . && echo "Build completed"
+RUN go mod download && go build -o /main .
 
 RUN rm -rf /source/*
 
 # ==== ==== ==== ==== ==== ==== ====
 EXPOSE 4000
-
-CMD ["/main", "--serve"]
 

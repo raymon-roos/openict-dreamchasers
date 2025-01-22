@@ -1,11 +1,24 @@
+# 
+# Run with: "docker-compose --env-file ../api/.env up"
+# 
+
 services:
   api:
+    environment:
+      - FLAG=${API_FLAG}
+
     build:
       context: ../
       dockerfile: ./docker/api.Dockerfile
+
     ports:
+    # Should come from the .env | This is also hardcoded in the api for some reason?
       - "4000:4000"
-  
+    networks:
+      - mariadb_network
+
+    command: ["/main", "--serve"]
+    
   frontend:
     build:
       context: ../
@@ -14,16 +27,14 @@ services:
       - "80:80"
 
   mariadb:
+    # Set Actual Version instead of latest 
     image: mariadb:latest
-    container_name: mariadb-compose
+    container_name: mariadb_compose
+    env_file:
+      - ../api/.env
     environment:
-      context: ../
-      env_file:
-        ./api/.env
-      MARIADB_DATABASE: DB_NAME
-      MARIADB_USER: DB_USER
-      MARIADB_PASSWORD: DB_PASSWORD
-      MARIADB_ROOT_PASSWORD: DB_PASSWORD
+      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
+
     ports:
       - "3306:3306"
     networks:
