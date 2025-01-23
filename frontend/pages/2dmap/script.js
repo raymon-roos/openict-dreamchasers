@@ -335,38 +335,46 @@ map.on("load", function () {
       type: { type: "bungalow", price: 30 },
     },
     {
-      accommodation_number: 2,
-      coordinate: { long: 0.142, lat: 51.445 },
-      type: { type: "toilet" },
-    },
-    {
-      accommodation_number: 3,
-      coordinate: { long: 0.265, lat: 51.335 },
-      type: { type: "toilet" },
-    },
-    {
-      accommodation_number: 1,
+      accommodation_number: 901,
       coordinate: { long: -0.18, lat: 51.375 },
       type: { type: "toilet" },
     },
     {
-      accommodation_number: 1,
+      accommodation_number: 902,
+      coordinate: { long: 0.142, lat: 51.445 },
+      type: { type: "toilet" },
+    },
+    {
+      accommodation_number: 903,
+      coordinate: { long: 0.265, lat: 51.335 },
+      type: { type: "toilet" },
+    },
+
+    {
+      accommodation_number: 904,
       coordinate: { long: -0.15, lat: 51.295 },
       type: { type: "washer" },
     },
     {
-      accommodation_number: 1,
+      accommodation_number: 905,
       coordinate: { long: -0.217, lat: 51.27 },
       type: { type: "restaurant" },
     },
     {
-      accommodation_number: 1,
+      accommodation_number: 906,
       coordinate: { long: -0.243, lat: 51.255 },
       type: { type: "reception" },
     },
   ];
 
   function createPOIs(pois) {
+    const nonCampingBungalowCounters = {
+      toilet: 1,
+      washer: 1,
+      restaurant: 1,
+      reception: 1,
+    }; // Counters for non-camping and non-bungalow markers
+
     pois.forEach((poi) => {
       const el = document.createElement("div");
       const circle = document.createElement("div"); // Cirkel voor icoon
@@ -419,33 +427,34 @@ map.on("load", function () {
                 ? `<div class='infoCard'>
                     <div class='carousel'>
                     <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
-                    <img src='../assets/sanitaire ${poi.accommodation_number}.1.jpg' />
-                    <img src='../assets/sanitaire ${poi.accommodation_number}.2.jpg' />
-                    <img src='../assets/sanitaire ${poi.accommodation_number}.3.jpg' />
-                    <img src='../assets/sanitaire ${poi.accommodation_number}.4.jpg' />
-                    <img src='../assets/sanitaire ${poi.accommodation_number}.6.jpg' />
-                    <img src='../assets/sanitaire ${poi.accommodation_number}.7.jpg' />
+                    <img src='../assets/sanitaire ${nonCampingBungalowCounters.toilet}.1.jpg' />
+                    <img src='../assets/sanitaire ${nonCampingBungalowCounters.toilet}.2.jpg' />
+                    <img src='../assets/sanitaire ${nonCampingBungalowCounters.toilet}.3.jpg' />
+                    <img src='../assets/sanitaire ${nonCampingBungalowCounters.toilet}.4.jpg' />
+                    <img src='../assets/sanitaire ${nonCampingBungalowCounters.toilet}.6.jpg' />
+                    <img src='../assets/sanitaire ${nonCampingBungalowCounters.toilet}.7.jpg' />
                     <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
                     </div>
                     <div class='infoCard__content'>
-                      <h3>Toilet ${poi.accommodation_number}</h3>
+                      <h3>Toilet ${nonCampingBungalowCounters.toilet}</h3>
                       <p>Onze toiletten zijn schoon, goed onderhouden en 24/7 toegankelijk. Ze zijn uitgerust met gratis toiletpapier, zeep en handdroging. Ideaal voor een comfortabel verblijf!</p>
                       <div>6x <i class="fa-solid fa-shower"></i> | 6x <i class="fa-solid fa-toilet"></i></div>
                     </div>
                   </div>`
                 : poi.type.type === "restaurant"
                 ? `<div class='infoCard'>
- <div class='carousel'>
+                    <div class='carousel'>
                     <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
-                    <img src='../assets/restaurant ${poi.accommodation_number}.1.jpg' />
-                    <img src='../assets/restaurant ${poi.accommodation_number}.2.jpg' />
-                    <img src='../assets/restaurant ${poi.accommodation_number}.3.jpg' />
-                    <img src='../assets/restaurant ${poi.accommodation_number}.4.jpg' />
-                    <img src='../assets/restaurant ${poi.accommodation_number}.6.jpg' />
-                    <img src='../assets/restaurant ${poi.accommodation_number}.7.jpg' />
+                    <img src='../assets/restaurant ${nonCampingBungalowCounters.restaurant}.1.jpg' />
+                    <img src='../assets/restaurant ${nonCampingBungalowCounters.restaurant}.2.jpg' />
+                    <img src='../assets/restaurant ${nonCampingBungalowCounters.restaurant}.3.jpg' />
+                    <img src='../assets/restaurant ${nonCampingBungalowCounters.restaurant}.4.jpg' />
+                    <img src='../assets/restaurant ${nonCampingBungalowCounters.restaurant}.6.jpg' />
+                    <img src='../assets/restaurant ${nonCampingBungalowCounters.restaurant}.7.jpg' />
                     <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
-                    </div>                    <div class='infoCard__content'>
-                      <h3>Restaurant ${poi.accommodation_number}</h3>
+                    </div>
+                    <div class='infoCard__content'>
+                      <h3>Restaurant ${nonCampingBungalowCounters.restaurant}</h3>
                       <p>Geniet van een heerlijke maaltijd in ons gezellige restaurant. We bieden lokale gerechten en dagelijkse specials aan voor een smaakvolle ervaring!</p>
                       <div><i class="fa-solid fa-utensils"></i></div>
                     </div>
@@ -454,15 +463,15 @@ map.on("load", function () {
                 ? `<div class='infoCard'>
                    <div class='carousel'>
                     <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
-                    <img src='../assets/washer ${poi.accommodation_number}.1.jpg' />
-                    <img src='../assets/washer ${poi.accommodation_number}.2.jpg' />
-                    <img src='../assets/washer ${poi.accommodation_number}.3.jpg' />
-                    <img src='../assets/washer ${poi.accommodation_number}.4.jpg' />
-                    <img src='../assets/washer ${poi.accommodation_number}.6.jpg' />
+                    <img src='../assets/washer ${nonCampingBungalowCounters.washer}.1.jpg' />
+                    <img src='../assets/washer ${nonCampingBungalowCounters.washer}.2.jpg' />
+                    <img src='../assets/washer ${nonCampingBungalowCounters.washer}.3.jpg' />
+                    <img src='../assets/washer ${nonCampingBungalowCounters.washer}.4.jpg' />
+                    <img src='../assets/washer ${nonCampingBungalowCounters.washer}.6.jpg' />
                     <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
                     </div>                    
                     <div class='infoCard__content'>
-                      <h3>Wasmachine ${poi.accommodation_number}</h3>
+                      <h3>Wasmachine ${nonCampingBungalowCounters.washer}</h3>
                       <p>24/7 beschikbaar voor een snelle en efficiënte wasbeurt tijdens je verblijf.</p>
                     </div>
                   </div>`
@@ -470,13 +479,13 @@ map.on("load", function () {
                 ? `<div class='infoCard'>
                    <div class='carousel'>
                     <i class="fa-solid fa-chevron-left arrowIcon--left"></i>
-                    <img src='../assets/reception ${poi.accommodation_number}.1.jpg' />
-                    <img src='../assets/reception ${poi.accommodation_number}.2.jpg' />
+                    <img src='../assets/reception ${nonCampingBungalowCounters.reception}.1.jpg' />
+                    <img src='../assets/reception ${nonCampingBungalowCounters.reception}.2.jpg' />
       
                     <i class="fa-solid fa-chevron-right arrowIcon--right"></i>
                     </div>                    
                     <div class='infoCard__content'>
-                      <h3>Receptie ${poi.accommodation_number}</h3>
+                      <h3>Receptie ${nonCampingBungalowCounters.reception}</h3>
                       <p>Onze receptie is 24/7 geopend voor al je vragen, reserveringen en hulp tijdens je verblijf. Hier kun je ook extra voorzieningen aanvragen en informatie krijgen over de omgeving.</p>
                     </div>
                   </div>`
@@ -495,6 +504,11 @@ map.on("load", function () {
             )
         )
         .addTo(map); // Marker toevoegen aan de kaart
+
+      // Increment the counter for non-camping and non-bungalow markers
+      if (poi.type.type in nonCampingBungalowCounters) {
+        nonCampingBungalowCounters[poi.type.type]++;
+      }
 
       // Voegt functionaliteit aan knop
       marker.getPopup().on("open", () => {
