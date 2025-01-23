@@ -4,9 +4,6 @@
 
 services:
   api:
-    environment:
-      - FLAG=${API_FLAG}
-
     build:
       context: ../
       dockerfile: ./docker/api.Dockerfile
@@ -16,7 +13,8 @@ services:
       - "4000:4000"
     networks:
       - mariadb_network
-
+    # restart: always
+    # entrypoint: ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
     command: ["/main", "--serve"]
     
   frontend:
@@ -33,14 +31,18 @@ services:
     env_file:
       - ../api/.env
     environment:
-      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
-
+      # MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: true
+      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
     networks:
       - mariadb_network
+    volumes:
+      - ./maria.cnf:/etc/mysql/conf.d/maria.cnf
+
 
 networks:
   mariadb_network:
     driver: bridge
 
+ 
