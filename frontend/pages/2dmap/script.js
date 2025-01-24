@@ -1,3 +1,9 @@
+import {
+  getStateFromStorage,
+  saveStateToStorage,
+  updateState,
+} from "../../state-manager/reservationState.js";
+
 // Zet de modal aan of uit
 function toggleModal() {
   const modal = document.querySelector(".filterModal");
@@ -493,7 +499,7 @@ map.on("load", function () {
                   `<div class='infoCard'>
                 <img src='../assets/placeholderCamping.jpg' />
                 <div class='infoCard__content'>
-                  <h3>Camping ${poi.accommodation_number}</h3>
+                  <h3>Campingplek ${poi.accommodation_number}</h3>
                   <p>★★★</p>
                   <p>€${poi.type.price} per nacht</p>
                 </div>
@@ -519,6 +525,13 @@ map.on("load", function () {
 
         if (button) {
           button.addEventListener("click", () => {
+            const state = getStateFromStorage();
+            saveStateToStorage(state);
+            const newState = {
+              placeName: `Campingplek ${poi.accommodation_number}`,
+              pricePerNight: poi.type.price,
+            };
+            updateState(newState);
             choosePlace(); // Je custom functie hier uitvoeren
           });
         } else {
