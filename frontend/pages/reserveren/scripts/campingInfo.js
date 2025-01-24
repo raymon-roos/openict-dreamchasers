@@ -14,11 +14,6 @@ export async function initializeCampingInfo() {
     // Haal de basisprijs op (bijvoorbeeld 30 euro per nacht)
     //const basePrice = data.prijzen.basisPrijs;
 
-    const basePrice = 38;
-
-    // Display base Price
-    document.getElementById("camping-price").innerHTML = basePrice;
-
     // Elke gast op 1 (Om de prijs te kunnen weten van 1 per type)
     const adults = 1;
     const youths = 1;
@@ -27,6 +22,12 @@ export async function initializeCampingInfo() {
     const pets = 1;
 
     const days = 1; // Aantal dagen (voor deze berekening altijd 1)
+
+    const initState = getStateFromStorage();
+
+    console.log(initState);
+
+    const basePrice = initState.pricePerNight;
 
     // Bereken de kosten per nacht per gasttype
     const costs = calculateCosts(
@@ -39,17 +40,15 @@ export async function initializeCampingInfo() {
       pets
     );
 
-    const initState = getStateFromStorage();
-
-    console.log(initState);
-
     // Toon de huidige gasten in de UI
     console.log(2);
+    document.getElementById("camping-title").innerHTML = initState.placeName;
     document.getElementById("adults").innerHTML = initState.guests.adults;
     document.getElementById("youths").innerHTML = initState.guests.youths;
     document.getElementById("children").innerHTML = initState.guests.children;
     document.getElementById("babies").innerHTML = initState.guests.babies;
     document.getElementById("pets").innerHTML = initState.guests.pets;
+    document.getElementById("camping-price").innerHTML = basePrice;
 
     // Toon de kosten per nacht per type in de UI
     document.getElementById(
