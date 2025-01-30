@@ -10,6 +10,9 @@ function toggleModal() {
   modal.style.display = modal.style.display === "flex" ? "none" : "flex";
 }
 
+// Voeg de functie expliciet toe aan het window object
+window.toggleModal = toggleModal;
+
 // Kies plek en ga naar reserveren
 function choosePlace() {
   window.location.href = "../reserveren/index.html";
@@ -27,6 +30,8 @@ function chooseType(e) {
 
   document.getElementById(clickedType).classList.add("activeType");
 }
+
+window.chooseType = chooseType;
 
 // Voeg een klikgebeurtenis toe aan de filter knop
 const filterButton = document.getElementById("filterButton");
@@ -601,6 +606,8 @@ function filterMarkers() {
   });
 }
 
+window.filterMarkers = filterMarkers;
+
 // Functie om de mapfilter en markerzichtbaarheid te resetten
 function resetMapFilter() {
   // Verwijder de actieve filter op de map-laag
@@ -615,6 +622,8 @@ function resetMapFilter() {
   activeType = "";
   activeMarker = "";
 }
+
+window.resetMapFilter = resetMapFilter;
 
 function initializeCarousel(carouselSelector) {
   const carousel = document.querySelector(carouselSelector);
