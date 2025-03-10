@@ -42,7 +42,7 @@ recompile and restart the API you might want to use a tool such as
 ### Contributors
 
 - [@cedricheijlman](https://github.com/cedricheijlman) (Frontend)
-- [@Arminat1998](https://github.com/Arminat1998) (Frontend)
+- [@Arminat1998](https://github.com/Arminat1998) (UI, Frontend)
 - [@Edwinvelt](https://github.com/Edwinvelt) (API)
 - [@isasabic](https://github.com/isasabic) (API)
 - [@H2o6s](https://github.com/H2o6s) (API, dashboard prototype)
